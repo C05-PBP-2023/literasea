@@ -18,8 +18,9 @@ TBW
 
 **Dikerjakan oleh Lim Bodhi Wijaya**
 
-Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, penulis, dan deskripsi buku. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan penulis dan penerbit.
+Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, nama penulis, *subject* buku, dan tahun terbit. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan nama penulis dan penerbit.
 
+Berikut aksi yang dapat dilakukan masing-masing role:
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
 | Pengguna dapat melihat katalog buku dan mencari buku yang diinginkan berdasarkan nama penulis dan penerbit| Penulis dapat menambahkan bukunya kedalam katalog yang ada|
