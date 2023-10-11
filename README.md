@@ -86,3 +86,12 @@ Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir y
 ### Dataset
 
 LiteraSea akan memanfaatkan dataset [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset) yang tersedia pada [Kaggle](https://www.kaggle.com/). Selain karena _field_ yang dimiliki dataset ini tidak terlalu banyak, dataset ini dipilih karena memiliki salah satu _field_ berupa gambar buku yang terdapat pada link. Dengan ini, halaman katalog LiteraSea juga bisa menampilkan foto buku.
+
+### Role/Jenis Pengguna
+
+Pada aplikasi kami, terdapat dua jenis pengguna:
+
+- Pengguna biasa/pembaca
+- Penulis
+
+Penjelasan lebih spesifik mengenai masing-masing jenis pengguna dan "wewenang" nya pada aplikasi terdapat pada penjelasan masing-masing modul.
