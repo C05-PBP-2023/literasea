@@ -18,11 +18,11 @@ TBW
 
 **Dikerjakan oleh Lim Bodhi Wijaya**
 
-Isi deskripsi fitur kalian ya guys
+Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, penulis, dan deskripsi buku. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan penulis dan penerbit.
 
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
-| a                | b       |
+| Pengguna dapat melihat katalog buku dan mencari buku yang diinginkan berdasarkan nama penulis dan penerbit| Penulis dapat menambahkan bukunya kedalam katalog yang ada|
 
 ### 📃 Wishlist
 
