@@ -64,4 +64,4 @@ Isi deskripsi fitur kalian ya guys
 
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
-| Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir yang telah dibaca sebelumnya. Dengan fitur ini, pengguna dapat dengan mudah menemukan nama buku dan halaman terakhir yang mereka baca, memudahkan mereka untuk melanjutkan membaca dari tempat yang ditinggalkan sebelumnya.            | -       |
+| Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir yang telah dibaca sebelumnya. Dengan fitur ini, pengguna dapat dengan mudah menemukan nama buku dan halaman terakhir yang mereka baca, memudahkan mereka untuk melanjutkan membaca dari tempat yang ditinggalkan sebelumnya.            | Sama dengan pengguna lain, penulis juga dapat memanfaatkan fitur ini untuk melihat kembali histori bacaan terakhir yang telah penulis baca sebelumnya.|
