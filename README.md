@@ -23,7 +23,7 @@ Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengg
 Berikut aksi yang dapat dilakukan masing-masing role:
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
-| Pengguna dapat melihat katalog buku dan mencari buku yang diinginkan berdasarkan nama penulis dan penerbit| Penulis dapat menambahkan bukunya kedalam katalog yang ada|
+| Pengguna dapat melihat katalog buku dan mencari buku yang diinginkan berdasarkan filter tahun terbit dan nama penerbit. Selain itu pengguna juga dapat menambahkan buku yang ingin dibeli ke keranjang| Penulis dapat menambahkan bukunya kedalam katalog yang ada|
 
 ### 📃 Wishlist
 
