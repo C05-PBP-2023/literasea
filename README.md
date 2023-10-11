@@ -69,9 +69,9 @@ Berikut aksi yang dapat dilakukan masing-masing role:
 
 Kami percaya bahwa alasan seseorang untuk membeli buku itu didasari oleh berbagai macam faktor. Dapat berupa faktor internal maupun eksternal. Melalui hal tersebut, kami berdiskusi dan mendapatkan sebuah konklusi bahwa rekomendasi serta review dari orang lain merupakan salah satu faktor eksternal yang sangat berpengaruh dalam pembelian buku. Oleh karena itu, kami menyediakan fasilitas rekomendasi dan review buku dari para pembaca setia kami.
 
-| Pengguna/Pembaca                                                                                            | Penulis              |
-| ----------------------------------------------------------------------------------------------------------- | -------------------- |
-| Pembaca dapat memberikan review dengan jumlah bintang serta kritik singkat terhadap buku yang telah dibaca. | Sama dengan pembaca. |
+| Pengguna/Pembaca                                                                                            | Penulis               |
+| ----------------------------------------------------------------------------------------------------------- | --------------------- |
+| Pembaca dapat memberikan review dengan jumlah bintang serta kritik singkat terhadap buku yang telah dibaca. | Sama seperti pembaca. |
 
 ### 📖 Book Tracker
 
