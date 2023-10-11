@@ -25,15 +25,15 @@ Berikut aksi yang dapat dilakukan masing-masing role:
 | ---------------- | ------- |
 | Pengguna dapat melihat katalog buku dan mencari buku yang diinginkan berdasarkan filter tahun terbit dan nama penerbit. Selain itu pengguna juga dapat menambahkan buku yang ingin dibeli ke keranjang| Penulis dapat menambahkan bukunya kedalam katalog yang ada|
 
-### 📃 Wishlist
+### 🛒 Keranjang Buku
 
 **Dikerjakan oleh Emir Mohamad Fathan**
 
-Isi deskripsi fitur kalian ya guys
+Pada fitur keranjang buku, setelah pengguna memilih buku-buku pada page katalog dan masuk ke keranjang, pengguna dapat melakukan checkout pada buku-buku mereka. Pengguna juga dapat melakukan filter terhadap buku-buku mana yang ingin mereka beli di keranjang. Pengguna akan menadapatkan info mengenai nama pembeli, berapa total harga yang dibeli, dan berapa banyak buku yang dibeli.
 
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
-| a                | b       |
+| Pengguna dapat melakukan checkout terhadap buku-buku pilihan mereka di keranjang.                | Sama seperti pengguna.       |
 
 ### ❓ QnA/Forum
 
