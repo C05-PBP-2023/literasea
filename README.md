@@ -46,7 +46,7 @@ Berikut aksi yang dapat dilakukan masing-masing role:
 
 **Dikerjakan oleh Emir Mohamad Fathan**
 
-Pada fitur keranjang buku, setelah pengguna memilih buku-buku pada page katalog dan masuk ke keranjang, pengguna dapat melakukan checkout pada buku-buku mereka. Pengguna juga dapat melakukan filter terhadap buku-buku mana yang ingin mereka beli di keranjang. Pengguna akan menadapatkan info mengenai nama pembeli, berapa total harga yang dibeli, dan berapa banyak buku yang dibeli. Selain itu, pengguna juga dapat melihat history pembelian.
+Pada fitur keranjang buku, setelah pengguna memilih buku-buku pada page katalog dan masuk ke keranjang, pengguna dapat melakukan checkout pada buku-buku mereka. Pengguna juga dapat melakukan filter terhadap buku-buku mana yang ingin mereka beli di keranjang. Pengguna akan menadapatkan info mengenai nama pembeli, tanggal pembelian, dan berapa banyak buku yang dibeli. Selain itu, pengguna juga dapat melihat history pembelian.
 
 | Pengguna/Pembaca                                                                  | Penulis               |
 | --------------------------------------------------------------------------------- | --------------------- |
