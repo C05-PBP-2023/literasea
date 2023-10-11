@@ -18,7 +18,7 @@ TBW
 
 **Dikerjakan oleh Lim Bodhi Wijaya**
 
-Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, nama penulis, *subject* buku, dan tahun terbit. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan nama penulis dan penerbit.
+Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, nama penulis, _subject_ buku, dan tahun terbit. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan nama penulis dan penerbit.
 
 Berikut aksi yang dapat dilakukan masing-masing role:
 | Pengguna/Pembaca | Penulis |
@@ -50,7 +50,7 @@ Berikut aksi yang dapat dilakukan masing-masing role:
 
 **Dikerjakan oleh Tsabit Coda Rafisukmawan**
 
-Isi deskripsi fitur kalian ya guys
+Kami percaya bahwa alasan seseorang untuk membeli buku itu didasari oleh berbagai macam faktor. Dapat berupa faktor internal maupun eksternal. Melalui hal tersebut, kami berdiskusi dan mendapatkan sebuah konklusi bahwa rekomendasi serta review dari orang lain merupakan salah satu faktor eksternal yang sangat berpengaruh dalam pembelian buku. Oleh karena itu, kami menyediakan fasilitas rekomendasi dan review buku dari para pembaca setia kami.
 
 | Pengguna/Pembaca | Penulis |
 | ---------------- | ------- |
@@ -62,6 +62,6 @@ Isi deskripsi fitur kalian ya guys
 
 Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir yang telah dibaca sebelumnya. Dengan fitur ini, pengguna dapat dengan mudah menemukan nama buku dan halaman terakhir yang mereka baca, memudahkan mereka untuk melanjutkan membaca dari tempat yang ditinggalkan sebelumnya.
 
-| Pengguna/Pembaca | Penulis |
-| ---------------- | ------- |
-| Pengguna dapat melihat kembali histori bacaan terakhirnya dan memudahkan pengguna untuk melanjutkan bacaannya | Sama dengan pengguna lain, penulis juga dapat memanfaatkan fitur ini untuk melihat kembali histori bacaan terakhir yang telah penulis baca sebelumnya|
+| Pengguna/Pembaca                                                                                              | Penulis                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pengguna dapat melihat kembali histori bacaan terakhirnya dan memudahkan pengguna untuk melanjutkan bacaannya | Sama dengan pengguna lain, penulis juga dapat memanfaatkan fitur ini untuk melihat kembali histori bacaan terakhir yang telah penulis baca sebelumnya |
