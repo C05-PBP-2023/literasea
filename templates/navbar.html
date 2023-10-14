@@ -1,10 +1,19 @@
 {% load static %}
-<nav class="header bg-white border-b">
-    <div class="container mx-auto flex justify-between items-center md:py-6 py-3 px-4 md:px-0">
-        <a href="/" class="flex items-center">
-            <img src="/static/img/logo.svg" width="160px" height="160px"/>
-        </a>
-        <p>
+<nav class="header bg-[#d7e9f4] border-b">
+    <div class="container mx-auto flex font-raleway font-medium justify-between items-center md:py-6 py-3 md:px-0">
+        <div class="left-logo flex items-center">
+            <a href="/" class="flex items-center">
+                <img src="/static/img/logo_right.svg" width="160px"/>
+            </a>
+            <div class="module-buttons flex items-center text-[#003f7e] gap-8 pl-14 -mb-1">
+                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/">Home</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/products">Explore</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/review">Review</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/forum">Q & A</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/tracker">Book Tracker</a>
+            </div>
+        </div>
+            <p>
             User
         </p>
     </div>
