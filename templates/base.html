@@ -6,10 +6,12 @@
     {% endblock meta %}
 </head>
 
-<body>
+<body class="bg-blue-200">
     {% include "navbar.html" %}
     {% block content %}
     {% endblock content %}
     {% include "footer.html" %}
 </body>
+{% block script %}
+{% endblock script %}
 </html>
