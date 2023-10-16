@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+    {% block meta %}
+    {% endblock meta %}
+</head>
+
+<body class="bg-blue-200">
+    {% block content %}
+    {% endblock content %}
+    {% include "footer.html" %}
+</body>
+{% block script %}
+{% endblock script %}
+</html>

@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'auth_base.html' %}
 
 {% block content %}
-<div class="flex container mx-auto h-[calc(100vh-82px)] font-inter">
+<div class="flex items-center container mx-auto h-screen font-inter">
     <div class="basis-7/12">
         ini harusnya isinya foto
     </div>
     <div class="basis-5/12">
         <div>
-            <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center pt-10">Create an account</p>
+            <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center">Create an account</p>
         </div>
         <div class="bg-white px-10 py-12 my-6 rounded-lg shadow-xl">
             <form id="reg-form" method="POST">
                 {% csrf_token %}
-                <div class="grid grid-cols-2 gap-y-5 gap-x-4">
+                <div class="grid grid-cols-1 gap-y-5 gap-x-4">
                     <div>
                         <label class="text-sm font-medium" for="id_user_type">User type:</label>
                         <select onchange="validateSelectMsg()" class="appearance-none bg-[url('/static/img/chevron_down.svg')] bg-no-repeat bg-right bg-sm bg-origin-content border w-full rounded-lg text-sm px-3 py-2" name="user_type" id="id_user_type">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </form>
-            <button id="submit-btn" form="reg-form" disabled class="mt-10 w-full bg-[#b7d5eb] disabled:bg-gray-300 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
+            <button id="submit-btn" form="reg-form" disabled class="mt-10 w-full bg-[#b7d5eb] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
         </div>
     </div>
 </div>
