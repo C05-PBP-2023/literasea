@@ -1,78 +1,84 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="grid grid-cols-2 font-raleway">
-    <div class="bg-blue-200">
+<div class="flex bg-blue-200 font-inter">
+    <div class="basis-7/12">
         ini harusnya isinya foto
     </div>
-    <div class="p-12">
-        <form method="POST">
-            {% csrf_token %}
-            <table>
-                <tr>
-                    <td><label for="id_user_type">Choose your user type:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <select class="border-2" name="user_type" id="id_user_type">
-                            <option value="writer">Writer</option>
-                            <option value="reader">Reader</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_username">Username:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="text" name="username" maxlength="150" autofocus required id="id_username">
-                        <br>
-                        <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_full_name">Name:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="text" name="full_name" required id="id_full_name">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_email">Email:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="email" name="email" maxlength="320" required id="id_email">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_password1">Password:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="password" name="password1" autocomplete="new-password" required id="id_password1">
-                        <br>
-                        <span class="helptext"><ul><li>Your password can't be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="id_password2">Password confirmation:</label></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="password" name="password2" autocomplete="new-password" required id="id_password2">
-                        <br>
-                        <span class="helptext">Enter the same password as before, for verification.</span>  
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input class="border-2" type="submit" value="Register"/>
-                    </td>
-                </tr>
-            </table>
-        </form>
+    <div class="basis-5/12 pr-12">
+        <div>
+            <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center pt-10">Create an account</p>
+        </div>
+        <div class="bg-white px-10 py-12 my-6 rounded-lg shadow-xl">
+            <form method="POST">
+                {% csrf_token %}
+                <table class="table-fixed w-full">
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_user_type">Choose your user type:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select class="appearance-none bg-[url('/static/chevron_down.svg')] bg-no-repeat bg-right bg-sm bg-origin-content border w-full rounded-lg text-sm px-3 py-2" name="user_type" id="id_user_type">
+                                <option value="">Choose your account type</option>
+                                <option value="writer">Writer</option>
+                                <option value="reader">Reader</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_username">Username:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="text" name="username" maxlength="150" autofocus required id="id_username">
+                            <br>
+                            <span class="text-xs">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_full_name">Name:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="text" name="full_name" required id="id_full_name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_email">Email:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="email" name="email" maxlength="320" required id="id_email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_password1">Password:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="password" name="password1" autocomplete="new-password" required id="id_password1">
+                            <br>
+                            <span class="text-xs"><ul><li>Your password can't be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-sm font-medium"><label for="id_password2">Password confirmation:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                            <br>
+                            <span class="helptext">Enter the same password as before, for verification.</span>  
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="border-2" type="submit" value="Register"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock content %}
