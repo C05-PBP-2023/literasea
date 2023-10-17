@@ -9,3 +9,6 @@ class Katalog(models.Model):
     Publisher = models.CharField(_("Publisher"), max_length=100)
     Year_Of_Publication = models.IntegerField(_("Year-Of-Publication"))
     Image = models.ImageField(_("Image-URL-M"))
+    
+    class Meta:
+        db_table = 'products_katalog'

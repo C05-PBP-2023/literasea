@@ -1,13 +1,11 @@
 from django.shortcuts import render
-from .models import Product
+from .models import Katalog
 
 # Create your views here.
 def show_main(request):
-    products = Product.objects.filter(user=request.user)
 
     context = {
-        'name': request.user.username,
-        'products': products,
+        'products': Katalog.objects.all(),
     }
 
     return render(request, "main.html", context)
