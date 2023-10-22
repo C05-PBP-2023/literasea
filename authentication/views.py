@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from authentication.forms import RegisterForm
@@ -15,12 +15,15 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            response = HttpResponseRedirect(reverse("main:show_main"))
+            response = redirect("main:show_main")
             response.set_cookie("user_logged_in", user)
             return response
-        
     context = {}
-    return render(request, "login.html", context)
+    if request.user.is_authenticated:
+        return redirect('main:show_main')
+    else:
+        return render(request, "login.html", context)
+        
     
 def register(request):
     form = RegisterForm()
@@ -32,7 +35,12 @@ def register(request):
             return redirect('main:show_main')
     context = {"form":form}
     if request.user.is_authenticated:
-        return HttpResponseRedirect('main:show_main')
+        return redirect('main:show_main')
     else:
         return render(request, "register.html", context)
+    
+def logout_user(request):
+    logout(request)
+    response = HttpResponseRedirect("")
+    response.delete_cookie('user_logged_in')
 
