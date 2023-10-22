@@ -16,6 +16,7 @@ def login(request):
         if user is not None:
             login(request, user)
             response = HttpResponseRedirect(reverse("main:show_main"))
+            response.set_cookie("user_logged_in", user)
             return response
         
     context = {}
