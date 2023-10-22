@@ -6,7 +6,7 @@
         ini harusnya isinya foto
     </div>
     <div class="basis-5/12 my-auto">
-        <div class="bg-white px-10 pt-8 pb-12 rounded-lg shadow-xl">
+        <div class="bg-white px-10 py-8 rounded-lg shadow-xl">
             <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center mb-8">Create an account</p>
             <form id="reg-form" method="POST">
                 {% csrf_token %}
@@ -55,7 +55,8 @@
                     </div>
                 </div>
             </form>
-            <button id="submit-btn" form="reg-form" disabled class="mt-10 w-full bg-[#b7d5eb] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
+            <button id="submit-btn" form="reg-form" disabled class="text-sm text-[#002F6E] disabled:text-black mt-10 w-full bg-[#b7d5eb] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
+            <p class="text-sm pt-6 text-center">Already have an account? <a class="text-[#247FB8] hover:text-[#003F7E]" href="{% url 'authentication:login' %}">Login</a></p>
         </div>
     </div>
 </div>
