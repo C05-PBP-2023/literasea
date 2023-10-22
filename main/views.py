@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 def show_main(request):
-    context = {}
+    context = {"user": request.user}
     return render(request, "main.html", context)

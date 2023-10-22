@@ -6,15 +6,27 @@
                 <img src="/static/img/samping.svg" width="160px"/>
             </a>
             <div class="module-buttons flex items-center text-[#003f7e] gap-8 pl-14 -mb-1">
-                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/">Home</a>
-                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/products">Explore</a>
-                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/review">Review</a>
-                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/forum">Q & A</a>
-                <a class="nav-btn relative after:content-[''] after:bg-[#0b6daa] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/tracker">Book Tracker</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/">Home</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/products">Explore</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/review">Review</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/forum">Q & A</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/tracker">Book Tracker</a>
             </div>
         </div>
-            <p>
-            User
-        </p>
+        <p></p>
+        {% if user.is_authenticated %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+        </svg>
+        {% else %}
+        <div class="flex text-[#003f7e] gap-8 -mb-1">
+            <button>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/auth/register">Register</a>
+            </button>
+            <button>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/auth/login">Login</a>
+            </button>
+        </div>
+        {% endif %}
     </div>
 </nav>
