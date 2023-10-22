@@ -18,8 +18,8 @@ def login(request):
             response = HttpResponseRedirect(reverse("main:show_main"))
             return response
         
-        context = {}
-        return render(request, "login.html", context)
+    context = {}
+    return render(request, "login.html", context)
     
 def register(request):
     form = RegisterForm()
