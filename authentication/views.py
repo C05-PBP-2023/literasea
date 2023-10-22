@@ -41,6 +41,7 @@ def register(request):
     
 def logout_user(request):
     logout(request)
-    response = HttpResponseRedirect("")
+    response = redirect("main:show_main")
     response.delete_cookie('user_logged_in')
+    return response
 
