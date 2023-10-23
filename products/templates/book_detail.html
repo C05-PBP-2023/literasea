@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>LiteraSea</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container mx-auto mt-6 p-6 bg-white rounded shadow-lg">
+    <img class="w-[12.5%] max-w-md" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
+    <br>
+    <h1 class="text-2xl font-bold mb-4">{{ book.BookTitle }}</h1>
+    <p><strong>ISBN:</strong> {{ book.ISBN }}</p>
+    <p><strong>Author:</strong> {{ book.BookAuthor }}</p>
+    <p><strong>Publisher:</strong> {{ book.Publisher }}</p>
+    <p><strong>Year of Publication:</strong> {{ book.Year_Of_Publication }}</p>
+    <br>
+    <button onclick="window.location.href = '{% url 'products:show_katalog' %}'" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Back to Catalog</button>
+</div>
+
+{% endblock content %}

@@ -8,30 +8,4 @@
 <div class="flex container items-center align-center mx-auto">
     <div class="text-5xl">Hello, World!</div>
 </div>
-
-<table>
-    <tr>
-        <th>ISBN</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Publisher</th>
-        <th>Year</th>
-        <th>Image</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for product in products %}
-        <tr>
-            <td>{{product.ISBN}}</td>
-            <td>{{product.BookTitle}}</td>
-            <td>{{product.BookAuthor}}</td>
-            <td>{{product.Publisher}}</td>
-            <td>{{product.Year_Of_Publication}}</td>
-            <td>
-                <img src="{{ product.Image }}" alt="{{ product.BookTitle }}" width="100" height="100">
-            </td>
-        </tr>
-    {% endfor %}
-</table>
 {% endblock content %}

@@ -2,13 +2,12 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 # Create your models here.
+
 class Katalog(models.Model):
-    ISBN = models.CharField(_("ISBN"), max_length=20)
-    BookTitle = models.CharField(_("Book-Title"), max_length=100)
-    BookAuthor = models.CharField(_("Book-Author"), max_length=100)
-    Publisher = models.CharField(_("Publisher"), max_length=100)
-    Year_Of_Publication = models.IntegerField(_("Year-Of-Publication"))
-    Image = models.ImageField(_("Image-URL-M"))
-    
-    class Meta:
-        db_table = 'products_katalog'
+    id = models.AutoField(primary_key=True)
+    ISBN = models.CharField(max_length=13)
+    BookTitle = models.CharField(max_length=255)
+    BookAuthor = models.CharField(max_length=255)
+    Year_Of_Publication = models.PositiveIntegerField()
+    Publisher = models.CharField(max_length=255)
+    Image = models.URLField()

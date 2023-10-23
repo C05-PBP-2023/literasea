@@ -1,0 +1,1002 @@
+[
+    {
+        "model":  "products.katalog",
+        "pk":  "1",
+        "fields": { "ISBN":  "425176428",
+        "BookTitle":  "What If?: The World\u0027s Foremost Military Historians Imagine What Might Have Been",
+        "BookAuthor":  "Robert Cowley",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/0425176428.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "2",
+        "fields": { "ISBN":  "671870432",
+        "BookTitle":  "PLEADING GUILTY",
+        "BookAuthor":  "Scott Turow",
+        "Year_Of_Publication":  "1993",
+        "Publisher":  "Audioworks",
+        "Image":  "http://images.amazon.com/images/P/0671870432.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "3",
+        "fields": { "ISBN":  "074322678X",
+        "BookTitle":  "Where You\u0027ll Find Me: And Other Stories",
+        "BookAuthor":  "Ann Beattie",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Scribner",
+        "Image":  "http://images.amazon.com/images/P/074322678X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "4",
+        "fields": { "ISBN":  "080652121X",
+        "BookTitle":  "Hitler\u0027s Secret Bankers: The Myth of Swiss Neutrality During the Holocaust",
+        "BookAuthor":  "Adam Lebor",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Citadel Press",
+        "Image":  "http://images.amazon.com/images/P/080652121X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "5",
+        "fields": { "ISBN":  "887841740",
+        "BookTitle":  "The Mpkdle Stories",
+        "BookAuthor":  "Sheila Heti",
+        "Year_Of_Publication":  "2004",
+        "Publisher":  "House of Anansi Press",
+        "Image":  "http://images.amazon.com/images/P/0887841740.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "6",
+        "fields": { "ISBN":  "1558746218",
+        "BookTitle":  "A Second Chicken Soup for the Woman\u0027s Soul (Chicken Soup for the Soul Series)",
+        "BookAuthor":  "Jack Canfield",
+        "Year_Of_Publication":  "1998",
+        "Publisher":  "Health Communications",
+        "Image":  "http://images.amazon.com/images/P/1558746218.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "7",
+        "fields": { "ISBN":  "1575663937",
+        "BookTitle":  "More Cunning Than Man: A Social History of Rats and Man",
+        "BookAuthor":  "Robert Hendrickson",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Kensington Publishing Corp.",
+        "Image":  "http://images.amazon.com/images/P/1575663937.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "8",
+        "fields": { "ISBN":  "440234743",
+        "BookTitle":  "The Testament",
+        "BookAuthor":  "John Grisham",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Dell",
+        "Image":  "http://images.amazon.com/images/P/0440234743.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "9",
+        "fields": { "ISBN":  "452264464",
+        "BookTitle":  "Beloved (Plume Contemporary Fiction)",
+        "BookAuthor":  "Toni Morrison",
+        "Year_Of_Publication":  "1994",
+        "Publisher":  "Plume",
+        "Image":  "http://images.amazon.com/images/P/0452264464.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "10",
+        "fields": { "ISBN":  "609804618",
+        "BookTitle":  "Our Dumb Century: The Onion Presents 100 Years of Headlines from America\u0027s Finest News Source",
+        "BookAuthor":  "The Onion",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Three Rivers Press",
+        "Image":  "http://images.amazon.com/images/P/0609804618.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "11",
+        "fields": { "ISBN":  "439095026",
+        "BookTitle":  "Tell Me This Isn\u0027t Happening",
+        "BookAuthor":  "Robynn Clairday",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Scholastic",
+        "Image":  "http://images.amazon.com/images/P/0439095026.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "12",
+        "fields": { "ISBN":  "689821166",
+        "BookTitle":  "Flood : Mississippi 1927",
+        "BookAuthor":  "Kathleen Duey",
+        "Year_Of_Publication":  "1998",
+        "Publisher":  "Aladdin",
+        "Image":  "http://images.amazon.com/images/P/0689821166.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "13",
+        "fields": { "ISBN":  "971880107",
+        "BookTitle":  "Wild Animus",
+        "BookAuthor":  "Rich Shapero",
+        "Year_Of_Publication":  "2004",
+        "Publisher":  "Too Far",
+        "Image":  "http://images.amazon.com/images/P/0971880107.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "14",
+        "fields": { "ISBN":  "345402871",
+        "BookTitle":  "Airframe",
+        "BookAuthor":  "Michael Crichton",
+        "Year_Of_Publication":  "1997",
+        "Publisher":  "Ballantine Books",
+        "Image":  "http://images.amazon.com/images/P/0345402871.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "15",
+        "fields": { "ISBN":  "345417623",
+        "BookTitle":  "Timeline",
+        "BookAuthor":  "MICHAEL CRICHTON",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Ballantine Books",
+        "Image":  "http://images.amazon.com/images/P/0345417623.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "16",
+        "fields": { "ISBN":  "684823802",
+        "BookTitle":  "OUT OF THE SILENT PLANET",
+        "BookAuthor":  "C.S. Lewis",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Scribner",
+        "Image":  "http://images.amazon.com/images/P/0684823802.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "17",
+        "fields": { "ISBN":  "375759778",
+        "BookTitle":  "Prague : A Novel",
+        "BookAuthor":  "ARTHUR PHILLIPS",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Random House Trade Paperbacks",
+        "Image":  "http://images.amazon.com/images/P/0375759778.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "18",
+        "fields": { "ISBN":  "425163091",
+        "BookTitle":  "Chocolate Jesus",
+        "BookAuthor":  "Stephan Jaramillo",
+        "Year_Of_Publication":  "1998",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/0425163091.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "19",
+        "fields": { "ISBN":  "3404921038",
+        "BookTitle":  "Wie Barney es sieht.",
+        "BookAuthor":  "Mordecai Richler",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "LÃ?Â¼bbe",
+        "Image":  "http://images.amazon.com/images/P/3404921038.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "20",
+        "fields": { "ISBN":  "3442410665",
+        "BookTitle":  "Sturmzeit. Roman.",
+        "BookAuthor":  "Charlotte Link",
+        "Year_Of_Publication":  "1991",
+        "Publisher":  "Goldmann",
+        "Image":  "http://images.amazon.com/images/P/3442410665.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "21",
+        "fields": { "ISBN":  "375406328",
+        "BookTitle":  "Lying Awake",
+        "BookAuthor":  "Mark Salzman",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Alfred A. Knopf",
+        "Image":  "http://images.amazon.com/images/P/0375406328.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "22",
+        "fields": { "ISBN":  "446310786",
+        "BookTitle":  "To Kill a Mockingbird",
+        "BookAuthor":  "Harper Lee",
+        "Year_Of_Publication":  "1988",
+        "Publisher":  "Little Brown \u0026amp; Company",
+        "Image":  "http://images.amazon.com/images/P/0446310786.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "23",
+        "fields": { "ISBN":  "449005615",
+        "BookTitle":  "Seabiscuit: An American Legend",
+        "BookAuthor":  "LAURA HILLENBRAND",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Ballantine Books",
+        "Image":  "http://images.amazon.com/images/P/0449005615.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "24",
+        "fields": { "ISBN":  "038078243X",
+        "BookTitle":  "Miss Zukas and the Raven\u0027s Dance",
+        "BookAuthor":  "Jo Dereske",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Avon",
+        "Image":  "http://images.amazon.com/images/P/038078243X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "25",
+        "fields": { "ISBN":  "067176537X",
+        "BookTitle":  "The Therapeutic Touch: How to Use Your Hands to Help or to Heal",
+        "BookAuthor":  "Dolores Krieger",
+        "Year_Of_Publication":  "1979",
+        "Publisher":  "Firespke",
+        "Image":  "http://images.amazon.com/images/P/067176537X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "26",
+        "fields": { "ISBN":  "553582747",
+        "BookTitle":  "From the Corner of His Eye",
+        "BookAuthor":  "Dean Koontz",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "Bantam Books",
+        "Image":  "http://images.amazon.com/images/P/0553582747.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "27",
+        "fields": { "ISBN":  "425182908",
+        "BookTitle":  "Isle of Dogs",
+        "BookAuthor":  "Patricia Cornwell",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/0425182908.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "28",
+        "fields": { "ISBN":  "042518630X",
+        "BookTitle":  "Purity in Death",
+        "BookAuthor":  "J.D. Robb",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/042518630X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "29",
+        "fields": { "ISBN":  "440223571",
+        "BookTitle":  "This Year It Will Be Different: And Other Stories",
+        "BookAuthor":  "Maeve Binchy",
+        "Year_Of_Publication":  "1997",
+        "Publisher":  "Dell",
+        "Image":  "http://images.amazon.com/images/P/0440223571.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "30",
+        "fields": { "ISBN":  "842342702",
+        "BookTitle":  "Left Behind: A Novel of the Earth\u0027s Last Days (Left Behind #1)",
+        "BookAuthor":  "Tim Lahaye",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Tyndale House Publishers",
+        "Image":  "http://images.amazon.com/images/P/0842342702.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "31",
+        "fields": { "ISBN":  "440225701",
+        "BookTitle":  "The Street Lawyer",
+        "BookAuthor":  "JOHN GRISHAM",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Dell",
+        "Image":  "http://images.amazon.com/images/P/0440225701.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "32",
+        "fields": { "ISBN":  "380715899",
+        "BookTitle":  "A Soldier of the Great War",
+        "BookAuthor":  "Mark Helprin",
+        "Year_Of_Publication":  "1992",
+        "Publisher":  "Avon Books",
+        "Image":  "http://images.amazon.com/images/P/0380715899.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "33",
+        "fields": { "ISBN":  "964778319",
+        "BookTitle":  "An Atmosphere of Eternity: Stories of India",
+        "BookAuthor":  "Davpk Iglehart",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Sunflower Press",
+        "Image":  "http://images.amazon.com/images/P/0964778319.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "34",
+        "fields": { "ISBN":  "2070423204",
+        "BookTitle":  "Lieux dits",
+        "BookAuthor":  "Michel Tournier",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Gallimard",
+        "Image":  "http://images.amazon.com/images/P/2070423204.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "35",
+        "fields": { "ISBN":  "042511774X",
+        "BookTitle":  "Breathing Lessons",
+        "BookAuthor":  "Anne Tyler",
+        "Year_Of_Publication":  "1994",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/042511774X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "36",
+        "fields": { "ISBN":  "804106304",
+        "BookTitle":  "The Joy Luck Club",
+        "BookAuthor":  "Amy Tan",
+        "Year_Of_Publication":  "1994",
+        "Publisher":  "Prentice Hall (K-12)",
+        "Image":  "http://images.amazon.com/images/P/0804106304.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "37",
+        "fields": { "ISBN":  "1853262404",
+        "BookTitle":  "Heart of Darkness (Wordsworth Collection)",
+        "BookAuthor":  "Joseph Conrad",
+        "Year_Of_Publication":  "1998",
+        "Publisher":  "NTC/Contemporary Publishing Company",
+        "Image":  "http://images.amazon.com/images/P/1853262404.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "38",
+        "fields": { "ISBN":  "312970242",
+        "BookTitle":  "The Angel Is Near",
+        "BookAuthor":  "Deepak Chopra",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "St. Martin\u0027s Press",
+        "Image":  "http://images.amazon.com/images/P/0312970242.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "39",
+        "fields": { "ISBN":  "1853260053",
+        "BookTitle":  "Tess of the D\u0027Urbervilles (Wordsworth Classics)",
+        "BookAuthor":  "Thomas Hardy",
+        "Year_Of_Publication":  "1997",
+        "Publisher":  "NTC/Contemporary Publishing Company",
+        "Image":  "http://images.amazon.com/images/P/1853260053.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "40",
+        "fields": { "ISBN":  "1414035004",
+        "BookTitle":  "The Adventures of Drew and Ellie: The Magical Dress",
+        "BookAuthor":  "Charles Noland",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "1stBooks Library",
+        "Image":  "http://images.amazon.com/images/P/1414035004.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "41",
+        "fields": { "ISBN":  "60938412",
+        "BookTitle":  "The Accpkental Virgin",
+        "BookAuthor":  "Valerie Frankel",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Avon Trade",
+        "Image":  "http://images.amazon.com/images/P/0060938412.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "42",
+        "fields": { "ISBN":  "140067477",
+        "BookTitle":  "The Tao of Pooh",
+        "BookAuthor":  "Benjamin Hoff",
+        "Year_Of_Publication":  "1983",
+        "Publisher":  "Penguin Books",
+        "Image":  "http://images.amazon.com/images/P/0140067477.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "43",
+        "fields": { "ISBN":  "345465083",
+        "BookTitle":  "Seabiscuit",
+        "BookAuthor":  "LAURA HILLENBRAND",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Ballantine Books",
+        "Image":  "http://images.amazon.com/images/P/0345465083.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "44",
+        "fields": { "ISBN":  "394895894",
+        "BookTitle":  "The Ruby in the Smoke (Sally Lockhart Trilogy, Book 1)",
+        "BookAuthor":  "PHILIP PULLMAN",
+        "Year_Of_Publication":  "1988",
+        "Publisher":  "Laurel Leaf",
+        "Image":  "http://images.amazon.com/images/P/0394895894.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "45",
+        "fields": { "ISBN":  "375410538",
+        "BookTitle":  "Anil\u0027s Ghost",
+        "BookAuthor":  "MICHAEL ONDAATJE",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Knopf",
+        "Image":  "http://images.amazon.com/images/P/0375410538.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "46",
+        "fields": { "ISBN":  "087113375X",
+        "BookTitle":  "Modern Manners: An Etiquette Book for Rude People",
+        "BookAuthor":  "P.J. O\u0027Rourke",
+        "Year_Of_Publication":  "1990",
+        "Publisher":  "Atlantic Monthly Press",
+        "Image":  "http://images.amazon.com/images/P/087113375X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "47",
+        "fields": { "ISBN":  "340767936",
+        "BookTitle":  "Turning Thirty",
+        "BookAuthor":  "Mike Gayle",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Hodder \u0026amp; Stoughton General Division",
+        "Image":  "http://images.amazon.com/images/P/0340767936.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "48",
+        "fields": { "ISBN":  "743403843",
+        "BookTitle":  "Decipher",
+        "BookAuthor":  "Stel Pavlou",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Simon \u0026amp; Schuster (Trade Division)",
+        "Image":  "http://images.amazon.com/images/P/0743403843.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "49",
+        "fields": { "ISBN":  "375509038",
+        "BookTitle":  "The Right Man : The Surprise Prespkency of George W. Bush",
+        "BookAuthor":  "DAVpk FRUM",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Random House",
+        "Image":  "http://images.amazon.com/images/P/0375509038.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "50",
+        "fields": { "ISBN":  "316769487",
+        "BookTitle":  "The Catcher in the Rye",
+        "BookAuthor":  "J.D. Salinger",
+        "Year_Of_Publication":  "1991",
+        "Publisher":  "Little, Brown",
+        "Image":  "http://images.amazon.com/images/P/0316769487.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "51",
+        "fields": { "ISBN":  "679429220",
+        "BookTitle":  "Mpknight in the Garden of Good and Evil: A Savannah Story",
+        "BookAuthor":  "John Berendt",
+        "Year_Of_Publication":  "1994",
+        "Publisher":  "Random House",
+        "Image":  "http://images.amazon.com/images/P/0679429220.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "52",
+        "fields": { "ISBN":  "312252617",
+        "BookTitle":  "Fast Women",
+        "BookAuthor":  "Jennifer Crusie",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "St. Martin\u0027s Press",
+        "Image":  "http://images.amazon.com/images/P/0312252617.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "53",
+        "fields": { "ISBN":  "312261594",
+        "BookTitle":  "Female Intelligence",
+        "BookAuthor":  "Jane Heller",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "St. Martin\u0027s Press",
+        "Image":  "http://images.amazon.com/images/P/0312261594.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "54",
+        "fields": { "ISBN":  "316748641",
+        "BookTitle":  "Pasquale\u0027s Nose: pkle Days in an Italian Town",
+        "BookAuthor":  "Michael Rips",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Back Bay Books",
+        "Image":  "http://images.amazon.com/images/P/0316748641.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "55",
+        "fields": { "ISBN":  "316973742",
+        "BookTitle":  "The Gospel of Judas: A Novel",
+        "BookAuthor":  "Simon Mawer",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Back Bay Books",
+        "Image":  "http://images.amazon.com/images/P/0316973742.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "56",
+        "fields": { "ISBN":  "451166892",
+        "BookTitle":  "The Pillars of the Earth",
+        "BookAuthor":  "Ken Follett",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Signet Book",
+        "Image":  "http://images.amazon.com/images/P/0451166892.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "57",
+        "fields": { "ISBN":  "684822733",
+        "BookTitle":  "Love, Miracles, and Animal Healing : A heartwarming look at the spiritual bond between animals and humans",
+        "BookAuthor":  "Pam Proctor",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Firespke",
+        "Image":  "http://images.amazon.com/images/P/0684822733.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "58",
+        "fields": { "ISBN":  "786868716",
+        "BookTitle":  "The Five People You Meet in Heaven",
+        "BookAuthor":  "Mitch Albom",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Hyperion",
+        "Image":  "http://images.amazon.com/images/P/0786868716.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "59",
+        "fields": { "ISBN":  "671521519",
+        "BookTitle":  "Bless The Beasts And Children : Bless The Beasts And Children",
+        "BookAuthor":  "Glendon Swarthout",
+        "Year_Of_Publication":  "1995",
+        "Publisher":  "Pocket",
+        "Image":  "http://images.amazon.com/images/P/0671521519.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "60",
+        "fields": { "ISBN":  "312953453",
+        "BookTitle":  "Blood Oath",
+        "BookAuthor":  "Davpk Morrell",
+        "Year_Of_Publication":  "1994",
+        "Publisher":  "St. Martin\u0027s Press",
+        "Image":  "http://images.amazon.com/images/P/0312953453.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "61",
+        "fields": { "ISBN":  "446608653",
+        "BookTitle":  "The Alibi",
+        "BookAuthor":  "Sandra Brown",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Warner Books",
+        "Image":  "http://images.amazon.com/images/P/0446608653.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "62",
+        "fields": { "ISBN":  "446612545",
+        "BookTitle":  "The Beach House",
+        "BookAuthor":  "James Patterson",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Warner Books",
+        "Image":  "http://images.amazon.com/images/P/0446612545.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "63",
+        "fields": { "ISBN":  "446612618",
+        "BookTitle":  "A Kiss Remembered",
+        "BookAuthor":  "Sandra Brown",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Warner Books",
+        "Image":  "http://images.amazon.com/images/P/0446612618.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "64",
+        "fields": { "ISBN":  "451208080",
+        "BookTitle":  "The Short Forever",
+        "BookAuthor":  "Stuart Woods",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Signet Book",
+        "Image":  "http://images.amazon.com/images/P/0451208080.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "65",
+        "fields": { "ISBN":  "553584383",
+        "BookTitle":  "Dead Aim",
+        "BookAuthor":  "IRIS JOHANSEN",
+        "Year_Of_Publication":  "2004",
+        "Publisher":  "Bantam Books",
+        "Image":  "http://images.amazon.com/images/P/0553584383.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "66",
+        "fields": { "ISBN":  "671027360",
+        "BookTitle":  "Angels \u0026amp; Demons",
+        "BookAuthor":  "Dan Brown",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "Pocket Star",
+        "Image":  "http://images.amazon.com/images/P/0671027360.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "67",
+        "fields": { "ISBN":  "812575954",
+        "BookTitle":  "The Deal",
+        "BookAuthor":  "Joe Hutsko",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Tor Books (Mm)",
+        "Image":  "http://images.amazon.com/images/P/0812575954.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "68",
+        "fields": { "ISBN":  "316735736",
+        "BookTitle":  "All He Ever Wanted: A Novel",
+        "BookAuthor":  "Anita Shreve",
+        "Year_Of_Publication":  "2004",
+        "Publisher":  "Back Bay Books",
+        "Image":  "http://images.amazon.com/images/P/0316735736.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "69",
+        "fields": { "ISBN":  "743439740",
+        "BookTitle":  "Every Breath You Take : A True Story of Obsession, Revenge, and Murder",
+        "BookAuthor":  "Ann Rule",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Pocket",
+        "Image":  "http://images.amazon.com/images/P/0743439740.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "70",
+        "fields": { "ISBN":  "345372700",
+        "BookTitle":  "If I Ever Get Back to Georgia, I\u0027m Gonna Nail My Feet to the Ground",
+        "BookAuthor":  "LEWIS GRIZZARD",
+        "Year_Of_Publication":  "1991",
+        "Publisher":  "Ballantine Books",
+        "Image":  "http://images.amazon.com/images/P/0345372700.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "71",
+        "fields": { "ISBN":  "451406923",
+        "BookTitle":  "Goodbye, My Little Ones: The True Story of a Murderous Mother and Five Innocent Victims",
+        "BookAuthor":  "Charles Hickey",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Onyx Books",
+        "Image":  "http://images.amazon.com/images/P/0451406923.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "72",
+        "fields": { "ISBN":  "671042858",
+        "BookTitle":  "The Girl Who Loved Tom Gordon",
+        "BookAuthor":  "Stephen King",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Pocket",
+        "Image":  "http://images.amazon.com/images/P/0671042858.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "73",
+        "fields": { "ISBN":  "743249992",
+        "BookTitle":  "Bringing Down the House: The Inspke Story of Six M.I.T. Students Who Took Vegas for Millions",
+        "BookAuthor":  "Ben Mezrich",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Free Press",
+        "Image":  "http://images.amazon.com/images/P/0743249992.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "74",
+        "fields": { "ISBN":  "425184226",
+        "BookTitle":  "The Sum of All Fears",
+        "BookAuthor":  "Tom Clancy",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Berkley Publishing Group",
+        "Image":  "http://images.amazon.com/images/P/0425184226.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "75",
+        "fields": { "ISBN":  "375500766",
+        "BookTitle":  "Care Packages : Letters to Christopher Reeve from Strangers and Other Friends",
+        "BookAuthor":  "DANA REEVE",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Random House",
+        "Image":  "http://images.amazon.com/images/P/0375500766.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "76",
+        "fields": { "ISBN":  "451205197",
+        "BookTitle":  "Lady in Green/Minor Indiscretions (Signet Regency Romance)",
+        "BookAuthor":  "Barbara Metzger",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Signet Book",
+        "Image":  "http://images.amazon.com/images/P/0451205197.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "77",
+        "fields": { "ISBN":  "60976845",
+        "BookTitle":  "Little Altars Everywhere: A Novel",
+        "BookAuthor":  "Rebecca Wells",
+        "Year_Of_Publication":  "1996",
+        "Publisher":  "Perennial",
+        "Image":  "http://images.amazon.com/images/P/0060976845.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "78",
+        "fields": { "ISBN":  "61099325",
+        "BookTitle":  "Coyote Waits (Joe Leaphorn/Jim Chee Novels)",
+        "BookAuthor":  "Tony Hillerman",
+        "Year_Of_Publication":  "1992",
+        "Publisher":  "HarperTorch",
+        "Image":  "http://images.amazon.com/images/P/0061099325.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "79",
+        "fields": { "ISBN":  "330484516",
+        "BookTitle":  "Twenty Minute Retreats: Revive Your Spirits in Just Minutes a Day (A Pan Self-discovery Title)",
+        "BookAuthor":  "Rachel Harris",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "Pan Macmillan",
+        "Image":  "http://images.amazon.com/images/P/0330484516.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "80",
+        "fields": { "ISBN":  "038572179X",
+        "BookTitle":  "Atonement : A Novel",
+        "BookAuthor":  "IAN MCEWAN",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Anchor",
+        "Image":  "http://images.amazon.com/images/P/038572179X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "81",
+        "fields": { "ISBN":  "393020371",
+        "BookTitle":  "Next: The Future Just Happened",
+        "BookAuthor":  "Michael Lewis",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "W.W. Norton \u0026amp; Company",
+        "Image":  "http://images.amazon.com/images/P/0393020371.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "82",
+        "fields": { "ISBN":  "1900850303",
+        "BookTitle":  "The Angelic Darkness",
+        "BookAuthor":  "Richard Zimler",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Arcadia Books",
+        "Image":  "http://images.amazon.com/images/P/1900850303.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "83",
+        "fields": { "ISBN":  "1903019699",
+        "BookTitle":  "The Soulbane Stratagem",
+        "BookAuthor":  "Norman Jetmundsen",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "John Hunt Publishing, Ltd.",
+        "Image":  "http://images.amazon.com/images/P/1903019699.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "84",
+        "fields": { "ISBN":  "345425294",
+        "BookTitle":  "Gangster",
+        "BookAuthor":  "Lorenzo Carcaterra",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Fawcett Books",
+        "Image":  "http://images.amazon.com/images/P/0345425294.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "85",
+        "fields": { "ISBN":  "451410319",
+        "BookTitle":  "Hush",
+        "BookAuthor":  "Anne Frasier",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Onyx Books",
+        "Image":  "http://images.amazon.com/images/P/0451410319.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "86",
+        "fields": { "ISBN":  "553583468",
+        "BookTitle":  "Whisper of Evil (Hooper, Kay. Evil Trilogy.)",
+        "BookAuthor":  "Kay Hooper",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Bantam Books",
+        "Image":  "http://images.amazon.com/images/P/0553583468.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "87",
+        "fields": { "ISBN":  "451525221",
+        "BookTitle":  "Scarlet Letter",
+        "BookAuthor":  "Nathaniel Hawthorne",
+        "Year_Of_Publication":  "1993",
+        "Publisher":  "Signet Book",
+        "Image":  "http://images.amazon.com/images/P/0451525221.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "88",
+        "fields": { "ISBN":  "2740230",
+        "BookTitle":  "Keep It Simple: And Get More Out of Life",
+        "BookAuthor":  "Nick Page",
+        "Year_Of_Publication":  "1999",
+        "Publisher":  "Trafalgar Square",
+        "Image":  "http://images.amazon.com/images/P/0002740230.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "89",
+        "fields": { "ISBN":  "385336772",
+        "BookTitle":  "Diary of a Mad Mom-To-Be",
+        "BookAuthor":  "Laura Wolf",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Delta",
+        "Image":  "http://images.amazon.com/images/P/0385336772.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "90",
+        "fields": { "ISBN":  "440949424",
+        "BookTitle":  "Locked in Time (Laurel Leaf Books)",
+        "BookAuthor":  "LOIS DUNCAN",
+        "Year_Of_Publication":  "1986",
+        "Publisher":  "Laure Leaf",
+        "Image":  "http://images.amazon.com/images/P/0440949424.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "91",
+        "fields": { "ISBN":  "505524996",
+        "BookTitle":  "Contact",
+        "BookAuthor":  "Susan Grant",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Love Spell",
+        "Image":  "http://images.amazon.com/images/P/0505524996.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "92",
+        "fields": { "ISBN":  "140252800",
+        "BookTitle":  "The Brimstone Wedding",
+        "BookAuthor":  "Barbara Vine",
+        "Year_Of_Publication":  "1997",
+        "Publisher":  "Penguin Books Ltd",
+        "Image":  "http://images.amazon.com/images/P/0140252800.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "93",
+        "fields": { "ISBN":  "812575482",
+        "BookTitle":  "Through Wolf\u0027s Eyes (Wolf)",
+        "BookAuthor":  "Jane Lindskold",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Tor Fantasy",
+        "Image":  "http://images.amazon.com/images/P/0812575482.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "94",
+        "fields": { "ISBN":  "60801263",
+        "BookTitle":  "Tree Grows In Brooklyn",
+        "BookAuthor":  "Betty Smith",
+        "Year_Of_Publication":  "1988",
+        "Publisher":  "Harpercollins Publisher",
+        "Image":  "http://images.amazon.com/images/P/0060801263.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "95",
+        "fields": { "ISBN":  "61030147",
+        "BookTitle":  "Cybill Disobedience: How I Survived Beauty Pageants, Elvis, Sex, Bruce Willis, Lies, Marriage, Motherhood, Hollywood, and the Irrepressible Urge to Say What I Think",
+        "BookAuthor":  "Cybill Shepherd",
+        "Year_Of_Publication":  "2001",
+        "Publisher":  "Avon Books",
+        "Image":  "http://images.amazon.com/images/P/0061030147.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "96",
+        "fields": { "ISBN":  "140250964",
+        "BookTitle":  "Snow Angels",
+        "BookAuthor":  "Stewart O\u0027Nan",
+        "Year_Of_Publication":  "1995",
+        "Publisher":  "Penguin Books",
+        "Image":  "http://images.amazon.com/images/P/0140250964.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "97",
+        "fields": { "ISBN":  "446527165",
+        "BookTitle":  "Wish You Well",
+        "BookAuthor":  "Davpk Baldacci",
+        "Year_Of_Publication":  "2000",
+        "Publisher":  "Warner Books",
+        "Image":  "http://images.amazon.com/images/P/0446527165.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "98",
+        "fields": { "ISBN":  "385337639",
+        "BookTitle":  "Crow Lake (Today Show Book Club #7)",
+        "BookAuthor":  "Mary Lawson",
+        "Year_Of_Publication":  "2003",
+        "Publisher":  "Delta",
+        "Image":  "http://images.amazon.com/images/P/0385337639.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "99",
+        "fields": { "ISBN":  "039575514X",
+        "BookTitle":  "My Antonia",
+        "BookAuthor":  "Willa Cather",
+        "Year_Of_Publication":  "1995",
+        "Publisher":  "Mariner Books",
+        "Image":  "http://images.amazon.com/images/P/039575514X.01.MZZZZZZZ.jpg"
+    }},
+    {
+        "model":  "products.katalog",
+        "pk":  "100",
+        "fields": { "ISBN":  "451206673",
+        "BookTitle":  "Pen Pals",
+        "BookAuthor":  "Olivia Goldsmith",
+        "Year_Of_Publication":  "2002",
+        "Publisher":  "Signet Book",
+        "Image":  "http://images.amazon.com/images/P/0451206673.01.MZZZZZZZ.jpg"
+    }}
+]
