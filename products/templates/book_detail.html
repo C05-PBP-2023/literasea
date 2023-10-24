@@ -15,6 +15,7 @@
     <p><strong>Year of Publication:</strong> {{ book.Year_Of_Publication }}</p>
     <br>
     <button onclick="window.location.href = '{% url 'products:show_katalog' %}'" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Back to Catalog</button>
+    <button onclick="window.location.href = '{% url 'products:add_book' book.id user.id %}'" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full">Add to Cart</button>
 </div>
 
 {% endblock content %}
