@@ -1,0 +1,40 @@
+{% extends 'auth_base.html' %}
+
+{% block content %}
+<div class="flex items-center container mx-auto h-screen font-inter">
+    <div class="basis-7/12">
+        ini harusnya isinya foto
+    </div>
+    <div class="basis-5/12 my-auto">
+        <a class="z-10" href="/"><img class="mx-auto -mt-24 mb-12" src="/static/img/sampingwhite.svg" width=220px/></a>
+        <div class="bg-white px-10 pt-8 pb-12 rounded-lg shadow-xl">
+            <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center mb-32">Login</p>
+            <form id="reg-form" method="POST">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 gap-y-5 gap-x-4">
+                    <div>
+                        <p class="text-sm font-medium">Username:</p>
+                        <div>
+                            <input class="border w-full rounded-lg text-sm px-3 py-2" type="text" name="username" placeholder="username123"/>
+                        </div>
+                        <p class="absolute text-xs text-red-500 pt-1" id="username-msg"></p>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium">Password:</p>
+                        <div>
+                            <input class="block border w-full rounded-lg text-sm px-3 py-2" type="password" name="password" autocomplete="new-password" required id="id_password1">
+                            <p id="pass1-msg" class="text-xs leading-tight pt-1">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <button id="submit-btn" form="reg-form" class="mt-32 w-full bg-[#b7d5eb] text-[#002F6E] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Login</button>
+            <p class="text-sm pt-6 text-center">Don't have an account yet? <a class="text-[#247FB8] hover:text-[#003F7E]" href="{% url 'authentication:register' %}">Register</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script src="/static/js/auth_script.js"></script>
+{% endblock script %}
