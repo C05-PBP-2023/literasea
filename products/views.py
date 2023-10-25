@@ -3,8 +3,9 @@ from .models import Katalog
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from authentication.models import UserProfile
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+@login_required(login_url="{% url 'main:login: }")
 def show_katalog(request):
     books = Katalog.objects.all()
 
@@ -14,11 +15,13 @@ def show_katalog(request):
 
     return render(request, "katalog.html", context)
 
+@login_required(login_url="{% url 'main:login: }")
 def book_detail(request, book_id):
     book = get_object_or_404(Katalog, id=book_id)
     context = {'book': book}
     return render(request, 'book_detail.html', context)
 
+@login_required(login_url="{% url 'main:login: }")
 def add_book(request, book_id, user_id):
     user = get_object_or_404(UserProfile, id=user_id)
     book = get_object_or_404(Katalog, id=book_id)
