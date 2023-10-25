@@ -34,7 +34,7 @@
 <div class="flex container items-center align-center mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {% for book in products %}
-            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative">
+            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
                 <div class="relative">
                     <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
                     <!-- Display the "New" label for the 10 latest books by ID -->
