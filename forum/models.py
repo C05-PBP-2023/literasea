@@ -1,8 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
+from products.models import Katalog
 
 class Question(models.Model):
-    user_ask = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_ask")
-    user_answer = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_answer")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book_reviewed = models.ForeignKey(Katalog, on_delete=models.CASCADE)
+    title = models.CharField(max_length=150)
     question = models.TextField()
+    
+
+class Answer(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    question = models.OneToOneField(Question, on_delete=models.CASCADE)
     answer = models.TextField()
