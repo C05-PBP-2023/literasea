@@ -29,9 +29,9 @@ def write_question(request):
         title = request.POST.get("title")
         question = request.POST.get("question")
         user = request.user
-        book_reviewed = Katalog.objects.get(pk=request.POST.get("id"))
+        book_asked = Katalog.objects.get(pk=request.POST.get("id"))
 
-        new_question = Question(user=user, book_reviewed=book_reviewed, title=title, question=question)
+        new_question = Question(user=user, book_asked=book_asked, title=title, question=question)
         new_question.save()
 
         return HttpResponse(b"ADDED", status=201)
