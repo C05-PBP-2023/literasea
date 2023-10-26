@@ -7,6 +7,7 @@ class Question(models.Model):
     book_asked = models.ForeignKey(Katalog, on_delete=models.CASCADE)
     title = models.CharField(max_length=150)
     question = models.TextField()
+    answered = models.BooleanField(default=False)
     
 
 class Answer(models.Model):

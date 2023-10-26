@@ -22,7 +22,7 @@
     </div>
     <div class="grid grid-cols-2 gap-x-5 gap-y-5">
         {% for item in questions %}
-        <div class="border rounded-lg p-6">
+        <div class="border flex flex-col justify-between rounded-lg p-6">
             <div class="flex justify-between">
                 <div>
                     <p class="font-bold text-xl">{{item.title}}</p>
@@ -36,6 +36,17 @@
                     </div>
                     <img class="h-32" src="{{item.book_asked.Image}}">
                 </div>
+            </div>
+            <div class="flex pt-4">
+                {% if item.answered %}
+                    <p>jawaban</p>
+                {% else %}
+                    {% if user.userprofile.user_type == "reader" %}
+                    <p class="self-end text-sm text-slate-500">This question is not yet answered.</p>
+                    {% else %}
+                        <p>anda penulis</p>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
         {% endfor %}
