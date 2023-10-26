@@ -20,18 +20,21 @@
         </button>
         </a>
     </div>
-    <div class="grid grid-cols-2 gap-x-10">
+    <div class="grid grid-cols-2 gap-x-5 gap-y-5">
         {% for item in questions %}
         <div class="border rounded-lg p-6">
             <div class="flex justify-between">
                 <div>
                     <p class="font-bold text-xl">{{item.title}}</p>
-                    <p class="text-sm">Asked by {{item.user.userprofile.full_name}}</p>
+                    <p class="text-sm text-slate-500">Asked by {{item.user.userprofile.full_name}}</p>
+                    <p class="mt-6 max-w-sm">{{item.question}}</p>
                 </div>
-                <div>
-                    <div class="flex">
-                        <div class="text-sm font-medium">{{item.book_asked.BookTitle}}</div>
+                <div class="flex flex-grow justify-end">
+                    <div class="text-end mr-4">
+                        <p class="text-sm font-bold max-w-xs">{{item.book_asked.BookTitle}}</p>
+                        <p class="text-sm text-slate-500">{{item.book_asked.BookAuthor}}</p>
                     </div>
+                    <img class="h-32" src="{{item.book_asked.Image}}">
                 </div>
             </div>
         </div>

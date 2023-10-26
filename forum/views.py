@@ -7,8 +7,9 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 @login_required(login_url="authentication:login")
 def show_main(request):
+    questions = Question.objects.all()
     context = {
-        "questions": Question.objects.all()
+        "questions": questions
     }
     return render(request, 'qna.html', context)
 
