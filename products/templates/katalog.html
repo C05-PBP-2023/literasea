@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block meta %}
-    <title>LiteraSea</title>
+    <title>Katalog | Literasea</title>
     <!-- Include the Inter font from a font CDN -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -41,12 +41,12 @@
                     {% if forloop.counter0 < 5 %}
                         <div class="new-label">NEW</div>
                     {% endif %}
-                    <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-[#3992C6] hover:bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         See Details
                     </a>
                 </div>
                 <div class="px-6 py-4">
-                    <div class="text-xl text-blue-500 font-inter font-bold mb-2">
+                    <div class="text-xl text-[#005b9c] font-inter font-bold mb-2">
                         {{ book.BookTitle }}
                     </div>
                     <div class="text-sm text-gray-600 mb-2">
