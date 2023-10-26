@@ -20,6 +20,12 @@
         </button>
         </a>
     </div>
+    <div>
+        {% for item in questions %}
+        <p>{{item.title}}</p>
+        <p>{{item.question}}</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
 

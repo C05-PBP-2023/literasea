@@ -7,7 +7,10 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 @login_required(login_url="authentication:login")
 def show_main(request):
-    return render(request, 'qna.html', {})
+    context = {
+        "questions": Question.objects.all()
+    }
+    return render(request, 'qna.html', context)
 
 @login_required(login_url="authentication:login")
 def choose_book(request):
@@ -26,7 +29,7 @@ def write_question(request):
         title = request.POST.get("title")
         question = request.POST.get("question")
         user = request.user
-        book_reviewed = Katalog.objects.filter(pk=request.POST.get("id"))
+        book_reviewed = Katalog.objects.get(pk=request.POST.get("id"))
 
         new_question = Question(user=user, book_reviewed=book_reviewed, title=title, question=question)
         new_question.save()

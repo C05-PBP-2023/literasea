@@ -5,7 +5,7 @@ async function showQuestionModal(id) {
   document.querySelector("#question-img").src = book[0].fields.Image;
   document.querySelector("#book-title").innerHTML = book[0].fields.BookTitle;
   document.querySelector("#book-author").innerHTML = book[0].fields.BookAuthor;
-  document.getElementById("confirm-modal").onclick = function (id) {
+  document.getElementById("confirm-modal").onclick = function () {
     addQuestion(id);
   };
 }
@@ -15,20 +15,21 @@ async function getBook(id) {
 }
 
 function closeModal() {
-  document.querySelector("#id_title").value = "";
-  document.querySelector("#id_question").value = "";
+  document.querySelector("#form").reset();
   document.querySelector("#modal").classList.add("hidden");
 }
 
 addQuestion = (id) => {
   form = new FormData(document.querySelector("#form"));
   form.append("id", id);
-  fetch("add-question/", {
+  fetch("/forum/add-question/", {
     method: "POST",
     body: form,
   });
+
+  document.querySelector("#form").reset();
+  return false;
 };
 
-document.getElementById("confirm-modal").addEventListener("click", addQuestion);
 document.getElementById("cancel-modal").addEventListener("click", closeModal);
 document.getElementById("modal-panel").addEventListener("click", closeModal);
