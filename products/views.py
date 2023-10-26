@@ -33,3 +33,7 @@ def add_book(request, book_id, user_id):
 def get_book(request):
     data = Katalog.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def get_book_by_id(request, id):
+    data = Katalog.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
