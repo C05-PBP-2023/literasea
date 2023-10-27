@@ -49,4 +49,12 @@ def show_owned(request):
     context = {
         "owned": owned,
     }
+
     return render(request, "display_owned.html", context)
+
+def remove_book_from_cart(request, book_id):
+    book = request.user.userprofile.cart.get(id=book_id)
+
+    request.user.userprofile.cart.remove(book)
+
+    return HttpResponseRedirect(reverse('cart:show_cart'))

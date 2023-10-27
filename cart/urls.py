@@ -9,4 +9,5 @@ urlpatterns = [
     path("checkout/", checkout_cart, name="checkout_cart"),
     path("history/", show_history, name="show_history"),
     path("owned/", show_owned, name="show_owned"),
+    path("remove/<int:book_id>", remove_book_from_cart, name="remove")
 ]

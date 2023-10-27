@@ -22,6 +22,9 @@
                 <p>{{book.Year_Of_Publication}}</p>
                 <p>{{book.publisher}}</p>
             </div>
+            <div class="items-center">
+                <a href="{% url 'cart:remove' book.id %}">Remove From Cart</a>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -30,7 +33,7 @@
 
     {% else %}
     EMPTY CART
-    
+
     {% endif %}
     
 </div>
