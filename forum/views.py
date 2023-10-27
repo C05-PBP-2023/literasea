@@ -2,8 +2,10 @@ from django.shortcuts import render
 from products.models import Katalog
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from forum.models import Question
+from forum.models import Question, Answer
 from django.http import HttpResponse, HttpResponseNotFound
+from django.core import serializers
+import json
 
 @login_required(login_url="authentication:login")
 def show_main(request):
@@ -23,7 +25,6 @@ def choose_book(request):
 
     return render(request, "katalog_choose.html", context)
 
-@login_required(login_url="authentication:login")
 @csrf_exempt
 def write_question(request):
     if request.method == "POST":
@@ -38,3 +39,27 @@ def write_question(request):
         return HttpResponse(b"ADDED", status=201)
     return HttpResponseNotFound()
 
+@csrf_exempt
+def add_answer(request):
+    if request.method == "POST":
+        answer = request.POST.get("answer")
+        question = Question.objects.get(pk=request.POST.get("id"))
+        user = request.user
+
+        new_answer = Answer(user=user, question=question, answer=answer)
+        new_answer.save()
+
+        question.answered = True
+        question.save(update_fields=["answered"])
+
+        return HttpResponse(b"ADDED", status=201)
+    return HttpResponseNotFound()
+
+def get_answer_by_id(request, id):
+    question = Question.objects.get(pk=id)
+    answer = question.answer
+    data = {
+        "user": answer.user.userprofile.full_name,
+        "answer": answer.answer
+    }
+    return HttpResponse(json.dumps(data), content_type="application/json")
