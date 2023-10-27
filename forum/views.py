@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 @login_required(login_url="authentication:login")
 def show_main(request):
-    questions = Question.objects.all()
+    questions = Question.objects.all().order_by("-id")
     context = {
         "questions": questions
     }
