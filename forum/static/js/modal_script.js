@@ -19,17 +19,17 @@ function closeModal() {
   document.querySelector("#modal").classList.add("hidden");
 }
 
-addQuestion = (id) => {
+async function addQuestion(id) {
   form = new FormData(document.querySelector("#form"));
   form.append("id", id);
-  fetch("/forum/add-question/", {
+  await fetch("/forum/add-question/", {
     method: "POST",
     body: form,
   });
 
   document.querySelector("#form").reset();
   return false;
-};
+}
 
 document.getElementById("cancel-modal").addEventListener("click", closeModal);
 document.getElementById("modal-panel").addEventListener("click", closeModal);
