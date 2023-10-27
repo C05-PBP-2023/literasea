@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Q&A | Literasea</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container mx-auto font-inter">
+    <p class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">Questions and Answers</p>
+    <p class="mt-2 text-center">Ask any questions about any book! Our writers may answer with what they know.</p>
+    <div class="flex justify-center my-12">
+        <a href="{% url 'forum:choose_book' %}">
+        <button class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+              </svg>              
+            <p class="-mb-0.5">
+            Add Question
+            </p>
+        </button>
+        </a>
+    </div>
+    <div class="grid grid-cols-2 gap-x-5 gap-y-5">
+        {% for item in questions %}
+        <div class="border flex flex-col justify-between rounded-lg p-6">
+            <div class="flex justify-between">
+                <div>
+                    <p class="font-bold text-xl">{{item.title}}</p>
+                    <p class="text-sm text-slate-500">Asked by {{item.user.userprofile.full_name}}</p>
+                    <p class="mt-6 max-w-sm">{{item.question}}</p>
+                </div>
+                <div class="flex flex-grow justify-end">
+                    <div class="text-end mr-4">
+                        <p class="text-sm font-bold max-w-xs">{{item.book_asked.BookTitle}}</p>
+                        <p class="text-sm text-slate-500">{{item.book_asked.BookAuthor}}</p>
+                    </div>
+                    <img class="h-32" src="{{item.book_asked.Image}}">
+                </div>
+            </div>
+            <div id="answer-section-{{item.id}}" class="flex pt-4">
+                {% if item.answered %}
+                    <div>
+                        <p class="font-bold">Answer:</p>
+                        <p>{{item.answer.answer}}</p>
+                        <p class="text-sm text-slate-500 mt-4">Answered by {{item.answer.user.userprofile.full_name}}</p>
+                    </div>
+                {% else %}
+                    {% if user.userprofile.user_type == "reader" %}
+                        <p class="text-sm text-slate-500">This question is not yet answered.</p>
+                    {% else %}
+                        <button id="answer-btn-{{item.id}}" onclick="showAnswerField({{item.id}})" class="px-4 py-1 bg-[#005b9c] hover:bg-[#003f7e] text-white text-sm">Answer</button>
+                        <div id="answer-field-{{item.id}}" class="hidden grow flex items-center gap-4">
+                            <form id="answer-form-{{item.id}}" class="w-full flex items-center" method="POST">
+                                {% csrf_token %}
+                                <textarea class="w-full rounded-full border resize-none text-sm px-4 py-2" rows="1" name="answer" placeholder="Write your answer..." id="id_answer"></textarea>
+                            </form>
+                            <button onclick="addAnswer({{item.id}})" class="hover:text-[#005b9c] rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                </svg>
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% if not questions %}
+    <p class="text-center mt-24">There are no questions yet. Ask the first one!</p>
+    {% endif %}
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+<script src="/static/js/answer_script.js"></script>
+{% endblock script %}

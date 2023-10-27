@@ -16,7 +16,7 @@
         </div>
         <p></p>
         {% if user.is_authenticated %}
-        <div id="user-dropdown" class="relative float-right">
+        <div id="user-dropdown" class="relative float-right z-10">
             <button class="text-[#003f7e]" onclick="toggleDropdown()">
                 <div class="flex gap-2 mt-1 items-center">
                     <p>{{user.userprofile.full_name}}</p>
