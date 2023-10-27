@@ -27,6 +27,7 @@ def checkout_cart(request):
 
         for book in request.user.userprofile.cart.all():
             history.buku.add(book)
+            request.user.userprofile.owned_books.add(book)
             request.user.userprofile.cart.remove(book)
 
         return HttpResponseRedirect(reverse('cart:show_cart'))
@@ -41,3 +42,11 @@ def show_history(request):
     }
 
     return render(request, "history.html", context)
+
+def show_owned(request):
+    owned = request.user.userprofile.owned_books.all()
+
+    context = {
+        "owned": owned,
+    }
+    return render(request, "display_owned.html", context)
