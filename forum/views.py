@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from forum.models import Question, Answer
 from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
+from forum.forms import *
 import json
 
 @login_required(login_url="authentication:login")
@@ -18,9 +19,11 @@ def show_main(request):
 @login_required(login_url="authentication:login")
 def choose_book(request):
     books = Katalog.objects.all()
+    form = QuestionForm(request.POST or None)
 
     context = {
         'products': books,
+        'form': form
     }
 
     return render(request, "katalog_choose.html", context)
