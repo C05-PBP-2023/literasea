@@ -8,3 +8,4 @@ class UserProfile(models.Model):
     user_type = models.CharField(max_length=10)
     cart = models.ManyToManyField(Katalog, related_name="cart")
     owned_books = models.ManyToManyField(Katalog, related_name="owned_books")
+    tracker = models.ManyToManyField(Katalog, related_name="tracker")
