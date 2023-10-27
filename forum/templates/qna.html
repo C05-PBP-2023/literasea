@@ -66,6 +66,9 @@
         </div>
         {% endfor %}
     </div>
+    {% if not questions %}
+    <p class="text-center mt-24">There are no questions yet. Ask the first one!</p>
+    {% endif %}
 </div>
 {% endblock content %}
 
