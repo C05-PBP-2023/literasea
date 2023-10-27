@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for item in history %}
+
+<div class="bg-white pl-2 w-[800px] text-lg">
+
+Nama pembeli: {{item.nama}} <br>
+Tujuan pengiriman: {{item.alamat}} <br>
+Tanggal pembelian: {{item.tanggal}} <br>
+Buku yang dibeli: 
+
+{% for i in item.buku.all%}<br>
+
+-  {{i.BookTitle}}
+
+{% endfor %}
+
+</div>
+
+<br>
+<br>
+
+{% endfor %}
+
+{% endblock content %}
