@@ -11,11 +11,12 @@
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/review">Review</a>
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/forum">Q & A</a>
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/tracker">Book Tracker</a>
+                <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/cart">Cart</a>
             </div>
         </div>
         <p></p>
         {% if user.is_authenticated %}
-        <div id="user-dropdown" class="relative float-right">
+        <div id="user-dropdown" class="relative float-right z-10">
             <button class="text-[#003f7e]" onclick="toggleDropdown()">
                 <div class="flex gap-2 mt-1 items-center">
                     <p>{{user.userprofile.full_name}}</p>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<a href="{% url 'cart:show_history' %}" ><div class="bg-white w-24 text-center">History</div></a>
+
+
+<div class="flex flex-col items-center bg-white mx-20 my-10">
+    
+    {% if cart|length != 0 %}
+    <div>
+    
+        {% for book in cart %}
+        <div class="flex m-5">
+            <div class="m-5">
+                <img src="{{book.Image}}" width="100px">
+            </div>
+            <div class="m-5">
+                <p>{{book.BookTitle}}</p>
+                <p>{{book.BookAuthor}}</p>
+                <p>{{book.Year_Of_Publication}}</p>
+                <p>{{book.publisher}}</p>
+            </div>
+            <div class="items-center">
+                <a href="{% url 'cart:remove' book.id %}">Remove From Cart</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'cart:checkout_cart' %}">next</a>
+
+    {% else %}
+    EMPTY CART
+
+    {% endif %}
+    
+</div>
+
+{% endblock content %}
