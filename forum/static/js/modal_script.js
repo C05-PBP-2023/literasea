@@ -28,6 +28,7 @@ async function addQuestion(id) {
   });
 
   document.querySelector("#form").reset();
+  window.location.href = "/forum/";
   return false;
 }
 
