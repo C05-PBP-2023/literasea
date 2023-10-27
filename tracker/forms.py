@@ -1,11 +1,11 @@
 from django.forms import ModelForm, TextInput
 from .models import BookTracker
 
-class TrackerForm(ModelForm):
+class addTrackerForm(ModelForm):
     class Meta:
         model = BookTracker
-        fields = ['nama_buku', 'halaman_terakhir']
+        fields = ['judul', 'halaman_terakhir']
 
         widgets = {
-            'nama_buku': TextInput(attrs={'class':'m-5'})
+            'nama': TextInput(attrs={'class':'m-5'})
         }

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="flex flex-col items-center bg-white mx-20 my-10">
+    <div class="bg-blue-600 text-white px-2 py-1 rounded-md mb-10">
+        <a href="{% url 'tracker:add_tracked' %}">Add Tracker</a>
+    </div>
+
+    {% if tracked|length != 0 %}
+    <div>
+
+        {% for item in tracked %}
+        <div class="flex m-5">
+            <div class="m-5 text-start">
+                <p>Book title : {{item.nama_buku}}</p>
+                <p>Last page : {{item.halaman_terakhir}}</p>
+                <p>Date : {{item.tanggal}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    BOOK TRACKER IS EMPTY
+
+    {% endif %}
+
+</div>
+
+{% endblock content %}

@@ -1,40 +1,42 @@
-from django.shortcuts import render, get_object_or_404
-from .forms import TrackerForm
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import addTrackerForm
 from .models import BookTracker
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
+
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
 from authentication.models import UserProfile
 
-@login_required(login_url="authentication:login")
 def show_tracked(request):
-    tracker = request.user.userprofile.tracker.all()
+    tracked = request.user.userprofile.tracked_books.all().order_by('-id')
 
     context = {
-        "tracker": tracker,
+        "tracked": tracked,
     }
 
-    return render(request, 'book_tracker.html', context)
+    return render(request, 'show_tracked.html', context)
 
-@csrf_exempt
-def add_tracker(request):
-    form = TrackerForm(request.POST or None)
+def add_tracked(request):
+    if request.method == 'POST':
+        form = addTrackerForm(request.POST)
+        if form.is_valid():
+            new_tracker = form.save(commit=False)  
+            new_tracker.user = request.user
+            new_tracker.save() 
+            
+            user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+            user_profile.tracked_books.add(new_tracker)
+
+            # owned = request.user.userprofile.owned_books.all()
+            # context = {'form': form, 'owned': owned}
+
+            # return render(request, "add_tracked.html", context)
+            return HttpResponseRedirect(reverse('tracker:show_tracked'))
+
+    else:
+        form = addTrackerForm()
+
     owned = request.user.userprofile.owned_books.all()
+    context = {'form': form, 'owned': owned}
 
-    context = {
-        "owned": owned,
-    }
-    
-    if form.is_valid() and request.method == 'POST':
-        book_tracker = form.save(commit=False)
-        book_tracker.user = request.user
-        
-        form.save()
-
-        for book in request.user.userprofile.tracker.all():
-            request.user.userprofile.tracker.add(book)
-
-        return HttpResponseRedirect(reverse('tracker:show_tracked'))
-    
-    return render(request, "add_tracker.html", {"form": form}, context)
+    return render(request, "add_tracked.html", context)
