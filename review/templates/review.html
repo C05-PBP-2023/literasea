@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Review | Literasea</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+{% endblock meta %}
+{% block content %}
+<p>TEST BROW<p>
+    <div class="container mx-auto font-inter">
+        <p class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">Review Your Book!</p>
+        <p class="mt-12 text-center text-4xl font-gabarito font text-[#146C94]">Join our vibrant community of book lovers and share your unique insights and opinions by adding your book reviews!</p>
+        <div class="flex justify-center my-12">
+            <a href="{% url 'review:review_book' %}"></a>
+            <button class="bg-[#005b9c] flex items-center justify-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                  </svg>              
+                <p class="-mb-0.5">
+                Add Your Review
+                </p>
+            </button>
+            </a>    
+        </div>
+        <div class="grid grid-cols-2 gap-x-5 gap-y-5">
+            {% for p in review %}
+            <div class="border flex flex-col justify-between rounded-lg p-6">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="text-sm text-slate-500">Asked by {{item.user.userprofile.full_name}}</p>
+                        <p class="mt-6 max-w-sm">{{item.review}}</p>
+                    </div>
+                    <div class="flex flex-grow justify-end">
+                        <div class="text-end mr-4">
+                            <p class="text-sm font-bold max-w-xs">{{item.book_asked.BookTitle}}</p>
+                            <p class="text-sm text-slate-500">{{item.book_asked.BookAuthor}}</p>
+                        </div>
+                        <img class="h-32" src="{{item.book_asked.Image}}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <form method="post" action="/review/review-book/">
+        {% csrf_token %}
+        <label for="id">BOOK ID:</label>
+        <input type="number" name="id" id="id" required>
+        
+        <label for="rating">Rating (1-5):</label>
+        <input type="number" name="rating" id="rating" min="1" max="5" required>
+
+        <label for="review_message">Review Message:</label>
+        <textarea name="review_message" id="review_message" rows="4" cols="50" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock content %}
+
+{% block script %}
+<script src="/static/js/review.js"></script>
+{% endblock script %}
