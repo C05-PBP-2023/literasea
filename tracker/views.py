@@ -4,9 +4,10 @@ from .models import BookTracker
 from authentication.models import UserProfile
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils import timezone
 
 def show_tracked(request):
-    tracked = request.user.userprofile.tracked_books.all().order_by('-tanggal')
+    tracked = request.user.userprofile.tracked_books.all().order_by('-id')
 
     context = {
         "tracked": tracked,
@@ -20,17 +21,21 @@ def add_tracked(request):
         judul = request.POST.get('judul')
         halaman_terakhir = request.POST.get('halaman_terakhir')
 
+        current_time = timezone.now()
+
         # Cek apakah sudah ada tracker dengan judul yang sama
         existing_tracker = BookTracker.objects.filter(judul=judul, user=request.user).first()
 
         if existing_tracker:
             # Jika sudah ada, update halaman_terakhir
             existing_tracker.halaman_terakhir = halaman_terakhir
+            existing_tracker.tanggal = current_time
             existing_tracker.save()
         else:
             # Jika belum ada, buat objek baru
             new_tracker = form.save(commit=False)  
             new_tracker.user = request.user
+            new_tracker.tanggal = current_time
             new_tracker.save() 
 
             user_profile, created = UserProfile.objects.get_or_create(user=request.user)
