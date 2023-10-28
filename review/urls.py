@@ -1,6 +1,10 @@
 from django.urls import path
+from review.views import *
 
 app_name = 'review'
 
 urlpatterns = [
+    path('', show_main, name='forum'),
+    path('choose-book-review/', choose_book_review, name="choose_book_review"),
+    path('add-review/', add_review, name="add_review"),
 ]
