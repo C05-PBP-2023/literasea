@@ -1,9 +1,9 @@
-<!-- {% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block meta %}
 <title>Q&A | Literasea</title> -->
 <!-- Include the Inter font from a font CDN -->
-<!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
     /* Apply the Inter font to specific elements */
     .font-inter {
@@ -41,9 +41,9 @@
         {% for book in products %}
         <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
             <div class="relative">
-                <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}"> -->
+                <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
 <!-- Display the "New" label for the 10 latest books by ID -->
-<!-- <button onclick="showQuestionModal({{book.id}})"
+    <button onclick="showQuestionModal({{book.id}})"
                     class="see-details-button bg-[#3992C6] hover:bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Ask Question
                 </button>
@@ -115,4 +115,4 @@
 {% block script %}
 <script src="/static/js/nav_script.js"></script>
 <script src="/static/js/modal_script.js"></script>
-{% endblock script %} -->
+{% endblock script %}
