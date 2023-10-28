@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>Katalog | Literasea</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+{% endblock meta %}
+
+{% block content %}
+<div class="container mx-auto">
+    <div class="flex justify-end mt-12">
+            <button onclick="showAddBookModal()" class="bg-[#005b9c] flex items-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+                <p class="-mb-0.5">Add Book</p>
+            </button>
+    </div>
+</div>
+
+<div class="flex container items-center align-center mx-auto flex-col"> 
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
+    {% for book in products %}
+        <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
+            <div class="relative">
+                <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
+                <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-[#3992C6] hover-bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    See Details
+                </a>
+            </div>
+            <div class="px-6 py-4">
+                <div class="text-xl text-[#005b9c] font-inter font-bold mb-2">
+                    {{ book.BookTitle }}
+                </div>
+                <div class="text-sm text-gray-600 mb-2">
+                    by {{ book.BookAuthor }}
+                </div>
+                <div class="text-sm text-gray-600 mb-4">
+                    Published: {{ book.Year_Of_Publication }}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+<body>
+    <div class="add-product-container">
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                {{ form.as_p }}
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Add Book" class="btn-submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="container mx-auto">
+        <div id="modal" class="hidden z-10">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                <div id="modal-panel" class="flex min-h-full items-end justify-center p-4 text-center items-center sm:p-0">
+                    <div class="relative transform rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg" onclick="event.stopPropagation()">
+                        <div class="bg-white rounded-lg md:px-8 pt-8 md:mb-4 mb-4 md:max-w-xl max-w-sm">
+                            <p class="md:text-2xl text-xl font-bold text-slate-700 pb-4">Add Book</p>
+                            <form id="form" method="POST">
+                                {% csrf_token %}
+                                <div class="grid grid-cols-1 gap-y-3 gap-x-4 font-inter">
+                                    <div>
+                                        <label for="ISBN">ISBN:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="text" name="ISBN" maxlength="150" id="ISBN">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="BookTitle">Book Title:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="text" name="BookTitle" maxlength="150" id="BookTitle">
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="BookAuthor">Book Author:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="text" name="BookAuthor" maxlength="150" id="BookAuthor">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="Year_Of_Publication">Year Of Publication:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="number" name="Year_Of_Publication" maxlength="4" id="Year_Of_Publication">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="Publisher">Publisher:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="text" name="Publisher" maxlength="150" id="Publisher">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="Image">Image URL:</label>
+                                        <div class="py-2">
+                                            <input class="border w-full px-3 py-2" type="url" name="Image" maxlength="200" id="Image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-50 px-4 py-4 sm:flex sm:flex-row-reverse sm:px-8">
+                                    <button id="confirm-modal" type="submit" class="inline-flex w-full justify-center rounded-md bg-[#3992C6] hover-bg-[#247FB8] px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto">Add Book</button>
+                                    <button id="cancel-modal" type="button" class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover-bg-gray-200 sm:mt-0 sm:w-auto">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+<script src="/static/js/modal_script.js"></script>
+{% endblock script %}
