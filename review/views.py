@@ -3,57 +3,63 @@ from products.models import Katalog
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from review.models import Review
-from django.contrib.auth.models import User
-from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
-from .forms import ReviewBookForm
-# from django.contrib.auth.models import User
+from django.core import serializers
+from review.forms import ReviewBookForm
+import json
+
 @login_required(login_url="authentication:login")
-def show_review(request):
-    review = Review.objects.all()
+def show_main(request):
+    review = Review.objects.all().order_by("-id")
     context = {
-        "review" : review
+        "review": review
+    }
+    return render(request, 'review.html', context)
+
+@login_required(login_url="authentication:login")
+def choose_book_review(request):
+    books = Katalog.objects.all()
+    form = ReviewBookForm(request.POST or None)
+
+    context = {
+        'products': books,
+        'form': form
     }
 
-    return render(request, "review.html", context)
+    return render(request, "choose_book.html", context)
 
-
-@login_required(login_url="authentication:login")
-def pilih_buku(request, id):
-    buku = Katalog.objects.filter(pk=id)
-    return HttpResponse(serializers.serialize("json", buku), content_type="application/json")
-
-@login_required(login_url="authentication:login")
 @csrf_exempt
-def review_book(request):
-    if request.method == 'POST':
-        user_login = request.user
-        rating = request.POST.get("rating")
+def add_review(request):
+    if request.method == "POST":
+        user = request.user
         book_review = Katalog.objects.get(pk=request.POST.get("id"))
+        rating = request.POST.get("rating")
         review_message = request.POST.get("review_message")
 
-        print(user_login,book_review,rating,review_message)
-        new_review = Review(user_login = user_login, book_review = book_review, rating = rating, review_message = review_message)
+        new_review = Review(user=user, book_review = book_review, rating = rating, review_message = review_message)
         new_review.save()
 
         return HttpResponse(b"ADDED", status=201)
-    return  HttpResponseNotFound()
-
-@login_required(login_url="authentication:login")
-@csrf_exempt
-def book_review(request):
-    if request.method == 'POST':
-        form = ReviewBookForm(request.POST)
-        if form.is_valid():
-            # Process the form data and save the review
-            # Redirect to a success page or do something else
-            form.save()
-            return render(request)
-
-    return render(request, 'book_review.html', {'form': form})
+    return HttpResponseNotFound()
 
 
-# Create your views here.
-# import model products kesini, trs pake object.all()
-# search pake ajax(url,view(cara aksesnya object.filter(name__contains=jajnjnasf),hbs itu render html))
+# def get_questions(request):
+#     questions = Question.objects.all()
+#     data = []
+#     for question in questions:
+#         each_data = {
+#             "user_type": request.user.userprofile.user_type,
+#             "id": question.pk,
+#             "title": question.title,
+#             "question": question.question,
+#             "full_name": question.user.userprofile.full_name,
+#             "BookTitle": question.book_asked.BookTitle,
+#             "BookAuthor": question.book_asked.BookAuthor,
+#             "Image": question.book_asked.Image,
+#             "answered": question.answered
+#         }
+#         if each_data["answered"]:
+#             each_data["answer"] = question.answer.answer
+#         data.append(each_data)
+
+#     return HttpResponse(json.dumps(data), content_type="application/json")

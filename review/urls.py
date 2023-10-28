@@ -1,10 +1,10 @@
 from django.urls import path
-from review.views import show_review, pilih_buku, review_book
+from review.views import *
 
 app_name = 'review'
 
 urlpatterns = [
-    path('',show_review, name='show_review'),
-    path('pilih-buku/', pilih_buku, name='pilih_buku'),
-    path('review-book/', review_book, name='review_book')
+    path('', show_main, name='forum'),
+    path('choose-book-review/', choose_book_review, name="choose_book_review"),
+    path('add-review/', add_review, name="add_review"),
 ]

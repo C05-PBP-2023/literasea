@@ -6,8 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book_review = models.ForeignKey(Katalog, on_delete=models.CASCADE)
-    
-    rating = models.PositiveIntegerField(default=0, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    rating = models.IntegerField(default=1, choices=((i,i) for i in range(1, 6)))
     review_message = models.TextField()
 
 
