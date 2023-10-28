@@ -1,15 +1,17 @@
-$(document).ready(function () {
-    $("#reg-form").submit(function (event) {
+$(document).ready(async function () {
+    $("#reg-form").submit(async function (event) {
         event.preventDefault();
         var form_data = $(this).serialize();
-        $.ajax({
-            type: "POST",
-            url: "{% url 'tracker:add_tracked' %}",
-            data: form_data,
-            success: function (data) {
-                // Refresh show_tracked.html content
-                $("#tracked-content").load("{% url 'tracker:show_tracked' %} #tracked-content");
-            }
-        });
+        try {
+            const response = await fetch("{% url 'tracker:add_tracked' %}", {
+                method: "POST",
+                body: form_data,
+            });
+            const data = await response.json();
+            // Refresh show_tracked.html content
+            $("#tracked-content").load("{% url 'tracker:show_tracked' %} #tracked-content");
+        } catch (error) {
+            console.error(error);
+        }
     });
 });
