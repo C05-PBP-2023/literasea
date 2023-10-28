@@ -8,7 +8,7 @@
                 </svg>                  
             </a>
             <div class="relative">
-                <div id="side-menu" class="fixed bg-[#d7e9f4] h-screen top-0 left-0 shadow-md md:hidden w-1/2 p-4 -translate-x-full duration-300">
+                <div id="side-menu" class="fixed bg-[#d7e9f4] h-screen top-0 left-0 shadow-md md:hidden w-1/2 p-4 -translate-x-full duration-300 z-10">
                     <p class="text-xl font-gabarito text-[#005b9c]">Menu</p>
                     <a href="#" id="menu-close-btn" class="absolute top-[19px] right-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <a href="/" class="flex items-center w-28 md:w-40">
+            <a href="/" class="flex items-center w-32 md:w-40">
                 <img src="/static/img/sampingwhite_480.png" width="160px"/>
             </a>
             <div class="hidden md:flex module-buttons flex items-center text-[#003f7e] gap-8 pl-14 -mb-1">
@@ -43,8 +43,8 @@
         {% if user.is_authenticated %}
         <div id="user-dropdown" class="relative float-right z-10">
             <button class="text-[#003f7e]" onclick="toggleDropdown(false)">
-                <div class="flex gap-2 mt-1 items-center">
-                    <p>{{user.userprofile.full_name}}</p>
+                <div class="flex gap-0.5 md:gap-2 mt-1 items-center">
+                    <p class="text-sm md:text-base">{{user.userprofile.full_name}}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                     </svg>
