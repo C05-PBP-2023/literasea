@@ -4,7 +4,10 @@
 
 <form action="." method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    <h4> Nama penerima </h4>
+    {{form.nama}}
+    <h4> Alamat tujuan </h4>
+    {{form.alamat}}
     <input type="submit" value="Save" class="mt-5 text-center bg-indigo-700 text-indigo-100 w-[50px] rounded-md p-0.5 py-1 cursor-pointer ml-[100px]">
 </form>
 

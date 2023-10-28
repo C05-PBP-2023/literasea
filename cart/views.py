@@ -1,20 +1,59 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from .forms import CheckoutForm
 from .models import History
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 
-from authentication.models import UserProfile
-
+@csrf_exempt
 def show_cart(request):
     cart = request.user.userprofile.cart.all()
 
+    form = CheckoutForm(request.POST or None)
+
+    if form.is_valid() and request.method == 'POST':
+        history = form.save(commit=False)
+        history.user = request.user
+        
+        form.save()
+
+        for book in request.user.userprofile.cart.all():
+            history.buku.add(book)
+            request.user.userprofile.owned_books.add(book)
+            request.user.userprofile.cart.remove(book)
+
+        return HttpResponse(b"OK", status=200)
+
     context = {
         "cart": cart,
+        "form": form,
     }
 
     return render(request, 'cart.html', context)
+
+def checkout_cart_ajax(request):
+    form = CheckoutForm(request.POST or None)
+
+    if form.is_valid() and request.method == 'POST':
+        history = form.save(commit=False)
+        history.user = request.user
+        
+        form.save()
+
+        for book in request.user.userprofile.cart.all():
+            history.buku.add(book)
+            request.user.userprofile.owned_books.add(book)
+            request.user.userprofile.cart.remove(book)
+
+        return HttpResponse(b"OK", status=200)
+    
+    return render(request, "cart.html", {"form": form})
+
+def get_cart_json(request):
+    cart = request.user.userprofile.cart.all()
+    return HttpResponse(serializers.serialize('json', cart))
 
 def checkout_cart(request):
     form = CheckoutForm(request.POST or None)
@@ -58,3 +97,14 @@ def remove_book_from_cart(request, book_id):
     request.user.userprofile.cart.remove(book)
 
     return HttpResponseRedirect(reverse('cart:show_cart'))
+
+@csrf_exempt
+def remove_book_from_cart_ajax(request, id):
+    if request.method == "POST":
+        book = request.user.userprofile.cart.get(id=id)
+
+        request.user.userprofile.cart.remove(book)
+
+        return HttpResponse(b"OK", status = 200)
+    
+    return HttpResponseNotFound()
