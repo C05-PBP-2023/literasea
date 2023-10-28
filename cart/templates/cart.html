@@ -5,22 +5,24 @@
 
 <a href="{% url 'cart:show_history' %}" ><div class="bg-white w-24 text-center">History</div></a>
 
-
-<div class="flex flex-col items-center bg-white mx-20 my-10">
+<div>
+<h1> Your Cart </h1>
+</div>
+<div class="flex flex-col items-center mx-20 my-10 text-sm">
     
     {% if cart|length != 0 %}
     <div>
     
         {% for book in cart %}
-        <div class="flex m-5">
+        <div class="flex m-5 bg-white">
             <div class="m-5">
-                <img src="{{book.Image}}" width="100px">
+                <img src="{{book.Image}}" width="80px">
             </div>
             <div class="m-5">
                 <p>{{book.BookTitle}}</p>
                 <p>{{book.BookAuthor}}</p>
                 <p>{{book.Year_Of_Publication}}</p>
-                <p>{{book.publisher}}</p>
+                <p>{{book.Publisher}}</p>
             </div>
             <div class="items-center">
                 <a href="{% url 'cart:remove' book.id %}">Remove From Cart</a>
@@ -31,6 +33,28 @@
 
     <a href="{% url 'cart:checkout_cart' %}">next</a>
 
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Checkout Books</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto bg-black bg-opacity-50">
+        <!-- Modal content -->
+        <div class="modal-content bg-white mt-[15%] mx-auto p-[20px] border border-solid border-black w-[80%]">
+            <span class="close">&times;</span>
+            <form action="." method="POST" id="checkoutForm" onsubmit = "return false">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" id="button_checkout" value="Save" class="mt-5 text-center bg-indigo-700 text-indigo-100 w-[50px] rounded-md p-0.5 py-1 cursor-pointer ml-[100px]">
+            </form>
+        </div>
+
+    </div>
+
+    <div id="cart_content">
+
+    </div>
+
+
     {% else %}
     EMPTY CART
 
@@ -39,3 +63,8 @@
 </div>
 
 {% endblock content %}
+
+{% block script %}
+<script src="/static/cart.js"></script>
+
+{% endblock script %}
