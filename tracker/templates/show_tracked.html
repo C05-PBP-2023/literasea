@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="flex flex-col items-center bg-white mx-20 my-10">
+    <div class="bg-blue-600 text-white px-2 py-1 rounded-md mb-10">
+        <a href="{% url 'tracker:add_tracked' %}">Add Reading History</a>
+    </div>
+
+    {% if tracked|length != 0 %}
+    <div>
+        <p><strong style="font-family: Arial; font-size: 20px;">Here is your reading history:</strong></p>
+        {% for item in tracked %}
+        <div class="flex m-5">
+            <div class="m-5 text-start">
+                <p>Book title : {{item.judul}}</p>
+                <p>Last page : {{item.halaman_terakhir}}</p>
+                <p>Date : {{item.tanggal|date:"F d, Y H:i:s"}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% else %}
+    <p><strong style="font-family: Arial; font-size: 20px;">Book Tracker is Empty 🥲</strong></p>
+    <p>Go read your book!</p>
+    {% endif %}
+
+</div>
+
+{% endblock content %}
