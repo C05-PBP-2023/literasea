@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from products.models import Katalog
+from tracker.models import BookTracker
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -8,3 +9,4 @@ class UserProfile(models.Model):
     user_type = models.CharField(max_length=10)
     cart = models.ManyToManyField(Katalog, related_name="cart")
     owned_books = models.ManyToManyField(Katalog, related_name="owned_books")
+    tracked_books = models.ManyToManyField(BookTracker, related_name="tracked_books")
