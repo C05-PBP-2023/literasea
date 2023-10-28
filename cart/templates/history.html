@@ -2,26 +2,45 @@
 
 {% block content %}
 
-{% for item in history reversed %}
+<div class="mt-5 p-5 m-5">
 
-<div class="bg-white pl-2 w-[800px] text-lg">
+    <div class="flex ml-[20%]">
+        <h1 class="font-bold text-3xl"> My Orders </h1>
+    </div>
 
-Nama pembeli: {{item.nama}} <br>
-Tujuan pengiriman: {{item.alamat}} <br>
-Tanggal pembelian: {{item.tanggal}} <br>
-Buku yang dibeli: 
+    <hr class="w-[500px] h-[2.5px] mx-auto my-4 bg-[#00134E] bg-opacity-20 border-0 rounded md:w-[750px] mb-20">
 
-{% for i in item.buku.all%}<br>
+    {% for item in history reversed %}
+    <div class="flex flex-col bg-[#E9F7FF] m-5 w-[100%] mx-auto rounded-3xl py-5 px-10 md:w-[50%]">
+        <div class="flex justify-around">
+            <div class="flex flex-col items-start">
+                <h1>ORDER FINISHED</h1>
+                <p>{{item.nama}}</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h1>ADDRESS:</h1>
+                <p>{{item.alamat}}</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <h1>ORDER DATE:</h1>
+                <p>{{item.tanggal}}</p>
+            </div>
+        </div>
 
--  {{i.BookTitle}}
+        <hr class="w-[95%] h-[2px] mx-auto my-4 bg-[#00134E] bg-opacity-10 rounded">
 
-{% endfor %}
+        <div>
+            <p>BOOKS ORDERED: </p>
 
+            {% for i in item.buku.all%}
+
+            <p class="m-2 ml-5">{{i.BookTitle}}</p>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endfor %}
 </div>
-
-<br>
-<br>
-
-{% endfor %}
 
 {% endblock content %}
