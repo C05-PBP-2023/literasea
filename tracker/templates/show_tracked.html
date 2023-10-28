@@ -15,7 +15,7 @@
             <div class="m-5 text-start">
                 <p>Book title : {{item.judul}}</p>
                 <p>Last page : {{item.halaman_terakhir}}</p>
-                <p>Date : {{item.tanggal}}</p>
+                <p>Date : {{item.tanggal|date:"F d, Y H:i:s"}}</p>
             </div>
         </div>
         {% endfor %}
@@ -24,8 +24,6 @@
     {% else %}
     <p><strong style="font-family: Arial; font-size: 20px;">Book Tracker is Empty 🥲</strong></p>
     <p>Go read your book!</p>
-
-
     {% endif %}
 
 </div>
