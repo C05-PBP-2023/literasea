@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 def show_tracked(request):
-    tracked = request.user.userprofile.tracked_books.all().order_by('-id')
+    tracked = request.user.userprofile.tracked_books.all().order_by('-tanggal')
 
     context = {
         "tracked": tracked,
