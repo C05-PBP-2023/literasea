@@ -60,10 +60,14 @@ async function refreshCart(){
     const cart = await getCart();
     let htmlString = ``;
 
+    let totalBookString = 0;
+    let priceString = '';
+
     if(cart.length == 0){
         btn.disabled = true;
         htmlString += `Empty cart`
     }else{
+        totalBookString+= cart.length;
         cart.forEach(book => {
             htmlString += `
             <div class="flex m-5 bg-white">
@@ -75,17 +79,20 @@ async function refreshCart(){
                     <p>${book.fields.BookAuthor}</p>
                     <p>${book.fields.Year_Of_Publication}</p>
                     <p>${book.fields.Publisher}</p>
-                    ${book.pk}
                 </div>
                 <div class="items-center">
-                    <a onclick="removeBookFromCart(${book.pk})">Remove From Cart</a>
+                    <a onclick="removeBookFromCart(${book.pk})" class="cursor-pointer" >Remove From Cart</a>
                 </div>
             </div>
             `
         });
     }
 
+    let totalString = 100*totalBookString;
+
     document.getElementById("cart_content").innerHTML = htmlString
+    document.getElementById("books_total").innerHTML = totalBookString
+    document.getElementById("total_price").innerHTML = "Rp"+totalString+",00"
 }
 
 refreshCart();
