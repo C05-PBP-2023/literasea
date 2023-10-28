@@ -73,7 +73,7 @@ async function refreshCart(){
             <div class="flex justify-between m-5 bg-white">
                 <div class="flex">
                     <div class="m-5">
-                        <img src="${book.fields.Image}" width="80px" class="min-w-[80px]">
+                        <img src="${book.fields.Image}" width="80px" class="min-w-[80px]" style="box-shadow: 23px 26px 0px -1px rgba(0,19,78,1);">
                     </div>
                     <div class="flex flex-col m-5 max-w-[300px]">
                         <p class="font-bold">${book.fields.BookTitle}</p>
