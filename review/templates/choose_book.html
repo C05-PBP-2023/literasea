@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>Review | Literasea</title>
+    <!-- Include the Inter font from a font CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the Inter font to specific elements */
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the "New" label */
+        .new-label {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #0074D9;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        /* Style for the "See Details" button */
+        .see-details-button {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+        }
+        #id_title,
+        #id_question {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem; 
+            padding-left: 0.75rem;
+            padding-right: 0.75rem; 
+            border-width: 1px; 
+            width: 100%; 
+        }
+        #id_question {
+            resize: none; 
+        }
+    </style>
+{% endblock meta %}
+
+{% block content %}
+<div class="container mx-auto">
+    <div class="flex flex-col align-center justify-center my-8">
+        <p class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">What book you want to review?</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {% for book in products %}
+            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
+                <div class="relative">
+                    <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
+                    <!-- Display the "New" label for the 10 latest books by ID -->
+                    <button onclick="showReviewModal({{book.id}})" class="see-details-button bg-[#3992C6] hover:bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Review this Book!
+                    </button>
+                </div>
+                <div class="px-6 py-4">
+                    <div class="text-xl text-[#005b9c] font-inter font-bold mb-2">
+                        {{ book.BookTitle }}
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">
+                        by {{ book.BookAuthor }}
+                    </div>
+                    <div class="text-sm text-gray-600 mb-4">
+                        Published: {{ book.Year_Of_Publication }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div id="modal" class="hidden z-10">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div id="modal-panel" class="flex min-h-full items-end justify-center p-4 text-center items-center sm:p-0">
+        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg" onclick="event.stopPropagation()">
+            <div class="bg-white rounded-lg md:px-8 pt-8 md:mb-4 mb-4 md:max-w-xl max-w-sm">
+                <p class="md:text-2xl text-xl font-bold text-slate-700 pb-4">Go give your review!</p>
+                <form id="form" method="POST">
+                    {% csrf_token %}
+                    <div class="grid grid-cols-1 gap-y-3 gap-x-4 font-inter">
+                        <div class="flex">
+                            <div>
+                                <img id="review-img">
+                            </div>
+                            <div class="flex flex-col ml-6">
+                                <p id="book-title" class="font-bold"></p>
+                                <p id="book-author" class="text-sm"></p>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="id_title">Rate this book (1-5):</label>
+                            <div class="py-2">
+                                {{form.rating}}
+                            </div>
+                        </div>
+                        <div>
+                            <label for="id_question">Give your review about this book:</label>
+                            <div class="py-2">
+                                {{form.review_message}}
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-gray-50 px-4 py-4 sm:flex sm:flex-row-reverse sm:px-8">
+                <button id="aplot" onclick="" class="cursor-pointer inline-flex w-full justify-center rounded-md bg-[#3992C6] hover:bg-[#247FB8] px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto">Post Review</button>
+                <button id="gagal" type="button" class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-200 sm:mt-0 sm:w-auto">Cancel</button>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+<script src="/static/js/review.js"></script>
+{% endblock script %}
