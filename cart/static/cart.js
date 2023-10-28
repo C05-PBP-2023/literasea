@@ -70,17 +70,19 @@ async function refreshCart(){
         totalBookString+= cart.length;
         cart.forEach(book => {
             htmlString += `
-            <div class="flex m-5 bg-white">
-                <div class="m-5">
-                    <img src="${book.fields.Image}" width="80px">
+            <div class="flex justify-between m-5 bg-white">
+                <div class="flex">
+                    <div class="m-5">
+                        <img src="${book.fields.Image}" width="80px" class="min-w-[80px]">
+                    </div>
+                    <div class="flex flex-col m-5 max-w-[300px]">
+                        <p class="font-bold">${book.fields.BookTitle}</p>
+                        <p>${book.fields.BookAuthor}</p>
+                        <p>${book.fields.Year_Of_Publication}</p>
+                        <p>${book.fields.Publisher}</p>
+                    </div>
                 </div>
-                <div class="m-5">
-                    <p>${book.fields.BookTitle}</p>
-                    <p>${book.fields.BookAuthor}</p>
-                    <p>${book.fields.Year_Of_Publication}</p>
-                    <p>${book.fields.Publisher}</p>
-                </div>
-                <div class="items-center">
+                <div class="self-end mb-5 ml-5">
                     <a onclick="removeBookFromCart(${book.pk})" class="cursor-pointer" >Remove From Cart</a>
                 </div>
             </div>
