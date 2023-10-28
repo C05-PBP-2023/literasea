@@ -19,8 +19,16 @@ def add_tracked(request):
         form = addTrackerForm(request.POST)
         judul = request.POST.get('judul')
         halaman_terakhir = request.POST.get('halaman_terakhir')
-        
-        if form.is_valid():
+
+        # Cek apakah sudah ada tracker dengan judul yang sama
+        existing_tracker = BookTracker.objects.filter(judul=judul, user=request.user).first()
+
+        if existing_tracker:
+            # Jika sudah ada, update halaman_terakhir
+            existing_tracker.halaman_terakhir = halaman_terakhir
+            existing_tracker.save()
+        else:
+            # Jika belum ada, buat objek baru
             new_tracker = form.save(commit=False)  
             new_tracker.user = request.user
             new_tracker.save() 
@@ -28,8 +36,8 @@ def add_tracked(request):
             user_profile, created = UserProfile.objects.get_or_create(user=request.user)
             user_profile.tracked_books.add(new_tracker)
 
-            # Redirect to show_tracked page after form submission
-            return HttpResponseRedirect(reverse('tracker:show_tracked'))
+        # Redirect to show_tracked page after form submission
+        return HttpResponseRedirect(reverse('tracker:show_tracked'))
     else:
         form = addTrackerForm()
 
