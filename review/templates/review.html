@@ -10,11 +10,11 @@
         <p class="mt-12 text-center text-4xl font-gabarito font text-[#146C94]">Join our vibrant community of book lovers and share your unique insights and opinions by adding your book reviews!</p>
         <div class="flex justify-center my-12">
             <a href="{% url 'review:choose_book_review' %}">
-                <button href="{% url 'review:choose_book_review' %}" class="bg-[#005b9c] flex items-center justify-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button style="border-radius: 15px;" href="{% url 'review:choose_book_review' %}" class="bg-[#005b9c] flex items-center justify-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                       </svg>              
-                    <p class="-mb-0.5">
+                    <p class="-mb-0.5" >
                     Add Your Review
                     </p>
                 </button>
@@ -28,12 +28,12 @@
                     <div>
                         <p class="text-sm text-slate-700">Reviewed by {{p.user.userprofile.full_name}}</p>
                         <p class="mt-6 max-w-sm text-lg font-serif">" {{p.review_message}} "</p>
-                        <p class="text-sm text-slate-700">Rate : {{p.rating}}/5</p>
                     </div>
                     <div class="flex flex-grow justify-end">
                         <div class="text-end mr-4">
                             <p class="text-sm font-bold max-w-xs">{{p.book_review.BookTitle}}</p>
                             <p class="text-sm text-slate-500">{{p.book_review.BookAuthor}}</p>
+                            <p class="text-sm text-slate-700">Rate : {{p.rating}}/5</p>
                         </div>
                         <img class="h-32" src="{{p.book_review.Image}}">
                     </div>
