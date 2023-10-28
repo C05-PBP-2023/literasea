@@ -1,12 +1,18 @@
 {% extends "base.html" %}
 
+<head>
+    {% block meta %}
+
+    {% endblock meta %}    
+</head>
+
 {% block content %}
 
 <div class="flex flex-col mx-5 mt-5 py-5">
     <div class="flex justify-between items-center md:justify-around">
-        <h1 class="font-bold text-3xl"> My Cart </h1>
+        <h1 class="text-3xl font-inter font-extrabold"> My Cart </h1>
         <a href="{% url 'cart:show_history' %}" >
-            <div class="border-2 border-[#00134E] rounded-full px-5 font-bold">Order History</div>
+            <div class="font-inter border-2 border-[#00134E] rounded-full px-5 font-bold">Order History</div>
         </a>
     </div>
 
@@ -18,7 +24,7 @@
         
         <div class="flex flex-col ml-5 self-center md:self-start">
             <div class="flex flex-col bg-[#e0f3ff] justify-center min-h-[150px] w-[300px] px-10 py-8 pb-14 rounded-2xl">
-                <h1 class="font-bold text-xl"> Summary </h1>
+                <h1 class="font-inter font-bold text-xl"> Summary </h1>
                 <div class="flex flex-col mt-8">
                     <div class="flex justify-between">
                         <div> Books ordered </div>
