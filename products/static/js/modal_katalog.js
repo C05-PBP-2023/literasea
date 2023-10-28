@@ -35,5 +35,31 @@ function submitFilterForm() {
   form.submit();
 }
 
+function returnToKatalog(){
+  window.location.href="/products";
+}
+
+function addToCart() {
+  document.getElementById('addToCartButton').addEventListener('click', function () {
+      var bookId = this.getAttribute('data-book-id');
+      var userId = this.getAttribute('data-user-id');
+      returnAddToCart(bookId, userId);
+  });
+}
+
+function returnAddToCart(bookId, userId) {
+  var url = '/products/add_to_cart/' + bookId + '/' + userId + '/';
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          window.location.href="/products";
+      }
+  };
+  xhr.send();
+}
+document.addEventListener('DOMContentLoaded', addToCart);
+
 
 document.getElementById("cancel-modal").addEventListener("click", closeModal);
