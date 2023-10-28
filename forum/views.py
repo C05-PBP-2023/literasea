@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from forum.models import Question, Answer
 from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
+from forum.forms import *
 import json
 
 @login_required(login_url="authentication:login")
@@ -18,9 +19,11 @@ def show_main(request):
 @login_required(login_url="authentication:login")
 def choose_book(request):
     books = Katalog.objects.all()
+    form = QuestionForm(request.POST or None)
 
     context = {
         'products': books,
+        'form': form
     }
 
     return render(request, "katalog_choose.html", context)
@@ -62,4 +65,25 @@ def get_answer_by_id(request, id):
         "user": answer.user.userprofile.full_name,
         "answer": answer.answer
     }
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+def get_questions(request):
+    questions = Question.objects.all()
+    data = []
+    for question in questions:
+        each_data = {
+            "user_type": request.user.userprofile.user_type,
+            "id": question.pk,
+            "title": question.title,
+            "question": question.question,
+            "full_name": question.user.userprofile.full_name,
+            "BookTitle": question.book_asked.BookTitle,
+            "BookAuthor": question.book_asked.BookAuthor,
+            "Image": question.book_asked.Image,
+            "answered": question.answered
+        }
+        if each_data["answered"]:
+            each_data["answer"] = question.answer.answer
+        data.append(each_data)
+
     return HttpResponse(json.dumps(data), content_type="application/json")
