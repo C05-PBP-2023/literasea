@@ -1,5 +1,6 @@
-from django.forms import ModelForm, TextInput
-from .models import BookTracker
+from django import forms
+from django.forms import ModelForm
+from tracker.models import BookTracker
 
 class addTrackerForm(ModelForm):
     class Meta:
@@ -7,5 +8,6 @@ class addTrackerForm(ModelForm):
         fields = ['judul', 'halaman_terakhir']
 
         widgets = {
-            'nama': TextInput(attrs={'class':'m-5'})
+            'judul': forms.Select(attrs={'class': 'w-full p-2 border rounded'}),
+            'halaman_terakhir': forms.NumberInput(attrs={'class': 'w-full p-2 border rounded'}),
         }
