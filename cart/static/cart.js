@@ -1,27 +1,33 @@
 // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+let btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
+
+let cancel = document.getElementById("button_cancel");
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
-  modal.style.display = "block";
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+    modal.style.display = "none";
+}
+
+cancel.onclick = function() {
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 async function getCart() {
@@ -54,25 +60,30 @@ async function refreshCart(){
     const cart = await getCart();
     let htmlString = ``;
 
-    cart.forEach(book => {
-        htmlString += `
-        <div class="flex m-5 bg-white">
-            <div class="m-5">
-                <img src="${book.fields.Image}" width="80px">
+    if(cart.length == 0){
+        btn.disabled = true;
+        htmlString += `Empty cart`
+    }else{
+        cart.forEach(book => {
+            htmlString += `
+            <div class="flex m-5 bg-white">
+                <div class="m-5">
+                    <img src="${book.fields.Image}" width="80px">
+                </div>
+                <div class="m-5">
+                    <p>${book.fields.BookTitle}</p>
+                    <p>${book.fields.BookAuthor}</p>
+                    <p>${book.fields.Year_Of_Publication}</p>
+                    <p>${book.fields.Publisher}</p>
+                    ${book.pk}
+                </div>
+                <div class="items-center">
+                    <a onclick="removeBookFromCart(${book.pk})">Remove From Cart</a>
+                </div>
             </div>
-            <div class="m-5">
-                <p>${book.fields.BookTitle}</p>
-                <p>${book.fields.BookAuthor}</p>
-                <p>${book.fields.Year_Of_Publication}</p>
-                <p>${book.fields.Publisher}</p>
-                ${book.pk}
-            </div>
-            <div class="items-center">
-                <a onclick="removeBookFromCart(${book.pk})">Remove From Cart</a>
-            </div>
-        </div>
-        `
-    });
+            `
+        });
+    }
 
     document.getElementById("cart_content").innerHTML = htmlString
 }
