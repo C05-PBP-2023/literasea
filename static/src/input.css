@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+  .nav-btn:hover::after {
+    @apply w-[100%];
+  }
+}

@@ -1,7 +1,7 @@
 {% load static %}
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="{% static 'css/output.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
@@ -9,27 +9,3 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800&family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="/static/img/favicon.ico" rel="icon">
-<style type="text/tailwindcss">
-@layer utilities {
-    .nav-btn:hover::after {
-        @apply w-[100%]
-    }
-}
-  </style>
-<script>
-    tailwind.config = {
-        theme: {
-            backgroundSize: {
-                'sm': '1.5em'
-            },
-            extend: {
-                fontFamily: {
-                    gabarito: ["Gabarito", "sans-serif"],
-                    raleway: ["Raleway", "sans-serif"],
-                    inter: ["Inter", "sans-serif"]
-                },
-            },
-        },
-        plugins: [],
-    }
-</script>
