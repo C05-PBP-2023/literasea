@@ -21,10 +21,10 @@ async function changeCardData(id) {
     res.json()
   );
   document.querySelector(`#answer-section-${id}`).innerHTML = `\n<div>
-<p class="font-bold">Answer:</p>
-<p>${newData.answer}</p>
-<p class="text-sm text-slate-500 mt-4">Answered by ${newData.user}</p>
-</div>`;
+      <p class="font-bold text-sm md:text-base">Answer:</p>
+      <p class="text-sm md:text-base">${newData.answer}</p>
+      <p class="text-xs md:text-sm text-slate-500 mt-4">Answered by ${newData.user}</p>
+  </div>`;
 }
 
 async function getQuestions() {
@@ -75,12 +75,26 @@ async function refreshQuestions() {
       if (el.user_type === "reader") {
         htmlString += `\n<p class="text-xs md:text-sm text-slate-500">This question is not yet answered.</p>`;
       } else {
-        htmlString += `\n<button id="answer-btn-${el.id}" onclick="showAnswerField(${el.id})" class="px-4 py-1 bg-[#005b9c] hover:bg-[#003f7e] text-white text-sm">Answer</button>
-        <div id="answer-field-${el.id}" class="hidden grow flex items-center gap-4">
-            <form id="answer-form-${el.id}" class="w-full flex items-center" method="POST">
-                <textarea class="w-full rounded-full border resize-none text-sm px-4 py-2" rows="1" name="answer" placeholder="Write your answer..." id="id_answer"></textarea>
+        htmlString += `\n<button id="answer-btn-${
+          el.id
+        }" onclick="showAnswerField(${
+          el.id
+        })" class="px-4 py-1 bg-[#005b9c] hover:bg-[#003f7e] text-white text-sm">Answer</button>
+        <div id="answer-field-${
+          el.id
+        }" class="hidden grow flex items-center gap-2 md:gap-4">
+            <form id="answer-form-${
+              el.id
+            }" class="w-full flex items-center" method="POST">
+                <textarea class="w-full rounded-md md:rounded-full border resize-none text-xs md:text-sm px-2 md:px-4 py-1.5 md:py-2" rows="1" name="answer" placeholder=${
+                  window.innerWidth <= 768
+                    ? "Answer..."
+                    : "Write your answer..."
+                } id="id_answer"></textarea>
             </form>
-            <button onclick="addAnswer(${el.id})" class="hover:text-[#005b9c] rounded-full">
+            <button onclick="addAnswer(${
+              el.id
+            })" class="hover:text-[#005b9c] rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                 </svg>

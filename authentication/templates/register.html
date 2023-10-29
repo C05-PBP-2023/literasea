@@ -8,7 +8,7 @@
         ini harusnya isinya foto
     </div>
     <div class="md:basis-5/12 my-auto mx-auto">
-        <a class="z-10" href="/"><img class="mx-auto mb-5 md:mb-12" src="/static/img/sampingwhite_480.png" width=220px/></a>
+        <a class="z-10" href="/"><img class="mx-auto mb-5 md:mb-8" src="/static/img/sampingwhite_480.png" width=220px/></a>
         <div class="bg-white px-10 py-8 rounded-lg shadow-xl max-w-sm md:max-w-2xl">
             <p class="font-gabarito font-bold text-3xl text-[#005b9c] text-center mb-8">Create an account</p>
             <form id="reg-form" method="POST">
@@ -58,7 +58,21 @@
                     </div>
                 </div>
             </form>
-            <button id="submit-btn" form="reg-form" disabled class="text-sm text-[#002F6E] disabled:text-black mt-10 w-full bg-[#b7d5eb] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
+            {% if form.errors %}
+            <div class="errors mt-2 mb-2">
+            {% else %}
+            <div class="errors mt-10">
+            {% endif %}
+                {% if form.errors %}
+                {% for errors in form.errors.values %}
+                {% for error in errors %} 
+                <p class="text-red-500 text-xs">{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+                <p class="text-red-500 text-xs pt-3">Please try again.</p>
+                {% endif %}
+            </div>
+            <button id="submit-btn" form="reg-form" disabled class="text-sm text-[#002F6E] disabled:text-black w-full bg-[#b7d5eb] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Register</button>
             <p class="text-sm pt-6 text-center">Already have an account? <a class="text-[#247FB8] hover:text-[#003F7E]" href="{% url 'authentication:login' %}">Login</a></p>
         </div>
     </div>
