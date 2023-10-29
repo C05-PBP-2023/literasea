@@ -37,7 +37,7 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
+            return redirect('main:login_user')
     context = {"form":form}
     if request.user.is_authenticated:
         return redirect('main:show_main')
