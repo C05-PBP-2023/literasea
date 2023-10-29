@@ -12,12 +12,17 @@ def login_user(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
-            response = redirect("main:show_main")
+            next_page = request.GET.get("next")
+            if next_page is None:
+                response = redirect("main:show_main")
+            else:
+                response = redirect(next_page)
             response.set_cookie("user_logged_in", user)
             return response
+        else:
+            messages.info(request, "Sorry, incorrect username or password. Please try again.")
     context = {}
     if request.user.is_authenticated:
         return redirect('main:show_main')

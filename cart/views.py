@@ -3,11 +3,13 @@ from .forms import CheckoutForm
 from .models import History
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 
 @csrf_exempt
+@login_required(login_url="authentication:login")
 def show_cart(request):
     cart = request.user.userprofile.cart.all()
 
@@ -33,6 +35,7 @@ def show_cart(request):
 
     return render(request, 'cart.html', context)
 
+@login_required(login_url="authentication:login")
 def checkout_cart_ajax(request):
     form = CheckoutForm(request.POST or None)
 
@@ -55,6 +58,7 @@ def get_cart_json(request):
     cart = request.user.userprofile.cart.all()
     return HttpResponse(serializers.serialize('json', cart))
 
+@login_required(login_url="authentication:login")
 def checkout_cart(request):
     form = CheckoutForm(request.POST or None)
 
@@ -73,6 +77,7 @@ def checkout_cart(request):
     
     return render(request, "checkout.html", {"form": form})
 
+@login_required(login_url="authentication:login")
 def show_history(request):
     history = History.objects.filter(user=request.user)
 
@@ -82,6 +87,7 @@ def show_history(request):
 
     return render(request, "history.html", context)
 
+@login_required(login_url="authentication:login")
 def show_owned(request):
     owned = request.user.userprofile.owned_books.all()
 

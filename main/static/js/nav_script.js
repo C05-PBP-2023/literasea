@@ -61,9 +61,10 @@ window.onclick = (event) => {
   ) {
     if (!justOpened) {
       if (window.innerWidth <= 768) {
-        if (!dropdownContentMobile.classList.contains("hidden"))
+        if (!dropdownContentMobile.classList.contains("hidden")) {
+          console.log("kena");
           closeDropdown(true);
-        console.log("kena");
+        }
       } else {
         if (!dropdownContent.classList.contains("hidden")) closeDropdown(false);
       }

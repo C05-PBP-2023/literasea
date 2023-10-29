@@ -1,33 +1,47 @@
 {% extends "base.html" %}
-
+{% block meta %}
+<title>Tracker | Literasea</title>
+{% endblock meta %}
 {% block content %}
 
-<div class="flex flex-col items-center justify-center h-screen bg-white">
-    <div class="bg-blue-600 text-white px-2 py-1 rounded-md mb-10">
-        <a href="{% url 'tracker:add_tracked' %}">Add Reading History</a>
-    </div>
-
-    {% if tracked|length != 0 %}
-    <div class="text-center">
-        <p><strong class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">Here is your reading
-                history:</strong></p>
-        <p class="mt-2 text-center">Don't miss out on tracking your reading journey with Literasea!</p>
-        {% for item in tracked %}
-        <div class="max-w-md w-full bg-white shadow-lg rounded-lg overflow-hidden m-5">
-            <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2">{{ item.judul }}</div>
-                <p class="text-gray-700 text-base">Last Page: {{ item.halaman_terakhir }}</p>
-                <p class="text-gray-700 text-base">Date: {{ item.tanggal|date:"F d, Y H:i:s" }}</p>
+<div class="container mx-auto mt-20">
+    <div class="w-screen flex flex-col items-center bg-white font-inter">
+        <a href="{% url 'tracker:add_tracked' %}"
+            class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium py-2 px-4 rounded-md mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path
+                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+            </svg>
+            <span class="text-base">
+                Add Reading History
+            </span>
+        </a>
+        {% if tracked|length != 0 %}
+        <div class="text-center">
+            <p><strong class="mt-12 text-4xl font-gabarito font-bold text-[#005b9c]">Here is your reading
+                    history:</strong></p>
+            <p class="mt-2 text-center text-gray-700">Don't miss out on tracking your reading journey with Literasea!
+            </p>
+            {% for item in tracked %}
+            <div class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5">
+                <img src="{{item.book.Image}}" class="w-full h-72 object-cover object-center" alt="{{ item.judul }}">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2">{{ item.judul }}</div>
+                    <p class="text-gray-700 text-base">Last Page: {{ item.halaman_terakhir }}</p>
+                    <p class="text-gray-700 text-base">Date: {{ item.tanggal|date:"F d, Y H:i:s" }}</p>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+
+        {% else %}
+        <p class="mt-12 text-4xl font-gabarito font-bold text-[#005b9c]">Book Tracker is Empty 🥲</p>
+        <p class="mt-2 text-gray-700">Read your book now!</p>
+        {% endif %}
     </div>
-
-    {% else %}
-    <p class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">Book Tracker is Empty 🥲</p>
-    <p class="mt-2 text-center">Read your book now!</p>
-    {% endif %}
-
 </div>
 
 {% endblock content %}
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+{% endblock script %}
