@@ -40,7 +40,7 @@ def register(request):
             return redirect('main:show_main')
     context = {"form":form}
     if request.user.is_authenticated:
-        return redirect('main:show_main')
+        return redirect('main:login')
     else:
         return render(request, "register.html", context)
     
