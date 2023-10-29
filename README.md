@@ -1,4 +1,5 @@
-# LiteraSea
+# Literasea
+[Literasea]([https://github.com/joshnh/Git-Commands](https://literasea-tn3ud.ondigitalocean.app/))
 
 ## Anggota Kelompok C05
 
@@ -8,13 +9,13 @@
 - [Emir Mohamad Fathan](https://github.com/brofathan) (2206081982)
 - [Lim Bodhi Wijaya](https://github.com/LimBodhi) (2206082410)
 
-## Filosofi LiteraSea: Menyelami Lautan Pengetahuan
+## Filosofi Literasea: Menyelami Lautan Pengetahuan
 
-Nama LiteraSea berasal dari kata “literasi” yang berarti kemampuan individu dalam mengolah informasi dan pengetahuan untuk kecakapan hidup, serta kata “sea” yang berarti lautan, yang dalam hal ini dianggap sebagai lautan pengetahuan. LiteraSea bagaikan sebuah kapal yang membawa pengguna berlayar melintasi luasnya lautan pengetahuan yang akan membuka jalan bagi kebijaksanaan dan kecakapan hidup. Dalam setiap halaman yang dibaca, kami mengajak pengguna untuk memulai “petualangan” untuk menjelajahi dalamnya lautan pengetahuan. LiteraSea diharapkan mampu membantu pengguna untuk meningkatkan minat dan kebiasaan literasinya.
+Nama Literasea berasal dari kata “literasi” yang berarti kemampuan individu dalam mengolah informasi dan pengetahuan untuk kecakapan hidup, serta kata “sea” yang berarti lautan, yang dalam hal ini dianggap sebagai lautan pengetahuan. Literasea bagaikan sebuah kapal yang membawa pengguna berlayar melintasi luasnya lautan pengetahuan yang akan membuka jalan bagi kebijaksanaan dan kecakapan hidup. Dalam setiap halaman yang dibaca, kami mengajak pengguna untuk memulai “petualangan” untuk menjelajahi dalamnya lautan pengetahuan. Literasea diharapkan mampu membantu pengguna untuk meningkatkan minat dan kebiasaan literasinya.
 
-LiteraSea merupakan aplikasi toko buku digital yang menyediakan berbagai buku berkualitas dengan pengalaman literasi yang menyenangkan. Aplikasi ini dilengkapi dengan berbagai fitur, seperti katalog buku berkualitas, fitur QnA, dan review buku yang memungkinkan pengguna untuk saling berbagi dan berdiskusi mengenai buku-buku yang mereka baca.
+Literasea merupakan aplikasi toko buku digital yang menyediakan berbagai buku berkualitas dengan pengalaman literasi yang menyenangkan. Aplikasi ini dilengkapi dengan berbagai fitur, seperti katalog buku berkualitas, fitur QnA, dan review buku yang memungkinkan pengguna untuk saling berbagi dan berdiskusi mengenai buku-buku yang mereka baca.
 
-Aplikasi ini dilengkapi dengan berbagai fitur yang memudahkan pengguna untuk menemukan buku yang mereka inginkan. Berikut beberapa layanan yang tersedia dalam LiteraSea:
+Aplikasi ini dilengkapi dengan berbagai fitur yang memudahkan pengguna untuk menemukan buku yang mereka inginkan. Berikut beberapa layanan yang tersedia dalam Literasea:
 
 - Katalog yang menampilkan kumpulan data buku yang tersedia. Pengguna dapat melihat detail buku, seperti judul, nama penulis, _publisher_ buku, ISBN, dan tahun terbit. Pengguna juga dapat melakukan filter terhadap katalog buku berdasarkan tahun terbit dan penerbit.
 - Keranjang yang memungkinkan pengguna untuk mengumpulkan buku yang ingin dibeli. Buku yang telah dibeli dari keranjang akan masuk ke dalam list buku yang dimiliki pengguna tersebut, dan pengguna dapat melihat _history_ pembelian.
@@ -35,7 +36,7 @@ Manfaat dari aplikasi ini adalah sebagai berikut:
 
 **Dikerjakan oleh Lim Bodhi Wijaya**
 
-Pada fitur ini, pengguna dapat melihat katalog buku yang ada di literasea. Pengguna dapat melihat detail buku, seperti judul, nama penulis, _publisher_ buku, ISBN, dan tahun terbit. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan tahun terbit dan penerbit. Selain melihat buku yang tersedia, pengguna juga dapat menambahkan buku yang ingin dibeli ke keranjang.
+Pada fitur ini, pengguna dapat melihat katalog buku yang ada di Literasea. Pengguna dapat melihat detail buku, seperti judul, nama penulis, _publisher_ buku, ISBN, dan tahun terbit. Pengguna dapat melakukan filter terhadap katalog buku berdasarkan tahun terbit dan penerbit. Selain melihat buku yang tersedia, pengguna juga dapat menambahkan buku yang ingin dibeli ke keranjang.
 
 Berikut aksi yang dapat dilakukan masing-masing role:
 | Pengguna/Pembaca | Penulis |
@@ -81,17 +82,17 @@ Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir y
 
 | Pengguna/Pembaca                                                                                              | Penulis                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pengguna dapat melihat kembali histori bacaan terakhirnya dan memudahkan pengguna untuk melanjutkan bacaannya | Sama dengan pengguna lain, penulis juga dapat memanfaatkan fitur ini untuk melihat kembali histori bacaan terakhir yang telah penulis baca sebelumnya |
+| Pengguna dapat melihat kembali histori bacaan terakhirnya dan memudahkan pengguna untuk melanjutkan bacaannya | Sayangnya, penulis belum bisa memanfaatkan fitur ini |
 
 ### Dataset
 
-LiteraSea akan memanfaatkan dataset [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset) yang tersedia pada [Kaggle](https://www.kaggle.com/). Selain karena _field_ yang dimiliki dataset ini tidak terlalu banyak, dataset ini dipilih karena memiliki salah satu _field_ berupa gambar buku yang terdapat pada link. Dengan ini, halaman katalog LiteraSea juga bisa menampilkan foto buku.
+Literasea akan memanfaatkan dataset [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset) yang tersedia pada [Kaggle](https://www.kaggle.com/). Selain karena _field_ yang dimiliki dataset ini tidak terlalu banyak, dataset ini dipilih karena memiliki salah satu _field_ berupa gambar buku yang terdapat pada link. Dengan ini, halaman katalog Literasea juga bisa menampilkan foto buku.
 
 ### Role/Jenis Pengguna
 
 Pada aplikasi kami, terdapat dua jenis pengguna:
 
-- Pengguna biasa/pembaca
+- Pembaca
 - Penulis
 
 Penjelasan lebih spesifik mengenai masing-masing jenis pengguna dan "wewenang" nya pada aplikasi terdapat pada penjelasan masing-masing modul.
