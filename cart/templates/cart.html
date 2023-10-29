@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 
+<head>
+    {% block meta %}
+
+    {% endblock meta %}    
+</head>
+
 {% block content %}
 
 <div class="flex flex-col mx-5 mt-5 py-5">
     <div class="flex justify-between items-center md:justify-around">
-        <h1 class="font-bold text-3xl"> My Cart </h1>
-        <a href="{% url 'cart:show_history' %}" >
-            <div class="border-2 border-[#00134E] rounded-full px-5 font-bold">Order History</div>
+        <h1 class="text-3xl font-gabarito font-extrabold"> My Cart </h1>
+        <a href="{% url 'cart:show_history' %}">
+            <div class="font-inter border-2 border-[#00134E] rounded-full px-5 font-bold">Order History</div>
         </a>
     </div>
 
     <hr class="w-[500px] h-[2.5px] mx-auto my-4 bg-[#00134E] bg-opacity-20 border-0 rounded md:w-[750px]">
 
-    <div class="flex flex-col-reverse justify-between mt-10 md:justify-around md:flex-row">
+    <div class="flex flex-col-reverse justify-between mt-10 md:justify-center md:flex-row font-inter">
 
-        <div id="cart_content" class="mr-5"></div>
+        <div id="cart_content" class="mx-20"></div>
         
-        <div class="flex flex-col ml-5 self-center md:self-start">
+        <div class="flex flex-col mx-20 self-center md:self-start">
             <div class="flex flex-col bg-[#e0f3ff] justify-center min-h-[150px] w-[300px] px-10 py-8 pb-14 rounded-2xl">
-                <h1 class="font-bold text-xl"> Summary </h1>
+                <h1 class="font-inter font-bold text-xl"> Summary </h1>
                 <div class="flex flex-col mt-8">
                     <div class="flex justify-between">
                         <div> Books ordered </div>
@@ -37,13 +43,12 @@
             <button id="myBtn" class="self-center mt-4 font-bold bg-[#3894C8] text-[#FBFDFF] w-[240px] rounded-2xl p-0.5 py-1 cursor-pointer">Checkout Books</button>
         </div>
         
-    
     </div>
 
 </div>
 
 <!-- MODAL -->
-<div id="myModal" class="modal hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto bg-black bg-opacity-50">
+<div id="myModal" class="modal hidden fixed z-10 left-0 top-0 w-[100%] h-[100%] overflow-auto bg-black bg-opacity-50 font-inter">
     <!-- Modal content -->
     <div class="modal-content flex flex-col bg-[#FBFDFF] mt-[15%] mx-auto rounded-2xl pt-[5px] p-[20px] w-[80%] md:w-[60%] lg:w-[40%]">
 
@@ -51,7 +56,7 @@
 
         <div class="mt-2 ml-4">
             <h1 class="text-2xl text-[#00134E] font-bold">Data</h1>
-            <hr class="w-[45px] h-[1px] ml-[5px] mt-4 bg-[#00134E] bg-opacity-20 border-0 rounded">
+            <hr class="w-[45px] h-[2px] ml-[5px] mt-4 bg-[#00134E] bg-opacity-40 border-0 rounded">
         </div>
         <div class="flex flex-row justify-center mt-8">
             <form action="." method="POST" id="checkoutForm" onsubmit = "return false">
@@ -97,12 +102,11 @@
     </div>
 
     <a href="{% url 'cart:checkout_cart' %}">next</a> {% endcomment %}
-    
-
 
 {% endblock content %}
 
 {% block script %}
-<script src="/static/cart.js"></script>
+<script src="/static/js/cart.js"></script>
+<script src="/static/js/nav_script.js"></script>
 
 {% endblock script %}
