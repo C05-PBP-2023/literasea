@@ -4,10 +4,11 @@ from .models import BookTracker
 from authentication.models import UserProfile
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.utils import timezone  # Import timezone
+from django.utils import timezone
+from products.models import Katalog
 
 def show_tracked(request):
-    tracked = request.user.userprofile.tracked_books.all().order_by('-tanggal')  # Mengurutkan berdasarkan tanggal, dari terbaru ke terlama
+    tracked = request.user.userprofile.tracked_books.all().order_by('-tanggal')
 
     context = {
         "tracked": tracked,
@@ -19,6 +20,7 @@ def add_tracked(request):
     if request.method == 'POST':
         form = addTrackerForm(request.POST)
         judul = request.POST.get('judul')
+        book = Katalog.objects.get(BookTitle=judul)
         halaman_terakhir = request.POST.get('halaman_terakhir')
         current_time = timezone.now()
 
@@ -35,6 +37,7 @@ def add_tracked(request):
             new_tracker = form.save(commit=False)  
             new_tracker.user = request.user
             new_tracker.tanggal = current_time
+            new_tracker.book = book
             new_tracker.save() 
 
             user_profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -49,3 +52,31 @@ def add_tracked(request):
     context = {'form': form, 'owned': owned}
 
     return render(request, "add_tracked.html", context)
+
+def add_tracked_ajax(request):
+    if request.method == 'POST':
+        form = addTrackerForm(request.POST)
+        judul = request.POST.get('judul')
+        book = Katalog.objects.get(BookTitle=judul)
+        halaman_terakhir = request.POST.get('halaman_terakhir')
+        current_time = timezone.now()
+
+        existing_tracker = BookTracker.objects.filter(judul=judul, user=request.user).first()
+
+        if existing_tracker:
+            existing_tracker.halaman_terakhir = halaman_terakhir
+            existing_tracker.tanggal = current_time
+            existing_tracker.save()
+        else:
+            new_tracker = form.save(commit=False)  
+            new_tracker.user = request.user
+            new_tracker.tanggal = current_time
+            new_tracker.book = book
+            new_tracker.save() 
+
+            user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+            user_profile.tracked_books.add(new_tracker)
+
+        return JsonResponse({'status': 'success', 'message': 'Tracker updated successfully'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
