@@ -69,7 +69,7 @@ def add_book(request):
     return HttpResponseNotFound()
 
 def add_to_cart(request, book_id, user_id):
-    user = get_object_or_404(UserProfile, id=user_id)
+    user = request.user.userprofile
     book = get_object_or_404(Katalog, id=book_id)
     user.cart.add(book)
     return redirect('products:show_katalog')
