@@ -43,7 +43,6 @@
             <button id="myBtn" class="self-center mt-4 font-bold bg-[#3894C8] text-[#FBFDFF] w-[240px] rounded-2xl p-0.5 py-1 cursor-pointer">Checkout Books</button>
         </div>
         
-    
     </div>
 
 </div>
@@ -103,12 +102,11 @@
     </div>
 
     <a href="{% url 'cart:checkout_cart' %}">next</a> {% endcomment %}
-    
-
 
 {% endblock content %}
 
 {% block script %}
-<script src="/static/cart.js"></script>
+<script src="/static/js/cart.js"></script>
+<script src="/static/js/nav_script.js"></script>
 
 {% endblock script %}
