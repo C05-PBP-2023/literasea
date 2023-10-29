@@ -1,5 +1,5 @@
 # Literasea
-[Literasea]([https://github.com/joshnh/Git-Commands](https://literasea-tn3ud.ondigitalocean.app/))
+[Literasea](https://literasea-tn3ud.ondigitalocean.app/)
 
 ## Anggota Kelompok C05
 
