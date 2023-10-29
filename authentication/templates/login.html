@@ -31,7 +31,16 @@
                     </div>
                 </div>
             </form>
-            <button id="submit-btn" form="reg-form" class="mt-12 md:mt-32 w-full bg-[#b7d5eb] text-[#002F6E] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Login</button>
+            {% if messages %}
+                <div class="messages mt-2 md:mt-32 mb-4">
+                    {% for message in messages %}
+                    <p class="text-xs md:text-sm text-red-500 text-center">{{message}}</p>
+                    {% endfor %}
+            {% else %}
+                <div class="messages mt-12 md:mt-32 mb-4">
+            {% endif %}
+            </div>
+            <button id="submit-btn" form="reg-form" class="w-full bg-[#b7d5eb] text-[#002F6E] disabled:bg-gray-300 transition duration-200 hover:bg-[#80badc] rounded-lg py-2" type="submit" value="Register">Login</button>
             <p class="text-sm pt-6 text-center">Don't have an account yet? <a class="text-[#247FB8] hover:text-[#003F7E]" href="{% url 'authentication:register' %}">Register</a></p>
         </div>
     </div>
