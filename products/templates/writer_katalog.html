@@ -19,9 +19,9 @@
 </div>
 
 <div class="flex container items-center align-center mx-auto flex-col"> 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-4">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 px-4 md:px-0">
     {% for book in products %}
-        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 px-4 md:px-0">
+        <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
             <div class="relative">
                 <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
                 <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-[#3992C6] hover-bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
