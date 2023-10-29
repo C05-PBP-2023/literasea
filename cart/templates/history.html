@@ -5,7 +5,10 @@
 <div class="mt-5 p-5 m-5">
 
     <div class="flex ml-[20%]">
-        <h1 class="text-3xl font-gabarito font-extrabold"> My Orders </h1>
+        <h1 class="text-3xl font-gabarito font-extrabold"> My Orders <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 inline ml-3 mb-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+          </svg>
+          </h1>
     </div>
 
     <hr class="w-[500px] h-[2.5px] mx-auto my-4 bg-[#00134E] bg-opacity-20 border-0 rounded md:w-[750px] mb-20">
@@ -47,3 +50,7 @@
 </div>
 
 {% endblock content %}
+
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+{% endblock script %}
