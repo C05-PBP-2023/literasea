@@ -4,10 +4,16 @@
 
 <div class="container mx-auto mt-20">
     <div class="flex flex-col items-center bg-white font-inter">
-        <div class="bg-blue-600 text-white px-2 py-1 rounded-md mb-10">
-            <a href="{% url 'tracker:add_tracked' %}">Add Reading History</a>
-        </div>
-
+        <a href="{% url 'tracker:add_tracked' %}"
+            class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium pr-4 pl-3 py-2 rounded-md mb-10">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                <path
+                    d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+            </svg>
+            <p class="-mb-0.5">
+                Add Reading History
+            </p>
+        </a>
         {% if tracked|length != 0 %}
         <div class="text-center">
             <p><strong class="mt-12 text-center text-4xl font-gabarito font-bold text-[#005b9c]">Here is your reading
