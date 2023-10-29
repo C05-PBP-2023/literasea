@@ -15,7 +15,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            response = redirect("main:show_main")
+            response = redirect(request.GET.get("next"))
             response.set_cookie("user_logged_in", user)
             return response
     context = {}
