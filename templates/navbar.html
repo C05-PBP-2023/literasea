@@ -1,11 +1,36 @@
 {% load static %}
 <nav class="header bg-[#d7e9f4] border-b">
-    <div class="container mx-auto flex font-raleway font-medium justify-between items-center md:py-6 py-3 md:px-0">
+    <div class="container mx-auto flex font-raleway font-medium justify-between items-center py-3 md:py-4 px-2 md:px-0">
         <div class="left-logo flex items-center">
-            <a href="/" class="flex items-center">
-                <img src="/static/img/samping.svg" width="160px"/>
+            <a href="#" id="menu-open-btn" class="md:hidden pr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                    <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                </svg>                  
             </a>
-            <div class="module-buttons flex items-center text-[#003f7e] gap-8 pl-14 -mb-1">
+            <div class="relative">
+                <div id="side-menu" class="fixed bg-[#d7e9f4] h-screen top-0 left-0 shadow-md md:hidden w-1/2 p-4 -translate-x-full duration-300 z-10">
+                    <p class="text-xl font-gabarito text-[#005b9c]">Menu</p>
+                    <a href="#" id="menu-close-btn" class="absolute top-[19px] right-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>          
+                    </a>
+                    <div class="py-4 overflow-y-auto">
+                        <ul class="space-y-2 font-medium">
+                            <li><a href="/" class="flex items-center p-1">Home</a></li>
+                            <li><a href="/products" class="flex items-center p-1">Explore</a></li>
+                            <li><a href="/review" class="flex items-center p-1">Review</a></li>
+                            <li><a href="/forum" class="flex items-center p-1">Q & A</a></li>
+                            <li><a href="/tracker" class="flex items-center p-1">Book Tracker</a></li>
+                            <li><a href="/cart" class="flex items-center p-1">Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <a href="/" class="flex items-center w-32 md:w-40">
+                <img src="/static/img/sampingwhite_480.png" width="160px"/>
+            </a>
+            <div class="hidden md:flex module-buttons flex items-center text-[#003f7e] gap-8 pl-14 -mb-1">
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/">Home</a>
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/products">Explore</a>
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/review">Review</a>
@@ -17,9 +42,9 @@
         <p></p>
         {% if user.is_authenticated %}
         <div id="user-dropdown" class="relative float-right z-10">
-            <button class="text-[#003f7e]" onclick="toggleDropdown()">
-                <div class="flex gap-2 mt-1 items-center">
-                    <p>{{user.userprofile.full_name}}</p>
+            <button class="text-[#003f7e]" onclick="toggleDropdown(window.innerWidth <= 768)">
+                <div class="flex gap-0.5 md:gap-2 mt-1 items-center">
+                    <p class="text-sm md:text-base">{{user.userprofile.full_name}}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                     </svg>
@@ -30,10 +55,33 @@
                     <a class="block whitespace-no-wrap w-40 text-sm py-3 px-4" href="/auth/logout">Log out</a>
                 </li>
             </ul>
+            <ul id="dropdown-content-mobile" class="md:hidden hidden absolute right-0 rounded-lg z-1 shadow-md bg-white">
+                <li class="hover:bg-gray-100 rounded-lg">
+                    <a class="block whitespace-no-wrap w-40 text-sm py-3 px-4" href="/auth/logout">Log out</a>
+                </li>
+            </ul>
         </div>
-        
         {% else %}
-        <div class="flex text-[#003f7e] gap-8 -mb-1">
+        <div class="md:hidden flex items-center">
+            <div id="user-dropdown-mobile" class="relative float-right -mb-2 z-10">
+                <button class="text-[#003f7e]" onclick="toggleDropdown(window.innerWidth <= 768)">
+                    <div class="flex gap-2 items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>                          
+                    </div>
+                </button>
+                <ul id="dropdown-content-mobile" class="hidden absolute right-0 rounded-lg z-1 shadow-md bg-white">
+                    <li class="hover:bg-gray-100 rounded-lg">
+                        <a class="block whitespace-no-wrap w-40 text-sm py-3 px-4" href="/auth/login">Login</a>
+                    </li>
+                    <li class="hover:bg-gray-100 rounded-lg">
+                        <a class="block whitespace-no-wrap w-40 text-sm py-3 px-4" href="/auth/register">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="hidden md:flex text-[#003f7e] gap-8 -mb-1">
             <button>
                 <a class="nav-btn relative after:content-[''] after:bg-[#005b9c] after:h-[2px] after:w-[0%] after:left-0 after:-bottom-[5px] after:rounded-xl after:absolute after:duration-300" href="/auth/register">Register</a>
             </button>

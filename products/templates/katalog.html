@@ -2,65 +2,46 @@
 
 {% block meta %}
     <title>Katalog | Literasea</title>
-    <!-- Include the Inter font from a font CDN -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Apply the Inter font to specific elements */
-        .font-inter {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style for the "New" label */
-        .new-label {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #0074D9;
-            color: #fff;
-            border-radius: 50%;
-            font-weight: bold;
-        }
-        /* Style for the "See Details" button */
-        .see-details-button {
-            position: absolute;
-            bottom: 1rem;
-            left: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
 {% endblock meta %}
 
 {% block content %}
-<div class="flex container items-center align-center mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-        {% for book in products %}
-            <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
-                <div class="relative">
-                    <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
-                    <!-- Display the "New" label for the 10 latest books by ID -->
-                    {% if forloop.counter0 < 5 %}
-                        <div class="new-label">NEW</div>
-                    {% endif %}
-                    <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-[#3992C6] hover:bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        See Details
-                    </a>
+<div class="flex container items-center align-center mx-auto flex-col"> 
+    <div class="filter-box">
+        <form id="filterForm" class="filter-form" method="GET" onsubmit="submitFilterForm()">
+            {{ form.as_p }}
+            <button type="submit" class="filter-btn">Filter</button>
+        </form>            
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 px-4 md:px-0">
+    {% for book in products %}
+        <div class="max-w-md rounded overflow-hidden shadow-lg bg-white relative border">
+            <div class="relative">
+                <img class="w-full h-64 object-cover" src="{{ book.Image }}" alt="{{ book.BookTitle }}">
+                <a href="{% url 'products:book_detail' book.id %}" class="see-details-button bg-[#3992C6] hover-bg-[#247FB8] text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    See Details
+                </a>
+            </div>
+            <div class="px-4 md:px-6 py-4">
+                <div class="md:text-xl text-[#005b9c] font-inter font-bold mb-2">
+                    {{ book.BookTitle }}
                 </div>
-                <div class="px-6 py-4">
-                    <div class="text-xl text-[#005b9c] font-inter font-bold mb-2">
-                        {{ book.BookTitle }}
-                    </div>
-                    <div class="text-sm text-gray-600 mb-2">
-                        by {{ book.BookAuthor }}
-                    </div>
-                    <div class="text-sm text-gray-600 mb-4">
-                        Published: {{ book.Year_Of_Publication }}
-                    </div>
+                <div class="text-sm md:text-gray-600 mb-2">
+                    by {{ book.BookAuthor }}
+                </div>
+                <div class="text-sm md:text-gray-600 mb-4">
+                    Published: {{ book.Year_Of_Publication }}
                 </div>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
     </div>
 </div>
 {% endblock content %}
+
 {% block script %}
 <script src="/static/js/nav_script.js"></script>
+<script src="/static/js/modal_katalog.js"></script>
 {% endblock script %}

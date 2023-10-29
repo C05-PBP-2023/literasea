@@ -1,31 +1,75 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Katalog
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from authentication.models import UserProfile
-from django.shortcuts import redirect
-from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from .forms import BookFilterForm
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+
 
 @login_required(login_url="authentication:login")
 def show_katalog(request):
+    user = request.user
+    user_profile = UserProfile.objects.get(user=user)
+
+    if user_profile.user_type.casefold() == "writer":
+        katalog_list = serializers.serialize('json', Katalog.objects.all())
+        katalog_list = serializers.deserialize('json', katalog_list)
+        katalog_list = [book.object for book in katalog_list]
+
+        return render(request, 'writer_katalog.html', {'products': katalog_list})
+
     books = Katalog.objects.all()
+    form = BookFilterForm(request.GET)
+
+    if form.is_valid():
+        author_name = form.cleaned_data.get("author_name")
+        publisher = form.cleaned_data.get("publisher")
+        published_year = form.cleaned_data.get("published_year")
+
+        if author_name:
+            books = books.filter(BookAuthor__icontains=author_name)
+
+        if publisher:
+            books = books.filter(Publisher__icontains=publisher)
+
+        if published_year:
+            books = books.filter(Year_Of_Publication=published_year)
 
     context = {
+        'form': form,
         'products': books,
     }
 
-    return render(request, "katalog.html", context)
+    return render(request, 'katalog.html', context)
+
 
 @login_required(login_url="authentication:login")
 def book_detail(request, book_id):
     book = get_object_or_404(Katalog, id=book_id)
     context = {'book': book}
+    if UserProfile.objects.get(user=request.user).user_type.casefold() == "writer":
+        return render(request, 'writer_book_detail.html', context)
     return render(request, 'book_detail.html', context)
 
-@login_required(login_url="authentication:login")
-def add_book(request, book_id, user_id):
-    user = get_object_or_404(UserProfile, id=user_id)
+@csrf_exempt
+def add_book(request):
+    if request.method == "POST":
+        ISBN = request.POST.get('ISBN')
+        BookTitle = request.POST.get('BookTitle')
+        BookAuthor = request.POST.get('BookAuthor')
+        Year_Of_Publication = request.POST.get('Year_Of_Publication')
+        Publisher = request.POST.get('Publisher')
+        Image = request.POST.get('Image')
+        
+        new_book = Katalog(ISBN=ISBN, BookTitle=BookTitle, BookAuthor=BookAuthor, Year_Of_Publication=Year_Of_Publication, Publisher=Publisher, Image=Image)
+        new_book.save()
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
+
+def add_to_cart(request, book_id, user_id):
+    user = request.user.userprofile
     book = get_object_or_404(Katalog, id=book_id)
     user.cart.add(book)
     return redirect('products:show_katalog')
