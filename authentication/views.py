@@ -18,6 +18,8 @@ def login_user(request):
             response = redirect(request.GET.get("next"))
             response.set_cookie("user_logged_in", user)
             return response
+        else:
+            messages.info(request, "Sorry, incorrect username or password. Please try again.")
     context = {}
     if request.user.is_authenticated:
         return redirect('main:show_main')
