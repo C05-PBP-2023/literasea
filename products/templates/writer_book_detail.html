@@ -14,12 +14,11 @@
     <p><strong>Publisher:</strong> {{ book.Publisher }}</p>
     <p><strong>Year of Publication:</strong> {{ book.Year_Of_Publication }}</p>
     <br>
-    <button onclick="window.location.href = '{% url 'products:show_katalog' %}'"
-        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Back to Catalog</button>
+    <button onclick="returnToKatalog()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">Back to Catalog</button>
 </div>
 
 {% endblock content %}
 {% block script %}
 <script src="/static/js/nav_script.js"></script>
-<script src="/static/js/modal.js"></script>
+<script src="/static/js/modal_katalog.js"></script>
 {% endblock script %}

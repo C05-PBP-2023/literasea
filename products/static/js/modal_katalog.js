@@ -35,5 +35,8 @@ function submitFilterForm() {
   form.submit();
 }
 
+function returnToKatalog(){
+  window.location.href="/products";
+}
 
 document.getElementById("cancel-modal").addEventListener("click", closeModal);
