@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-
+{% block meta %}
+<title>Tracker | Literasea</title>
+{% endblock meta %}
 {% block content %}
 
 <div class="container mx-auto mt-20">
-    <div class="flex flex-col items-center bg-white font-inter">
+    <div class="w-screen flex flex-col items-center bg-white font-inter">
         <a href="{% url 'tracker:add_tracked' %}"
             class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium py-2 px-4 rounded-md mb-10">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -40,3 +42,6 @@
 </div>
 
 {% endblock content %}
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+{% endblock script %}

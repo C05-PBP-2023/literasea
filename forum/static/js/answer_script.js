@@ -36,31 +36,44 @@ async function refreshQuestions() {
   let data = await getQuestions();
   for (let i = data.length - 1; i >= 0; i--) {
     el = data[i];
-    htmlString += `\n<div class="border flex flex-col justify-between rounded-lg p-6">
-    <div class="flex justify-between">
-        <div>
-            <p class="font-bold text-xl">${el.title}</p>
-            <p class="text-sm text-slate-500">Asked by ${el.full_name}</p>
-            <p class="mt-6 max-w-sm">${el.question}</p>
+    htmlString += `\n<div class="border flex flex-col justify-between rounded-lg p-4 md:p-6">
+    <div class="flex ${
+      window.innerWidth <= 768 ? "flex-col" : ""
+    } justify-between">
+        <div class="flex md:hidden flex-grow justify-start">
+        <img class="h-16 md:h-32" src="${el.Image}">
+            <div class="ml-4">
+                <p class="text-xs font-bold max-w-xs">${el.BookTitle}</p>
+                <p class="text-xs text-slate-500">${el.BookAuthor}</p>
+            </div>
         </div>
-        <div class="flex flex-grow justify-end">
+        <div>
+            <p class="font-bold md:text-xl mt-2 md:mt-0">${el.title}</p>
+            <p class="text-xs md:text-sm text-slate-500">Asked by ${
+              el.full_name
+            }</p>
+            <p class="mt-4 md:mt-6 text-sm md:text-base max-w-sm">${
+              el.question
+            }</p>
+        </div>
+        <div class="hidden md:flex flex-grow justify-end">
             <div class="text-end mr-4">
                 <p class="text-sm font-bold max-w-xs">${el.BookTitle}</p>
                 <p class="text-sm text-slate-500">${el.BookAuthor}</p>
             </div>
-            <img class="h-32" src="${el.Image}">
+            <img class="h-16 md:h-32" src="${el.Image}">
         </div>
     </div>
     <div id="answer-section-${el.id}" class="flex pt-4">`;
     if (el.answered) {
       htmlString += `\n<div>
-      <p class="font-bold">Answer:</p>
-      <p>${el.answer}</p>
-      <p class="text-sm text-slate-500 mt-4">Answered by ${el.full_name}</p>
+      <p class="font-bold text-sm md:text-base">Answer:</p>
+      <p class="text-sm md:text-base">${el.answer}</p>
+      <p class="text-xs md:text-sm text-slate-500 mt-4">Answered by ${el.full_name}</p>
   </div>`;
     } else {
       if (el.user_type === "reader") {
-        htmlString += `\n<p class="text-sm text-slate-500">This question is not yet answered.</p>`;
+        htmlString += `\n<p class="text-xs md:text-sm text-slate-500">This question is not yet answered.</p>`;
       } else {
         htmlString += `\n<button id="answer-btn-${el.id}" onclick="showAnswerField(${el.id})" class="px-4 py-1 bg-[#005b9c] hover:bg-[#003f7e] text-white text-sm">Answer</button>
         <div id="answer-field-${el.id}" class="hidden grow flex items-center gap-4">
