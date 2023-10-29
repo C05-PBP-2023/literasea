@@ -5,3 +5,5 @@ psycopg2-binary
 requests
 urllib3
 django-filter
+dj_database_url
+django-compressor
