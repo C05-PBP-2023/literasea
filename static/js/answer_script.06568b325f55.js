@@ -69,7 +69,7 @@ async function refreshQuestions() {
       htmlString += `\n<div>
       <p class="font-bold text-sm md:text-base">Answer:</p>
       <p class="text-sm md:text-base">${el.answer}</p>
-      <p class="text-xs md:text-sm text-slate-500 mt-4">Answered by ${el.full_name}</p>
+      <p class="text-xs md:text-sm text-slate-500 mt-4">Answered by ${el.user_answer}</p>
   </div>`;
     } else {
       if (el.user_type === "reader") {
