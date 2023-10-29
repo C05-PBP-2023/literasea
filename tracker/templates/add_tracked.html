@@ -30,6 +30,10 @@
             type="submit">Submit</button>
     </form>
 </div>
-<script src="{% static 'tracker.js' %}"></script>
 
 {% endblock content %}
+
+{% block script %}
+<script src="/static/js/nav_script.js"></script>
+<script src="/static/js/tracker.js"></script>
+{% endblock script %}
