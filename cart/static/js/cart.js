@@ -57,6 +57,7 @@ document.getElementById("button_checkout").onclick = function(){
 
 async function refreshCart(){
     document.getElementById("cart_content").innerHTML = "";
+    
     const cart = await getCart();
     let htmlString = ``;
 
@@ -65,15 +66,19 @@ async function refreshCart(){
 
     if(cart.length == 0){
         btn.disabled = true;
-        htmlString += `Empty cart`
+        btn.style.backgroundColor = "gray"
+        htmlString += `
+            <div class="min-w-[528.44px] ml-[50%] mt-[100px] text-2xl font-bold text-gray-400">Empty cart</div>
+        `
+        document.getElementById("cart_content").innerHTML += htmlString;
     }else{
         totalBookString+= cart.length;
         cart.forEach(book => {
             htmlString += `
-            <div class="flex justify-between m-5 bg-white">
+            <div class="flex justify-between bg-white mb-5 hover:bg-[#e4e8ed] transition-all duration-500 rounded-md px-10 py-5 mt-5 md:mt-0 min-w-[528.44px]">
                 <div class="flex">
-                    <div class="m-5">
-                        <img src="${book.fields.Image}" width="80px" class="min-w-[80px]" style="box-shadow: 23px 26px 0px -1px rgba(0,19,78,1);">
+                    <div class="m-5 mr-10">
+                        <img src="${book.fields.Image}" width="80px" class="min-w-[80px]" style="box-shadow: 16px 13px 0px -1px rgba(0,19,78,1);">
                     </div>
                     <div class="flex flex-col m-5 max-w-[300px]">
                         <p class="font-bold">${book.fields.BookTitle}</p>
@@ -91,11 +96,12 @@ async function refreshCart(){
             </div>
             `
         });
+
+        document.getElementById("cart_content").innerHTML = htmlString;
     }
 
     let totalString = 100*totalBookString;
 
-    document.getElementById("cart_content").innerHTML = htmlString
     document.getElementById("books_total").innerHTML = totalBookString
     document.getElementById("total_price").innerHTML = "Rp"+totalString+",00"
 }
