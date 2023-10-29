@@ -10,9 +10,12 @@
 
 <div class="flex flex-col mx-5 mt-5 py-5">
     <div class="flex justify-between items-center md:justify-around">
-        <h1 class="text-3xl font-gabarito font-extrabold"> My Cart </h1>
+        <h1 class="text-3xl font-gabarito font-extrabold"> My Cart <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 inline ml-3 mb-1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          </svg>
+          </h1>
         <a href="{% url 'cart:show_history' %}">
-            <div class="font-inter border-2 border-[#00134E] rounded-full px-5 font-bold">Order History</div>
+            <div class="font-inter border-2 border-[#00134E] rounded-full px-5 font-bold hover:bg-slate-200 duration-500">Order History</div>
         </a>
     </div>
 
@@ -40,7 +43,7 @@
                     <div id="total_price" class="font-semibold text-lg"></div>
                 </div>
             </div>
-            <button id="myBtn" class="self-center mt-4 font-bold bg-[#3894C8] text-[#FBFDFF] w-[240px] rounded-2xl p-0.5 py-1 cursor-pointer">Checkout Books</button>
+            <button id="myBtn" class="self-center mt-4 font-bold bg-[#3894C8] text-[#FBFDFF] w-[240px] rounded-2xl p-0.5 py-1 cursor-pointer hover:bg-[#4185ac] transition-all duration-500">Checkout Books</button>
         </div>
         
     </div>
@@ -74,8 +77,8 @@
         </div>
 
         <div class="flex justify-end mt-16">
-            <input type="submit" id="button_cancel" value="Cancel" class="mt-2 mr-2 text-center font-bold bg-[#FBFDFF] text-[#3894C8] border-2 border-[#3894C8] w-[100px] rounded-2xl p-0.5 py-1 cursor-pointer">
-            <input type="submit" id="button_checkout" value="Confirm" class="mt-2 mr-2 text-center font-bold bg-[#3894C8] text-[#FBFDFF] w-[200px] rounded-2xl p-0.5 py-1 cursor-pointer">
+            <input type="submit" id="button_cancel" value="Cancel" class="mt-2 mr-2 text-center font-bold bg-[#FBFDFF] text-[#3894C8] border-2 border-[#3894C8] w-[100px] rounded-2xl p-0.5 py-1 cursor-pointer hover:bg-[#dcf2ff] transition-all duration-500">
+            <input type="submit" id="button_checkout" value="Confirm" class="mt-2 mr-2 text-center font-bold bg-[#3894C8] text-[#FBFDFF] w-[200px] rounded-2xl p-0.5 py-1 cursor-pointer hover:bg-[#4185ac] transition-all duration-500">
         </div>
     </div>
 
