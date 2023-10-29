@@ -1,5 +1,7 @@
 # Literasea
+
 # Dive into knowledge, sail with Literasea! 📖⛵
+
 [Literasea](https://literasea-tn3ud.ondigitalocean.app/)
 
 ## Anggota Kelompok C05
@@ -50,8 +52,8 @@ Berikut aksi yang dapat dilakukan masing-masing _role_:
 
 Pada fitur keranjang buku, pengguna dapat memilih buku-buku pada yang tersedia di katalog dan memasukkannya ke keranjang. Pengguna dapat melakukan pembelian atau _checkout_ terhadap buku-buku yang diinginkan. Pengguna juga dapat menghapus suatu buku dari keranjang. Selain itu, pengguna melihat histori pembelian yang berisi informasi-informasi pembelian, seperti nama pembeli, alamat tujuan, tanggal pembelian, dan judul dari buku-buku yang dibeli pada histori pembelian.
 
-| Pengguna/Pembaca                                                                  | Penulis               |
-| --------------------------------------------------------------------------------- | --------------------- |
+| Pengguna/Pembaca                                                              | Penulis              |
+| ----------------------------------------------------------------------------- | -------------------- |
 | Pengguna dapat melakukan pembelian terhadap buku-buku pilihannya di keranjang | Sama seperti pembaca |
 
 ### ❓ QnA/Forum (Q & A)
@@ -60,8 +62,8 @@ Pada fitur keranjang buku, pengguna dapat memilih buku-buku pada yang tersedia d
 
 Pada fitur ini, pengguna dapat membuat pertanyaan mengenai suatu buku, baik dari segi cerita maupun dari sisi lainnya mengenai buku (misalnya dari sisi pembuatan, dsb). Pertanyaan tersebut dapat dijawab oleh pengguna yang memiliki _role_ penulis. Meskipun penulis tersebut bukanlah penulis dari buku yang ditanyakan, penulis diasumsikan memiliki pengetahuan lebih dalam memahami suatu buku sehingga dapat dipercaya dalam menjawab pertanyaan yang berkaitan dengan buku.
 
-| Pengguna/Pembaca | Penulis |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Pengguna/Pembaca                                                | Penulis                                                                             |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | Membuat pertanyaan mengenai suatu buku yang terdapat di katalog | Bertanya dan menjawab pertanyaan yang ditanyakan oleh pengguna mengenai buku apapun |
 
 ### ⭐ Review (Review)
@@ -70,8 +72,8 @@ Pada fitur ini, pengguna dapat membuat pertanyaan mengenai suatu buku, baik dari
 
 Kami percaya bahwa alasan seseorang untuk membeli buku itu didasari oleh berbagai macam faktor. Faktor-faktor tersebut dapat berupa faktor internal maupun eksternal. Melalui hal tersebut, pengguna dapat melakukan diskusi dan mendapatkan sebuah konklusi bahwa rekomendasi serta _review_ dari orang lain merupakan salah satu faktor eksternal yang sangat berpengaruh dalam pembelian buku. Oleh karena itu, kami menyediakan fasilitas rekomendasi dan _review_ buku untuk para pembaca setia kami.
 
-| Pengguna/Pembaca                                                                                            | Penulis               |
-| ----------------------------------------------------------------------------------------------------------- | --------------------- |
+| Pengguna/Pembaca                                                                                | Penulis              |
+| ----------------------------------------------------------------------------------------------- | -------------------- |
 | Pembaca dapat memberikan _review_ dengan jumlah bintang serta pesan singkat terhadap suatu buku | Sama seperti pembaca |
 
 ### 📖 Book Tracker (Tracker)
@@ -80,8 +82,8 @@ Kami percaya bahwa alasan seseorang untuk membeli buku itu didasari oleh berbaga
 
 Fitur Book Tracker memungkinkan pengguna untuk melihat kembali bacaan terakhir yang telah dibaca sebelumnya. Dengan fitur ini, pengguna dapat dengan mudah menemukan nama buku dan halaman terakhir yang mereka baca, memudahkan pengguna untuk melanjutkan bacaannya dari halaman yang ditinggalkan sebelumnya.
 
-| Pengguna/Pembaca                                                                                              | Penulis                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pengguna/Pembaca                                 | Penulis                                              |
+| ------------------------------------------------ | ---------------------------------------------------- |
 | Pengguna dapat melihat kembali histori bacaannya | Sayangnya, penulis belum bisa memanfaatkan fitur ini |
 
 ### Dataset
