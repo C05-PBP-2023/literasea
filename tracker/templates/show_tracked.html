@@ -4,7 +4,7 @@
 {% endblock meta %}
 {% block content %}
 
-<div class="container mx-auto mt-20">
+<div class="container mx-auto mt-20 flex flex-col items-center justify-center min-h-screen">
     <div class="w-screen flex flex-col items-center bg-white font-inter">
         <a href="{% url 'tracker:add_tracked' %}"
             class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium py-2 px-4 rounded-md mb-10">
@@ -23,7 +23,8 @@
             <p class="mt-2 text-center text-gray-700">Don't miss out on tracking your reading journey with Literasea!
             </p>
             {% for item in tracked %}
-            <div class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5">
+            <div
+                class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5 mx-auto">
                 <img src="{{item.book.Image}}" class="w-full h-72 object-cover object-center" alt="{{ item.judul }}">
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">{{ item.judul }}</div>
