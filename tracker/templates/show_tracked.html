@@ -22,6 +22,7 @@
             {% for item in tracked %}
             <div class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5">
                 <div class="px-6 py-4">
+                    <img src="{{item.book.Image}}">
                     <div class="font-bold text-xl mb-2">{{ item.judul }}</div>
                     <p class="text-gray-700 text-base">Last Page: {{ item.halaman_terakhir }}</p>
                     <p class="text-gray-700 text-base">Date: {{ item.tanggal|date:"F d, Y H:i:s" }}</p>
