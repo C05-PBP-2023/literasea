@@ -35,8 +35,8 @@ def login_user(request):
 
 @csrf_exempt
 def login_mobile(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST.get('username')
+    password = request.POST.get('password')
     user = authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
@@ -64,7 +64,6 @@ def login_mobile(request):
 @csrf_exempt
 def logout_mobile(request):
     username = request.user.username
-
     try:
         logout(request)
         return JsonResponse({
