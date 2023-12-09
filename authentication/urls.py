@@ -8,5 +8,5 @@ urlpatterns = [
     path("login/", login_user, name="login"),
     path("logout/", logout_user, name="logout"),
     path("login-mobile/", login_mobile, name="login_mobile"),
-    path("logout-mobile", logout_mobile, name="logout_mobile")
+    path("logout-mobile/", logout_mobile, name="logout_mobile")
 ]
