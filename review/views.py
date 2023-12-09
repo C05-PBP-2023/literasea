@@ -7,6 +7,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
 from review.forms import ReviewBookForm
 import json
+from django.http import JsonResponse
 
 @login_required(login_url="authentication:login")
 def show_main(request):
