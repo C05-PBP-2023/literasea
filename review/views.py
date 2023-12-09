@@ -68,3 +68,7 @@ def add_review_flutter(request):
 
         return JsonResponse({"status": "ADDED"}, status=201)
     return JsonResponse({"status": "Not Found"}, status=404)
+
+def show_json(request):
+    data = Review.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
