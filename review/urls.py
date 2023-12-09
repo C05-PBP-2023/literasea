@@ -7,4 +7,6 @@ urlpatterns = [
     path('', show_main, name='forum'),
     path('choose-book-review/', choose_book_review, name="choose_book_review"),
     path('add-review/', add_review, name="add_review"),
+    path('add-review-flutter/', add_review, name="add_review_flutter"),
+    path('choose-book-review-flutter/', add_review, name="add_review"),
 ]
