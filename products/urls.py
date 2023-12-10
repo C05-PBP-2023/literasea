@@ -1,5 +1,5 @@
 from django.urls import path
-from products.views import show_katalog, book_detail, add_book, get_book, get_book_by_id, add_book, add_to_cart, create_book_flutter
+from products.views import show_katalog, book_detail, add_book, get_book, get_book_by_id, add_book, add_to_cart, create_book_flutter, filter_books
 
 app_name = 'products'
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path('add_book/', add_book, name='add_book'),
     path('add_to_cart/<int:book_id>/<int:user_id>/', add_to_cart, name='add_to_cart'),
     path('create_book_flutter/', create_book_flutter, name='create_book_flutter'),
+    path('filter_books/', filter_books, name='filter_books'),
 ]
