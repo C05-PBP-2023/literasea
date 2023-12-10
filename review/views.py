@@ -62,7 +62,7 @@ def add_review_flutter(request):
 
         new_review = Review.objects.create(
             user = request.user,
-            book_review = Katalog.objects.get(pk=request.POST.get("id")),
+            book_review = Katalog.objects.get(pk = data["id"]),
             rating = int(data["rating"]),
             review_message = data["review_message"],
         )
@@ -89,4 +89,9 @@ def get_book_review_by_id(request, id):
 def get_latest_reviews(request):
     latest_reviews = Review.objects.all().order_by('-id')[:3]
     serialized_data = serializers.serialize("json", latest_reviews)
+    return HttpResponse(serialized_data, content_type="application/json")
+
+def show_review_flutter(request):
+    review = Review.objects.all().order_by("-id")
+    serialized_data = serializers.serialize("json", review)
     return HttpResponse(serialized_data, content_type="application/json")
