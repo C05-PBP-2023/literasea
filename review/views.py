@@ -8,6 +8,7 @@ from django.core import serializers
 from review.forms import ReviewBookForm
 import json
 from django.http import JsonResponse
+from django.contrib.auth.models import User
 
 @login_required(login_url="authentication:login")
 def show_main(request):
@@ -59,9 +60,10 @@ def add_review(request):
 def add_review_flutter(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        print(data)
 
         new_review = Review.objects.create(
-            user = request.user,
+            user = User.objects.get(username=data["username"]),
             book_review = Katalog.objects.get(pk = data["id"]),
             rating = int(data["rating"]),
             review_message = data["review_message"],
@@ -70,7 +72,7 @@ def add_review_flutter(request):
         # new_review = Review(user=user, book_review=book_review, rating=rating, review_message=review_message)
         new_review.save()
 
-        return JsonResponse({"status": "ADDED"}, status=201)
+        return JsonResponse({"status": "success"}, status=201)
     else:
         return JsonResponse({"status": "Not Found"}, status=404)
 
