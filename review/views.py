@@ -57,17 +57,22 @@ def add_review(request):
 
 @csrf_exempt
 def add_review_flutter(request):
-    if request.method == "POST":
-        user = request.user
-        book_review = Katalog.objects.get(pk=request.POST.get("id"))
-        rating = request.POST.get("rating")
-        review_message = request.POST.get("review_message")
+    if request.method == 'POST':
+        data = json.loads(request.body)
 
-        new_review = Review(user=user, book_review=book_review, rating=rating, review_message=review_message)
+        new_review = Review.objects.create(
+            user = request.user,
+            book_review = Katalog.objects.get(pk=request.POST.get("id")),
+            rating = int(data["rating"]),
+            review_message = data["review_message"],
+        )
+
+        # new_review = Review(user=user, book_review=book_review, rating=rating, review_message=review_message)
         new_review.save()
 
         return JsonResponse({"status": "ADDED"}, status=201)
-    return JsonResponse({"status": "Not Found"}, status=404)
+    else:
+        return JsonResponse({"status": "Not Found"}, status=404)
 
 def show_json(request):
     data = Review.objects.all()
@@ -80,3 +85,8 @@ def get_book_review(request):
 def get_book_review_by_id(request, id):
     data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def get_latest_reviews(request):
+    latest_reviews = Review.objects.all().order_by('-id')[:3]
+    serialized_data = serializers.serialize("json", latest_reviews)
+    return HttpResponse(serialized_data, content_type="application/json")
