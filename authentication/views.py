@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from authentication.forms import RegisterForm
+from authentication.models import UserProfile
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 # Create your views here.
 
@@ -92,6 +95,46 @@ def register(request):
         return redirect('main:show_main')
     else:
         return render(request, "register.html", context)
+
+
+@csrf_exempt
+def register_mobile(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        if User.objects.filter(username=data["username"]).exists():
+            return JsonResponse({
+                "status": False,
+                "message": "Register failed. Account with that username already exists."
+            }, status=401)
+
+        if data["password1"] != data["password2"]:
+            return JsonResponse({
+                "status": False,
+                "message": "Register failed. The two passwords don't match."
+            }, status=401)
+        user = User.objects.create_user(
+            username=data["username"],
+            email=data["email"],
+            password=data["password1"]
+        )
+        user.save()
+
+        user_profile = UserProfile.objects.create(
+            user=user,
+            full_name=data["full_name"].strip(),
+            user_type=data["user_type"].strip(),
+        )
+        user_profile.save()
+        return JsonResponse({
+            "status": True,
+            "message": "Register successful"
+        }, status=200)
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Register failed. Use POST method."
+        }, status=401)
 
 
 def logout_user(request):

@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-++$0^bkgns1v*h^5a4m6)w^$!e%f9dmkf98j1lg(3qa+gidt)s
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEV = "False" # Change back to "True" if want to try in local. Change to "False" whenever pushing.
+# Change back to "True" if want to try in local. Change to "False" whenever pushing.
+DEV = "False"
 DEBUG = os.getenv("DEBUG", DEV) == "True"
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", DEV) == "True"
@@ -161,4 +162,4 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
-CSRF_TRUSTED_ORIGINS = ['127.0.0.1', 'https://literasea.live']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://literasea.live']
