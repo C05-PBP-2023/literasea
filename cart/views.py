@@ -56,7 +56,7 @@ def checkout_cart_ajax(request):
 
 def get_cart_json(request):
     cart = request.user.userprofile.cart.all()
-    return HttpResponse(serializers.serialize('json', cart))
+    return HttpResponse(serializers.serialize('json', cart), content_type="application/json")
 
 @login_required(login_url="authentication:login")
 def checkout_cart(request):
@@ -86,6 +86,11 @@ def show_history(request):
     }
 
     return render(request, "history.html", context)
+
+def get_history_json(request):
+    history = History.objects.filter(user=request.user)
+
+    return HttpResponse(serializers.serialize('json', history), content_type="application/json")
 
 @login_required(login_url="authentication:login")
 def show_owned(request):
