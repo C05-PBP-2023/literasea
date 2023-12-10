@@ -43,17 +43,17 @@ def add_review(request):
         return HttpResponse(b"ADDED", status=201)
     return HttpResponseNotFound()
 
-@login_required(login_url="authentication:login")
-def choose_book_review_flutter(request):
-    books = Katalog.objects.all()
-    form = ReviewBookForm(request.POST or None)
+# @login_required(login_url="authentication:login")
+# def choose_book_review_flutter(request):
+#     books = Katalog.objects.all()
+#     form = ReviewBookForm(request.POST or None)
 
-    context = {
-        'products': books,
-        'form': form
-    }
+#     context = {
+#         'products': books,
+#         'form': form
+#     }
 
-    return JsonResponse(context, safe=False)
+#     return JsonResponse(context, safe=False)
 
 @csrf_exempt
 def add_review_flutter(request):
@@ -71,4 +71,12 @@ def add_review_flutter(request):
 
 def show_json(request):
     data = Review.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def get_book_review(request):
+    data = Katalog.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def get_book_review_by_id(request, id):
+    data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
