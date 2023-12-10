@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os, sys, dj_database_url
+import os
+import sys
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,12 @@ SECRET_KEY = 'django-insecure-++$0^bkgns1v*h^5a4m6)w^$!e%f9dmkf98j1lg(3qa+gidt)s
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+<<<<<<< HEAD
 DEV = "True" # Change back to "True" if want to try in local. Change to "False" whenever pushing.
+=======
+# Change back to "True" if want to try in local. Change to "False" whenever pushing.
+DEV = "False"
+>>>>>>> main
 DEBUG = os.getenv("DEBUG", DEV) == "True"
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", DEV) == "True"
@@ -43,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+    'corsheaders',
     'main',
     'authentication',
     'products',
@@ -61,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'literasea.urls'
@@ -150,3 +159,11 @@ STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TIME_ZONE = 'Asia/Jakarta'
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'https://literasea.live']
