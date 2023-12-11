@@ -2,12 +2,15 @@ from django import forms
 from django.forms import ModelForm
 from tracker.models import BookTracker
 
+
 class addTrackerForm(ModelForm):
     class Meta:
         model = BookTracker
-        fields = ['judul', 'halaman_terakhir']
+        fields = ["book_title", "last_page"]
 
         widgets = {
-            'judul': forms.Select(attrs={'class': 'w-full p-2 border rounded'}),
-            'halaman_terakhir': forms.NumberInput(attrs={'class': 'w-full p-2 border rounded'}),
+            "book_title": forms.Select(attrs={"class": "w-full p-2 border rounded"}),
+            "last_page": forms.NumberInput(
+                attrs={"class": "w-full p-2 border rounded"}
+            ),
         }
