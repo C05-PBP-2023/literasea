@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 from django.contrib.auth.models import User
 
+
 @login_required(login_url="authentication:login")
 def get_tracked_books(request):
     tracked = request.user.userprofile.tracked_books.all().order_by(
@@ -35,7 +36,13 @@ def get_tracked_books_flutter(request, user_id):
                 "last_read_timestamp": book.last_read_timestamp,
             }
             tracked_books_array.append(tracked_book)
-        return JsonResponse({"status": "success", "tracked_books": tracked_books_array})
+        return JsonResponse(
+            {
+                "status": "success",
+                "message": "Successfully Retrieve Reading History!",
+                "data": {"tracked_books": tracked_books_array},
+            }
+        )
 
 
 @login_required(login_url="authentication:login")
@@ -79,9 +86,9 @@ def add_tracked_books(request):
 
     return render(request, "add_tracked.html", context)
 
+@csrf_exempt
 def add_tracked_books_flutter(request, user_id):
     if request.method == "POST":
-        user_id = request.POST.get("user_id")
         user = User.objects.get(id=user_id)
         book_id = request.POST.get("book")
         book = Katalog.objects.get(id=book_id)
@@ -90,7 +97,7 @@ def add_tracked_books_flutter(request, user_id):
 
         # Cek apakah sudah ada tracker dengan book_title yang sama
         existing_tracker = BookTracker.objects.filter(
-            book=book_id, user=request.user
+            book=book_id, user=user
         ).first()
 
         if existing_tracker:
@@ -98,11 +105,13 @@ def add_tracked_books_flutter(request, user_id):
             existing_tracker.last_page = last_page
             existing_tracker.last_read_timestamp = current_time
             existing_tracker.save()
-            return JsonResponse({"status": "success", "message": "Successfully Update Reading History!"})
+            return JsonResponse(
+                {"status": "success", "message": "Successfully Update Reading History!"}
+            )
         else:
             # Jika belum ada, buat objek baru
             new_tracker = BookTracker(
-                user=user_id,
+                user=user,
                 book=book,
                 book_title=book.BookTitle,
                 last_page=last_page,
@@ -113,6 +122,8 @@ def add_tracked_books_flutter(request, user_id):
             user_profile, created = UserProfile.objects.get_or_create(user=request.user)
             user_profile.tracked_books.add(new_tracker)
 
-            return JsonResponse({"status": "success", "message": "Successfully Add Reading History!"})
-        
+            return JsonResponse(
+                {"status": "success", "message": "Successfully Add Reading History!"}
+            )
+
     return JsonResponse({"status": "failed", "message": "Failed Add Reading History"})
