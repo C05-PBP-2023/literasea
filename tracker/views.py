@@ -9,10 +9,10 @@ from products.models import Katalog
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
-
+from django.contrib.auth.models import User
 
 @login_required(login_url="authentication:login")
-def show_tracked(request):
+def get_tracked_books(request):
     tracked = request.user.userprofile.tracked_books.all().order_by(
         "-last_read_timestamp"
     )
@@ -37,19 +37,20 @@ def get_tracked_books_flutter(request, user_id):
             tracked_books_array.append(tracked_book)
         return JsonResponse({"status": "success", "tracked_books": tracked_books_array})
 
+
 @login_required(login_url="authentication:login")
 @csrf_exempt
-def add_tracked(request):
+def add_tracked_books(request):
     if request.method == "POST":
         form = addTrackerForm(request.POST)
-        book_title = request.POST.get("book_title")
-        book = Katalog.objects.get(BookTitle=book_title)
+        book_id = request.POST.get("book")
+        book = Katalog.objects.get(id=book_id)
         last_page = request.POST.get("last_page")
         current_time = timezone.now()
 
         # Cek apakah sudah ada tracker dengan book_title yang sama
         existing_tracker = BookTracker.objects.filter(
-            book_title=book_title, user=request.user
+            book=book_id, user=request.user
         ).first()
 
         if existing_tracker:
@@ -78,37 +79,40 @@ def add_tracked(request):
 
     return render(request, "add_tracked.html", context)
 
-
-@login_required(login_url="authentication:login")
-@csrf_exempt
-def add_tracked_ajax(request):
+def add_tracked_books_flutter(request, user_id):
     if request.method == "POST":
-        form = addTrackerForm(request.POST)
-        book_title = request.POST.get("book_title")
-        book = Katalog.objects.get(BookTitle=book_title)
+        user_id = request.POST.get("user_id")
+        user = User.objects.get(id=user_id)
+        book_id = request.POST.get("book")
+        book = Katalog.objects.get(id=book_id)
         last_page = request.POST.get("last_page")
         current_time = timezone.now()
 
+        # Cek apakah sudah ada tracker dengan book_title yang sama
         existing_tracker = BookTracker.objects.filter(
-            book_title=book_title, user=request.user
+            book=book_id, user=request.user
         ).first()
 
         if existing_tracker:
+            # Jika sudah ada, update last_page dan last_read_timestamp
             existing_tracker.last_page = last_page
             existing_tracker.last_read_timestamp = current_time
             existing_tracker.save()
+            return JsonResponse({"status": "success", "message": "Successfully Update Reading History!"})
         else:
-            new_tracker = form.save(commit=False)
-            new_tracker.user = request.user
-            new_tracker.last_read_timestamp = current_time
-            new_tracker.book = book
+            # Jika belum ada, buat objek baru
+            new_tracker = BookTracker(
+                user=user_id,
+                book=book,
+                book_title=book.BookTitle,
+                last_page=last_page,
+                last_read_timestamp=current_time,
+            )
             new_tracker.save()
 
             user_profile, created = UserProfile.objects.get_or_create(user=request.user)
             user_profile.tracked_books.add(new_tracker)
 
-        return JsonResponse(
-            {"status": "success", "message": "Tracker updated successfully"}
-        )
-    else:
-        return JsonResponse({"status": "error", "message": "Invalid request method"})
+            return JsonResponse({"status": "success", "message": "Successfully Add Reading History!"})
+        
+    return JsonResponse({"status": "failed", "message": "Failed Add Reading History"})
