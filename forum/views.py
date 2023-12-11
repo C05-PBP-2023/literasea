@@ -88,3 +88,36 @@ def get_questions(request):
         data.append(each_data)
 
     return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def get_questions(request):
+    questions = Question.objects.all()
+    data = []
+    for question in questions:
+        each_data = {
+            "user_type": request.user.userprofile.user_type,
+            "id": question.pk,
+            "title": question.title,
+            "question": question.question,
+            "full_name": question.user.userprofile.full_name,
+            "BookTitle": question.book_asked.BookTitle,
+            "BookAuthor": question.book_asked.BookAuthor,
+            "Image": question.book_asked.Image,
+            "answered": question.answered,
+        }
+        if each_data["answered"]:
+            each_data["answer"] = question.answer.answer
+            each_data["user_answer"] = question.answer.user.userprofile.full_name
+        data.append(each_data)
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def get_questions_raw(request):
+    questions = Question.objects.all()
+    return HttpResponse(serializers.serialize("json", questions), content_type="application/json")
+
+
+def get_answers_raw(request):
+    answers = Answer.objects.all()
+    return HttpResponse(serializers.serialize("json", answers), content_type="application/json")
