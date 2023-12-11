@@ -12,6 +12,7 @@ from django.http.response import JsonResponse
 from django.contrib.auth.models import User
 import json
 
+
 @login_required(login_url="authentication:login")
 def get_tracked_books(request):
     tracked = request.user.userprofile.tracked_books.all().order_by(
@@ -91,16 +92,34 @@ def add_tracked_books(request):
 def add_tracked_books_flutter(request, user_id):
     if request.method == "POST":
         tracked_book = json.loads(request.body)
-        new_tracked_book = BookTracker(
-            user = User.objects.get(id=user_id),
-            book = Katalog.objects.get(id=tracked_book['book']),
-            book_title = Katalog.objects.get(id=tracked_book['book']).BookTitle,
-            last_page = tracked_book['last_page'],
-            last_read_timestamp = timezone.now(),
-        )
-        new_tracked_book.save()
-        return JsonResponse(
-            {"status": "success", "message": "Successfully Update Reading History!"}
-        )
+        last_page = tracked_book["last_page"]
+        current_time = timezone.now()
+        book_id = tracked_book["book"]
+
+        existing_tracked_book = BookTracker.objects.filter(
+            book=tracked_book["book"], user=user_id
+        ).first()
+
+        if existing_tracked_book:
+            existing_tracked_book.last_page = last_page
+            existing_tracked_book.last_read_timestamp = current_time
+            existing_tracked_book.save()
+
+            return JsonResponse(
+                {"status": "success", "message": "Successfully Update Reading History!"}
+            )
+        else:
+            new_tracked_book = BookTracker(
+                user=User.objects.get(id=user_id),
+                book=Katalog.objects.get(id=book_id),
+                book_title=Katalog.objects.get(id=book_id).BookTitle,
+                last_page=last_page,
+                last_read_timestamp=current_time,
+            )
+            new_tracked_book.save()
+
+            return JsonResponse(
+                {"status": "success", "message": "Successfully Add Reading History!"}
+            )
 
     return JsonResponse({"status": "failed", "message": "Failed Add Reading History"})
