@@ -6,8 +6,18 @@
 
 <div class="flex flex-col items-center bg-white mx-5 md:mx-20 my-10 font-inter">
     <form id="reg-form" method="POST">
+        <!-- 
+            Formulir untuk menambahkan entri baru ke dalam tracker. 
+            Memiliki atribut id="reg-form" untuk referensi JavaScript.
+            Metode POST digunakan untuk mengirimkan data formulir.
+         -->
         {% csrf_token %}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-4">
+            <!-- 
+                Grid layout untuk menata elemen:
+                - dua kolom pada tampilan desktop
+                - satu kolom pada tampilan selain desktop
+             -->
             <div>
                 <label class="text-sm font-medium" for="id_judul">Book Title:</label>
                 <select
@@ -37,3 +47,14 @@
 <script src="/static/js/nav_script.js"></script>
 <script src="/static/js/tracker.js"></script>
 {% endblock script %}
+
+
+<!-- 
+   - Formulir untuk menambahkan buku ke dalam tracker.
+   - Menggunakan AJAX untuk mengirim data formulir ke server.
+   - Menampilkan daftar buku yang dimiliki pengguna sebagai pilihan dropdown.
+   - Menangani CSRF token untuk melindungi formulir dari serangan CSRF.
+    - Menggunakan script JavaScript, termasuk `nav_script.js` dan `tracker.js`.
+    - nav_script.js skip agar navbar dapat bekerja di fitur Tracker
+   - `tracker.js` berisi skrip untuk menangani formulir pengiriman AJAX
+ -->

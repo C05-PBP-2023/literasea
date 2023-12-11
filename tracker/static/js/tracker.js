@@ -13,7 +13,7 @@ $(document).ready(async function () {
                 // Berhasil update tracker
                 console.log(data.message);
                 // Refresh show_tracked.html content
-                $("#tracked-content").load("{% url 'tracker:show_tracked' %} #tracked-content");
+                $("#tracked-content").load("{% url 'tracker:add_tracked' %} #tracked-content");
             } else {
                 console.error(data.message);
             }
@@ -22,3 +22,7 @@ $(document).ready(async function () {
         }
     });
 });
+
+// - Membuat event handler untuk form submission pada halaman `addtracked`.
+// - Menggunakan AJAX untuk mengirim data formulir ke server.
+// - Jika penambahan berhasil, mengganti konten pada halaman `show_tracked` dengan hasil yang diperbarui.

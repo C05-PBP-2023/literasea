@@ -1,0 +1,29 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("reg-form").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        var form_data = new FormData(this);
+
+        try {
+            const response = await fetch("/path/to/add_tracked_ajax/", {
+                method: "POST",
+                body: form_data,
+            });
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                // Berhasil update tracker
+                console.log(data.message);
+                // Refresh show_tracked.html content
+                fetch("/path/to/show_tracked/")
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById("tracked-content").innerHTML = html;
+                    });
+            } else {
+                console.error(data.message);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    });
+});

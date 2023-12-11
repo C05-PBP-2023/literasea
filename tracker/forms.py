@@ -14,3 +14,12 @@ class addTrackerForm(ModelForm):
                 attrs={"class": "w-full p-2 border rounded"}
             ),
         }
+
+
+"""
+   - addTrackerForm:
+     - formulir untuk menambahkan entri buku ke dalam BookTracker
+     - Memanfaatkan model BookTracker
+     - Menyertakan widget khusus untuk `judul` (berupa dropdown/select) dan `halaman_terakhir` (berupa input angka). asumsikan judul buku unique :D
+
+"""
