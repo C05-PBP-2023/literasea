@@ -110,6 +110,8 @@ def get_questions(request):
             each_data["user_answer"] = question.answer.user.userprofile.full_name
         data.append(each_data)
 
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
 
 def get_questions_mobile(request):
     questions = Question.objects.all()
