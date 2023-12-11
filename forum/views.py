@@ -111,13 +111,3 @@ def get_questions(request):
         data.append(each_data)
 
     return HttpResponse(json.dumps(data), content_type="application/json")
-
-
-def get_questions_raw(request):
-    questions = Question.objects.all()
-    return HttpResponse(serializers.serialize("json", questions), content_type="application/json")
-
-
-def get_answers_raw(request):
-    answers = Answer.objects.all()
-    return HttpResponse(serializers.serialize("json", answers), content_type="application/json")
