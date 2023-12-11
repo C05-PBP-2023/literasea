@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 from django.contrib.auth.models import User
-
+import json
 
 @login_required(login_url="authentication:login")
 def get_tracked_books(request):
@@ -86,44 +86,21 @@ def add_tracked_books(request):
 
     return render(request, "add_tracked.html", context)
 
+
 @csrf_exempt
 def add_tracked_books_flutter(request, user_id):
     if request.method == "POST":
-        user = User.objects.get(id=user_id)
-        book_id = request.POST.get("book")
-        book = Katalog.objects.get(id=book_id)
-        last_page = request.POST.get("last_page")
-        current_time = timezone.now()
-
-        # Cek apakah sudah ada tracker dengan book_title yang sama
-        existing_tracker = BookTracker.objects.filter(
-            book=book_id, user=user
-        ).first()
-
-        if existing_tracker:
-            # Jika sudah ada, update last_page dan last_read_timestamp
-            existing_tracker.last_page = last_page
-            existing_tracker.last_read_timestamp = current_time
-            existing_tracker.save()
-            return JsonResponse(
-                {"status": "success", "message": "Successfully Update Reading History!"}
-            )
-        else:
-            # Jika belum ada, buat objek baru
-            new_tracker = BookTracker(
-                user=user,
-                book=book,
-                book_title=book.BookTitle,
-                last_page=last_page,
-                last_read_timestamp=current_time,
-            )
-            new_tracker.save()
-
-            user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-            user_profile.tracked_books.add(new_tracker)
-
-            return JsonResponse(
-                {"status": "success", "message": "Successfully Add Reading History!"}
-            )
+        tracked_book = json.loads(request.body)
+        new_tracked_book = BookTracker(
+            user = User.objects.get(id=user_id),
+            book = Katalog.objects.get(id=tracked_book['book']),
+            book_title = Katalog.objects.get(id=tracked_book['book']).BookTitle,
+            last_page = tracked_book['last_page'],
+            last_read_timestamp = timezone.now(),
+        )
+        new_tracked_book.save()
+        return JsonResponse(
+            {"status": "success", "message": "Successfully Update Reading History!"}
+        )
 
     return JsonResponse({"status": "failed", "message": "Failed Add Reading History"})
