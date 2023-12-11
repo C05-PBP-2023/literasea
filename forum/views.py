@@ -110,4 +110,26 @@ def get_questions(request):
             each_data["user_answer"] = question.answer.user.userprofile.full_name
         data.append(each_data)
 
+
+def get_questions_mobile(request):
+    questions = Question.objects.all()
+    data = []
+    for question in questions:
+        each_data = {
+            "id": question.pk,
+            "title": question.title,
+            "question": question.question,
+            "full_name": question.user.userprofile.full_name,
+            "BookTitle": question.book_asked.BookTitle,
+            "BookAuthor": question.book_asked.BookAuthor,
+            "Image": question.book_asked.Image,
+            "answered": question.answered,
+            "answer": "",
+            "user_answer": ""
+        }
+        if each_data["answered"]:
+            each_data["answer"] = question.answer.answer
+            each_data["user_answer"] = question.answer.user.userprofile.full_name
+        data.append(each_data)
+
     return HttpResponse(json.dumps(data), content_type="application/json")
