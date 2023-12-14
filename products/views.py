@@ -86,12 +86,3 @@ def get_book(request):
 def get_book_by_id(request, id):
     data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
-
-def fungsi_haram(request):
-    data = Katalog.objects.all()
-    for datas in data:
-        datas.Image = datas.Image.replace(
-            "http", "https").replace("images.", "m.media-")
-        datas.save(update_fields=["Image"])
-    return redirect('products:get_book')
