@@ -53,6 +53,7 @@ def book_detail(request, book_id):
         return render(request, 'writer_book_detail.html', context)
     return render(request, 'book_detail.html', context)
 
+
 @csrf_exempt
 def add_book(request):
     if request.method == "POST":
@@ -62,11 +63,13 @@ def add_book(request):
         Year_Of_Publication = request.POST.get('Year_Of_Publication')
         Publisher = request.POST.get('Publisher')
         Image = request.POST.get('Image')
-        
-        new_book = Katalog(ISBN=ISBN, BookTitle=BookTitle, BookAuthor=BookAuthor, Year_Of_Publication=Year_Of_Publication, Publisher=Publisher, Image=Image)
+
+        new_book = Katalog(ISBN=ISBN, BookTitle=BookTitle, BookAuthor=BookAuthor,
+                           Year_Of_Publication=Year_Of_Publication, Publisher=Publisher, Image=Image)
         new_book.save()
         return HttpResponse(b"CREATED", status=201)
     return HttpResponseNotFound()
+
 
 def add_to_cart(request, book_id, user_id):
     user = request.user.userprofile
@@ -74,10 +77,21 @@ def add_to_cart(request, book_id, user_id):
     user.cart.add(book)
     return redirect('products:show_katalog')
 
+
 def get_book(request):
     data = Katalog.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+
 def get_book_by_id(request, id):
     data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+def fungsi_haram(request):
+    data = Katalog.objects.all()
+    for datas in data:
+        datas.Image = datas.Image.replace(
+            "http", "https").replace("images.", "m.media-")
+        datas.save(update_fields=["Image"])
+    return redirect('products:get_book')
