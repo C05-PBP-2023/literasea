@@ -62,25 +62,34 @@ def add_answer(request):
 
 @csrf_exempt
 def add_answer_mobile(request):
-    if request.method == "POST":
-        answer = request.POST.get("answer")
-        question = Question.objects.get(pk=request.POST.get("question_id"))
-        user = User.objects.get(id=request.POST.get("user_id"))
+    data = json.loads(request.body)
+    try:
+        if request.method == "POST":
+            answer = data["answer"]
+            question_id = data["question_id"]
+            user_id = data["user_id"]
+            question = Question.objects.get(pk=question_id)
+            user = User.objects.get(id=user_id)
 
-        new_answer = Answer(user=user, question=question, answer=answer)
-        new_answer.save()
+            new_answer = Answer(user=user, question=question, answer=answer)
+            new_answer.save()
 
-        question.answered = True
-        question.save(update_fields=["answered"])
+            question.answered = True
+            question.save(update_fields=["answered"])
 
-        return JsonResponse({
-            "status": True,
-            "message": "Answer successfully added."
-        }, status=201)
-    else:
+            return JsonResponse({
+                "status": True,
+                "message": "Answer successfully added."
+            }, status=201)
+        else:
+            return JsonResponse({
+                "status": False,
+                "message": "Invalid method. Use POST request."
+            }, status=401)
+    except:
         return JsonResponse({
             "status": False,
-            "message": "Invalid method. Use POST request."
+            "message": "An error occured."
         }, status=401)
 
 
