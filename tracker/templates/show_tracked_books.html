@@ -1,12 +1,10 @@
 {% extends "base.html" %}
-{% block meta %}
-<title>Tracker | Literasea</title>
-{% endblock meta %}
+
 {% block content %}
 
-<div class="container mx-auto mt-20 flex flex-col items-center justify-center">
-    <div class="w-full flex flex-col items-center bg-white font-inter">
-        <a href="{% url 'tracker:add_tracked' %}"
+<div class="container mx-auto mt-20">
+    <div class="flex flex-col items-center bg-white font-inter">
+        <a href="{% url 'tracker:add_tracked_books' %}"
             class="bg-[#005b9c] hover:bg-[#003f7e] flex items-center justify-center gap-2 text-white font-raleway font-medium py-2 px-4 rounded-md mb-10">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                 <path
@@ -23,26 +21,22 @@
             <p class="mt-2 text-center text-gray-700">Don't miss out on tracking your reading journey with Literasea!
             </p>
             {% for item in tracked %}
-            <div
-                class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5 mx-auto">
-                <img src="{{item.book.Image}}" class="w-full h-72 object-cover object-center" alt="{{ item.judul }}">
+            <div class="max-w-md w-full md:w-96 lg:w-96 xl:w-96 bg-white shadow-lg rounded-lg overflow-hidden m-5">
+                <img src="{{item.book.Image}}" class="w-full h-72 object-cover object-center" alt="{{ item.book_title }}">
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">{{ item.judul }}</div>
-                    <p class="text-gray-700 text-base">Last Page: {{ item.halaman_terakhir }}</p>
-                    <p class="text-gray-700 text-base">Date: {{ item.tanggal|date:"F d, Y H:i:s" }}</p>
+                    <div class="font-bold text-xl mb-2">{{ item.book_title }}</div>
+                    <p class="text-gray-700 text-base">Last Page: {{ item.last_page }}</p>
+                    <p class="text-gray-700 text-base">Date: {{ item.last_read_timestamp|date:"F d, Y H:i:s" }}</p>
                 </div>
             </div>
             {% endfor %}
         </div>
 
         {% else %}
-        <p class="mt-12 text-4xl font-gabarito font-bold text-[#005b9c]">Book Tracker is Empty 🥲</p>
+        <p class="mt-12 text-3xl font-gabarito font-bold text-[#005b9c]">Book Tracker is Empty 🥲</p>
         <p class="mt-2 text-gray-700">Read your book now!</p>
         {% endif %}
     </div>
 </div>
 
 {% endblock content %}
-{% block script %}
-<script src="/static/js/nav_script.js"></script>
-{% endblock script %}
