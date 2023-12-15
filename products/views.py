@@ -1,4 +1,5 @@
-from django.http import HttpResponse, HttpResponseNotFound
+import json
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Katalog
 from authentication.models import UserProfile
@@ -86,3 +87,68 @@ def get_book(request):
 def get_book_by_id(request, id):
     data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+def create_book_flutter(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+
+            isbn = data.get('ISBN')
+            title = data.get('BookTitle')
+            author = data.get('BookAuthor')
+            year = data.get('Year_Of_Publication')
+            publisher = data.get('Publisher')
+            image_url = data.get('Image')
+
+            new_book = Katalog.objects.create(
+                ISBN=isbn,
+                BookTitle=title,
+                BookAuthor=author,
+                Year_Of_Publication=year,
+                Publisher=publisher,
+                Image=image_url 
+            )
+
+            new_book.save()
+
+            return JsonResponse({"status": "success", "message": "Book added successfully"}, status=200)
+
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request"}, status=400)
+
+@csrf_exempt
+def filter_books(request):
+    author_name = request.GET.get('author_name', '')
+    publisher = request.GET.get('publisher', '')
+    year_of_publication = request.GET.get('year', None)
+
+    books = Katalog.objects.all()
+    if author_name:
+        books = books.filter(BookAuthor__icontains=author_name)
+    if publisher:
+        books = books.filter(Publisher__icontains=publisher)
+    if year_of_publication:
+        books = books.filter(Year_Of_Publication=year_of_publication)
+
+    books_json = serializers.serialize('json', books)
+    return JsonResponse(books_json, safe=False)
+
+@csrf_exempt
+def add_to_cart_flutter(request, book_id, user_id):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            user_id = data.get('user_id')
+            user = UserProfile.objects.get(id=user_id)
+            book = get_object_or_404(Katalog, id=book_id)
+            user.cart.add(book)
+            return JsonResponse({"status": "success", "message": "Book added successfully"}, status=200)
+
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=400)
