@@ -12,4 +12,5 @@ urlpatterns = [
     path('get-questions/', get_questions, name="get_questions"),
     path('get-questions-mobile/', get_questions_mobile,
          name="get_questions_mobile"),
+    path('add-answer-mobile/', add_answer_mobile, name="add_answer_mobile"),
 ]
