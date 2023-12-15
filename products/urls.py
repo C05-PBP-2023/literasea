@@ -13,5 +13,5 @@ urlpatterns = [
     path('add_to_cart/<int:book_id>/<int:user_id>/', add_to_cart, name='add_to_cart'),
     path('create_book_flutter/', create_book_flutter, name='create_book_flutter'),
     path('filter_books/', filter_books, name='filter_books'),
-    path('add_to_cart_flutter/', add_to_cart_flutter, name='add_to_cart_flutter'),
+    path('add_to_cart_flutter/<int:book_id>/<int:user_id>/', add_to_cart_flutter, name='add_to_cart_flutter'),
 ]

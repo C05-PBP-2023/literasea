@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-++$0^bkgns1v*h^5a4m6)w^$!e%f9dmkf98j1lg(3qa+gidt)s
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # Change back to "True" if want to try in local. Change to "False" whenever pushing.
-DEV = "False"
+DEV = "True"
 DEBUG = os.getenv("DEBUG", DEV) == "True"
 
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", DEV) == "True"

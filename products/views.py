@@ -132,8 +132,18 @@ def filter_books(request):
     books_json = serializers.serialize('json', books)
     return JsonResponse(books_json, safe=False)
 
-def add_to_cart_flutter(request, book_id):
-    user = request.user.userprofile
-    book = get_object_or_404(Katalog, id=book_id)
-    user.cart.add(book)
-    return JsonResponse({"status": "success", "message": "Book added to cart successfully"}, status=200)
+@csrf_exempt
+def add_to_cart_flutter(request, book_id, user_id):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            user_id = data.get('user_id')
+            user = UserProfile.objects.get(id=user_id)
+            book = get_object_or_404(Katalog, id=book_id)
+            user.cart.add(book)
+            return JsonResponse({"status": "success", "message": "Book added successfully"}, status=200)
+
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    else:
+        return JsonResponse({"status": "error", "message": "Invalid request method"}, status=400)
