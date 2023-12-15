@@ -3,7 +3,7 @@ from products.models import Katalog
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from forum.models import Question, Answer
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.core import serializers
 from forum.forms import *
 import json
@@ -58,6 +58,30 @@ def add_answer(request):
 
         return HttpResponse(b"ADDED", status=201)
     return HttpResponseNotFound()
+
+
+@csrf_exempt
+def add_answer_mobile(request):
+    if request.method == "POST":
+        answer = request.POST.get("answer")
+        question = Question.objects.get(pk=request.POST.get("question_id"))
+        user = User.objects.get(id=request.POST.get("user_id"))
+
+        new_answer = Answer(user=user, question=question, answer=answer)
+        new_answer.save()
+
+        question.answered = True
+        question.save(update_fields=["answered"])
+
+        return JsonResponse({
+            "status": True,
+            "message": "Answer successfully added."
+        }, status=201)
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Invalid method. Use POST request."
+        }, status=401)
 
 
 def get_answer_by_id(request, id):

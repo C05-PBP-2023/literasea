@@ -130,7 +130,7 @@ def register_mobile(request):
         return JsonResponse({
             "status": True,
             "message": "Register successful"
-        }, status=200)
+        }, status=201)
     else:
         return JsonResponse({
             "status": False,
