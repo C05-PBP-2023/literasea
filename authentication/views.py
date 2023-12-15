@@ -46,6 +46,7 @@ def login_mobile(request):
             login(request, user)
             return JsonResponse({
                 "username": user.username,
+                "fullname": user.userprofile.full_name,
                 "id": user.id,
                 "type": user.userprofile.user_type,
                 "status": True,
