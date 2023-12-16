@@ -9,6 +9,7 @@ from review.forms import ReviewBookForm
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 @login_required(login_url="authentication:login")
 def show_main(request):
@@ -68,7 +69,7 @@ def add_review_flutter(request):
             rating = int(data["rating"]),
             review_message = data["review_message"],
         )
-
+        
         # new_review = Review(user=user, book_review=book_review, rating=rating, review_message=review_message)
         new_review.save()
 
@@ -84,16 +85,54 @@ def get_book_review(request):
     data = Katalog.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+
 def get_book_review_by_id(request, id):
     data = Katalog.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def get_latest_reviews(request):
     latest_reviews = Review.objects.all().order_by('-id')[:3]
-    serialized_data = serializers.serialize("json", latest_reviews)
-    return HttpResponse(serialized_data, content_type="application/json")
+    data = []
+    for p in latest_reviews:
+        each_data = {
+            "image" : p.book_review.Image,
+            "fullname" : p.user.userprofile.full_name,
+            "BookTitle" : p.book_review.BookTitle,
+            "BookAuthor" : p.book_review.BookAuthor,
+            "reviewMessage" : p.review_message,
+            "rating" : p.rating
+        }
+        data.append(each_data)
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
 def show_review_flutter(request):
     review = Review.objects.all().order_by("-id")
-    serialized_data = serializers.serialize("json", review)
-    return HttpResponse(serialized_data, content_type="application/json")
+    data = []
+    for p in review:
+        each_data = {
+            "image" : p.book_review.Image,
+            "fullname" : p.user.userprofile.full_name,
+            "BookTitle" : p.book_review.BookTitle,
+            "BookAuthor" : p.book_review.BookAuthor,
+            "reviewMessage" : p.review_message,
+            "rating" : p.rating
+        }
+        data.append(each_data)
+
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+# def topBooks(request):
+#     top_books = Katalog.objects.annotate(avg_rating=Avg('review__rating')).order_by('-avg_rating')[:3]
+
+#     data = []
+#     for book in top_books:
+#         each_data = {
+#             "image": book.Image,
+#             "BookTitle": book.BookTitle,
+#             "BookAuthor": book.BookAuthor,
+#             "avgRating": book.avg_rating if book.avg_rating else 0.0
+#         }
+#         data.append(each_data)
+
+#     return HttpResponse(json.dumps(data), content_type="application/json")
