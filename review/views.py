@@ -10,6 +10,7 @@ import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from django.db.models import Avg
+import random
 
 @login_required(login_url="authentication:login")
 def show_main(request):
@@ -122,17 +123,15 @@ def show_review_flutter(request):
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-# def topBooks(request):
-#     top_books = Katalog.objects.annotate(avg_rating=Avg('review__rating')).order_by('-avg_rating')[:3]
+def show_random_book_flutter(request):
+    all_books = Katalog.objects.all()
+    random_book = random.sample(list(all_books), 3)
+    data = []
+    for book in random_book :
+        each_data = {
+            "id": book.id, "BookTitle": book.BookTitle, "BookAuthor": book.BookAuthor, "Image": book.Image, #"ISBN" : book.ISBN, "Year_Of_Publication" : book.Year_Of_Publication, "Publisher" : book.Publisher
+        }
+        data.append(each_data)
 
-#     data = []
-#     for book in top_books:
-#         each_data = {
-#             "image": book.Image,
-#             "BookTitle": book.BookTitle,
-#             "BookAuthor": book.BookAuthor,
-#             "avgRating": book.avg_rating if book.avg_rating else 0.0
-#         }
-#         data.append(each_data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
-#     return HttpResponse(json.dumps(data), content_type="application/json")
