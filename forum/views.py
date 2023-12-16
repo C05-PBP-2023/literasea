@@ -44,6 +44,35 @@ def write_question(request):
 
 
 @csrf_exempt
+def write_question_mobile(request):
+    data = json.loads(request.body)
+    try:
+        if request.method == "POST":
+            title = data["title"]
+            question = data["question"]
+            user = User.objects.get(id=data["user_id"])
+            book_asked = Katalog.objects.get(pk=data["book_id"])
+
+            new_question = Question(
+                user=user, book_asked=book_asked, title=title, question=question
+            )
+            new_question.save()
+
+            return JsonResponse({"status": True, "message": "Question added successfully!"}, status=201)
+        else:
+            return JsonResponse({
+                "status": False,
+                "message": "Invalid method. Use POST request."
+            }, status=401)
+    except Exception as e:
+        print(e)
+        return JsonResponse({
+            "status": False,
+            "message": "An error occured."
+        }, status=500)
+
+
+@csrf_exempt
 def add_answer(request):
     if request.method == "POST":
         answer = request.POST.get("answer")
