@@ -14,4 +14,5 @@ urlpatterns = [
     path('show-review-flutter/', show_review_flutter, name="show_review_flutter"),
     path('get-latest-reviews/', get_latest_reviews, name="get_latest_reviews"),
     path('show-random-book-flutter/', show_random_book_flutter, name="show_random_book_flutter"),
+    path('show-bookUser-flutter/', show_bookUser_flutter, name="show_bookUser_flutter"),
 ]
