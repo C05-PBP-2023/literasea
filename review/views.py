@@ -9,7 +9,7 @@ from review.forms import ReviewBookForm
 import json
 from django.http import JsonResponse
 from django.contrib.auth.models import User
-from django.db.models import Avg
+import random
 
 @login_required(login_url="authentication:login")
 def show_main(request):
@@ -44,18 +44,6 @@ def add_review(request):
 
         return HttpResponse(b"ADDED", status=201)
     return HttpResponseNotFound()
-
-# @login_required(login_url="authentication:login")
-# def choose_book_review_flutter(request):
-#     books = Katalog.objects.all()
-#     form = ReviewBookForm(request.POST or None)
-
-#     context = {
-#         'products': books,
-#         'form': form
-#     }
-
-#     return JsonResponse(context, safe=False)
 
 @csrf_exempt
 def add_review_flutter(request):
@@ -122,17 +110,43 @@ def show_review_flutter(request):
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-# def topBooks(request):
-#     top_books = Katalog.objects.annotate(avg_rating=Avg('review__rating')).order_by('-avg_rating')[:3]
+def show_random_book_flutter(request):
+    all_books = Katalog.objects.all()
+    random_book = random.sample(list(all_books), 3)
+    data = []
+    for book in random_book :
+        each_data = {
+            "id": book.id, "BookTitle": book.BookTitle, "BookAuthor": book.BookAuthor, "Image": book.Image, #"ISBN" : book.ISBN, "Year_Of_Publication" : book.Year_Of_Publication, "Publisher" : book.Publisher
+        }
+        data.append(each_data)
 
-#     data = []
-#     for book in top_books:
-#         each_data = {
-#             "image": book.Image,
-#             "BookTitle": book.BookTitle,
-#             "BookAuthor": book.BookAuthor,
-#             "avgRating": book.avg_rating if book.avg_rating else 0.0
-#         }
-#         data.append(each_data)
+    return HttpResponse(json.dumps(data), content_type="application/json")
 
-#     return HttpResponse(json.dumps(data), content_type="application/json")
+@csrf_exempt
+def show_bookUser_flutter(request):
+    data = []
+    counter = 1
+    data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
+    data2 = Katalog.objects.get(pk=(request.user.pk+2)%100)
+    data3 = Katalog.objects.get(pk=(request.user.pk+3)%100)
+    if (data1.id == 0):
+        data1 = Katalog.objects.get(pk=(request.user.pk+1+counter)%100)
+        data2 = Katalog.objects.get(pk=(request.user.pk+2+counter)%100)
+        data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
+    elif (data2.id == 0):
+        data2 = Katalog.objects.get(pk=(request.user.pk+2+counter)%100)
+        data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
+    elif (data3.id == 0):
+        data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
+    tmp = []
+    tmp.append(data1)
+    tmp.append(data2)
+    tmp.append(data3)
+    for book in tmp :
+        each_data = {
+            "id": book.id, "BookTitle": book.BookTitle, "BookAuthor": book.BookAuthor, "Image": book.Image, #"ISBN" : book.ISBN, "Year_Of_Publication" : book.Year_Of_Publication, "Publisher" : book.Publisher
+        }
+        data.append(each_data)
+        print(data)
+    return JsonResponse(json.dumps(data), safe=False)
+
