@@ -122,7 +122,6 @@ def show_random_book_flutter(request):
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-@csrf_exempt
 def show_bookUser_flutter(request):
     data = []
     counter = 1
