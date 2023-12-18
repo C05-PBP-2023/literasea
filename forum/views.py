@@ -50,7 +50,7 @@ def write_question_mobile(request):
         if request.method == "POST":
             title = data["title"]
             question = data["question"]
-            user = User.objects.get(id=data["user_id"])
+            user = request.user
             book_asked = Katalog.objects.get(pk=data["book_id"])
 
             new_question = Question(
@@ -96,9 +96,8 @@ def add_answer_mobile(request):
         if request.method == "POST":
             answer = data["answer"]
             question_id = data["question_id"]
-            user_id = data["user_id"]
             question = Question.objects.get(pk=question_id)
-            user = User.objects.get(id=user_id)
+            user = request.user
 
             new_answer = Answer(user=user, question=question, answer=answer)
             new_answer.save()
@@ -115,7 +114,8 @@ def add_answer_mobile(request):
                 "status": False,
                 "message": "Invalid method. Use POST request."
             }, status=401)
-    except:
+    except Exception as e:
+        print(e)
         return JsonResponse({
             "status": False,
             "message": "An error occured."
