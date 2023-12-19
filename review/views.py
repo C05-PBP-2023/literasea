@@ -122,21 +122,20 @@ def show_random_book_flutter(request):
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-@csrf_exempt
 def show_bookUser_flutter(request):
     data = []
     counter = 1
-    data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
-    data2 = Katalog.objects.get(pk=(request.user.pk+2)%100)
-    data3 = Katalog.objects.get(pk=(request.user.pk+3)%100)
-    if (data1.pk == 0):
+    if ((request.user.pk+1)%100 == 0):
         data1 = Katalog.objects.get(pk=(request.user.pk+1+counter)%100)
         data2 = Katalog.objects.get(pk=(request.user.pk+2+counter)%100)
         data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
-    elif (data2.pk == 0):
+    elif ((request.user.pk+2)%100 == 0):
+        data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
         data2 = Katalog.objects.get(pk=(request.user.pk+2+counter)%100)
         data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
-    elif (data3.pk == 0):
+    elif ((request.user.pk+3)%100 == 0):
+        data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
+        data2 = Katalog.objects.get(pk=(request.user.pk+2)%100)
         data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
     tmp = []
     tmp.append(data1)
