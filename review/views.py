@@ -137,6 +137,10 @@ def show_bookUser_flutter(request):
         data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
         data2 = Katalog.objects.get(pk=(request.user.pk+2)%100)
         data3 = Katalog.objects.get(pk=(request.user.pk+3+counter)%100)
+    else :
+        data1 = Katalog.objects.get(pk=(request.user.pk+1)%100)
+        data2 = Katalog.objects.get(pk=(request.user.pk+2)%100)
+        data3 = Katalog.objects.get(pk=(request.user.pk+3)%100)
     tmp = []
     tmp.append(data1)
     tmp.append(data2)
