@@ -35,13 +35,7 @@ def get_tracked_books_flutter(request, user_id):
             "last_read_timestamp": t["last_read_timestamp"],
         }
         retrieved_books_array.append(info)
-    return JsonResponse(
-        {
-            "status": "success",
-            "message": "Successfully Retrieve Reading History!",
-            "data": {"tracked_books": retrieved_books_array},
-        }
-    )
+    return JsonResponse(retrieved_books_array, safe=False)
 
 
 @login_required(login_url="authentication:login")
