@@ -27,13 +27,15 @@ def get_tracked_books_flutter(request, user_id):
     tracked_books_array = list(tracked_books)
     retrieved_books_array = []
     for t in tracked_books_array:
-        book_image = Katalog.objects.filter(BookTitle=t.book_title)
+        book = Katalog.objects.filter(BookTitle=t["book_title"]).first()
         info = {
-            "book_image": book_image,
-            "book_title": t.book_title,
-            "last_page": t.last_page,
-            "last_read_timestamp": t.last_read_timestamp,
+            "book_image": book.Image,
+            "book_title": t["book_title"],
+            "last_page": t["last_page"],
+            "last_read_timestamp": t["last_read_timestamp"],
         }
+        print("info")
+        print(info)
         retrieved_books_array.append(info)
     return JsonResponse(
         {
