@@ -34,8 +34,6 @@ def get_tracked_books_flutter(request, user_id):
             "last_page": t["last_page"],
             "last_read_timestamp": t["last_read_timestamp"],
         }
-        print("info")
-        print(info)
         retrieved_books_array.append(info)
     return JsonResponse(
         {
