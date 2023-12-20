@@ -22,14 +22,24 @@ def show_tracked_books(request):
 
 def get_tracked_books_flutter(request, user_id):
     tracked_books = BookTracker.objects.filter(user=user_id).values(
-        "book__title", "last_page", "last_read_timestamp"
+        "book_title", "last_page", "last_read_timestamp"
     )
     tracked_books_array = list(tracked_books)
+    retrieved_books_array = []
+    for t in tracked_books_array:
+        book = Katalog.objects.filter(BookTitle=t["book_title"]).first()
+        info = {
+            "book_image": book.Image,
+            "book_title": t["book_title"],
+            "last_page": t["last_page"],
+            "last_read_timestamp": t["last_read_timestamp"],
+        }
+        retrieved_books_array.append(info)
     return JsonResponse(
         {
             "status": "success",
             "message": "Successfully Retrieve Reading History!",
-            "data": {"tracked_books": tracked_books_array},
+            "data": {"tracked_books": retrieved_books_array},
         }
     )
 
@@ -117,3 +127,11 @@ def add_tracked_books_flutter(request, user_id):
             )
 
     return JsonResponse({"status": "failed", "message": "Failed Add Reading History"})
+
+
+@csrf_exempt
+def get_books_flutter(request):
+    if request.method == "GET":
+        books = Katalog.objects.all()
+        return JsonResponse({"books": books})
+    return JsonResponse({"error": "Invalid request method"}, status=400)
